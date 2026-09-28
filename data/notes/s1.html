@@ -1,0 +1,200 @@
+<p class="small">표시 안내: <b>교재 정리</b> 표시가 있는 부분은 공개 근거를 찾지 못한 교재식 정리예요(참고용, 문제로는 내지 않음). 표시가 없는 부분은 공개 문서로 확인했어요.</p>
+<section data-item="1-1-1">
+<h3>데이터와 정보</h3>
+<p><b>데이터</b>는 객관적 사실(fact)이다. 그 자체로 존재하는 <b>존재적 특성</b>과, 추론·예측·전망의 근거가 되는 <b>당위적 특성</b>을 함께 가진다. <span class="label">교재 정리</span></p>
+<table>
+<tr><th>구분</th><th>형태</th><th>예</th></tr>
+<tr><td>정성적 데이터</td><td>언어·문자 (저장·분석에 비용이 큼)</td><td>설문 주관식 응답, SNS 글</td></tr>
+<tr><td>정량적 데이터</td><td>수치·도형·기호 (정형화가 쉬움)</td><td>온도, 판매량, 나이</td></tr>
+</table>
+<table>
+<tr><th>지식의 종류</th><th>뜻</th></tr>
+<tr><td>암묵지</td><td>학습·경험으로 개인에게 체화된 지식. 겉으로 드러나지 않아 공유가 어렵다 (예: 김장 손맛)</td></tr>
+<tr><td>형식지</td><td>문서·매체로 형상화된 지식. 전달·공유가 쉽다 (예: 교과서, 매뉴얼)</td></tr>
+</table>
+<p><b>지식창조 SECI 모델</b> (노나카)</p>
+<table>
+<tr><th>단계</th><th>변환</th><th>한 줄</th></tr>
+<tr><td>공통화(Socialization)</td><td>암묵지 → 암묵지</td><td>같이 일하며 보고 배우기</td></tr>
+<tr><td>표출화(Externalization)</td><td>암묵지 → 형식지</td><td>노하우를 문서로 쓰기</td></tr>
+<tr><td>연결화(Combination)</td><td>형식지 → 형식지</td><td>문서끼리 합쳐 새 문서 만들기</td></tr>
+<tr><td>내면화(Internalization)</td><td>형식지 → 암묵지</td><td>매뉴얼을 읽고 몸에 익히기</td></tr>
+</table>
+<p><b>DIKW 피라미드</b></p>
+<table>
+<tr><th>단계</th><th>뜻</th><th>예</th></tr>
+<tr><td>데이터(Data)</td><td>가공 전 개별 사실</td><td>A마트 볼펜 100원, B마트 200원</td></tr>
+<tr><td>정보(Information)</td><td>데이터를 가공해 관계·의미를 뽑은 것</td><td>A마트가 더 싸다</td></tr>
+<tr><td>지식(Knowledge)</td><td>정보를 구조화해 내 것으로 만든 것</td><td>싼 A마트에서 사야겠다</td></tr>
+<tr><td>지혜(Wisdom)</td><td>지식에 통찰을 더한 창의적 아이디어</td><td>A마트는 다른 상품도 쌀 것이다</td></tr>
+</table>
+</section>
+
+<section data-item="1-1-2">
+<h3>데이터베이스의 정의와 특징</h3>
+<p><b>데이터베이스(DB)</b>: 여러 사람이 공유해 쓰도록 체계적으로 모아 저장한 데이터 집합. 이를 관리하는 소프트웨어가 <b>DBMS</b>.</p>
+<table>
+<tr><th>DB 일반 특징</th><th>뜻</th></tr>
+<tr><td>통합된 데이터</td><td>같은 내용이 중복되지 않는다</td></tr>
+<tr><td>저장된 데이터</td><td>컴퓨터가 접근할 수 있는 저장 매체에 저장된다</td></tr>
+<tr><td>공용 데이터</td><td>여러 사용자가 서로 다른 목적으로 함께 이용한다</td></tr>
+<tr><td>운영 데이터</td><td>조직의 고유 업무를 수행하는 데 반드시 필요한 데이터다</td></tr>
+</table>
+<p class="small">교재에 따라 '변화되는 데이터'(삽입·삭제·갱신으로 계속 바뀌며 현재의 정확한 데이터를 유지)를 특징으로 들기도 한다. TTA 정보통신용어사전은 이를 '계속적인 변화'라고 부른다.</p>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>메타데이터</td><td>데이터에 관한 데이터 (데이터의 구조·속성을 설명)</td></tr>
+<tr><td>인덱스</td><td>검색·정렬 속도를 높이려고 만든 데이터 구조</td></tr>
+<tr><td>SQL</td><td>DB에 데이터를 정의·조작·제어하는 질의 언어</td></tr>
+</table>
+</section>
+
+<section data-item="1-1-3">
+<h3>데이터베이스 활용</h3>
+<table>
+<tr><th>구분</th><th>OLTP</th><th>OLAP</th></tr>
+<tr><td>목적</td><td>거래(주문·결제)를 실시간 처리</td><td>쌓인 데이터를 다차원으로 분석</td></tr>
+<tr><td>주 작업</td><td>삽입·수정·삭제</td><td>조회·집계</td></tr>
+</table>
+<table>
+<tr><th>기업 내부 시스템</th><th>한 줄</th></tr>
+<tr><td>ERP (전사적 자원관리)</td><td>인사·재무·생산 등 기업 자원을 하나로 통합 관리</td></tr>
+<tr><td>CRM (고객관계관리)</td><td>고객 데이터로 관계를 관리해 충성 고객 만들기</td></tr>
+<tr><td>SCM (공급망관리)</td><td>원자재 조달부터 소비자까지의 흐름 최적화</td></tr>
+<tr><td>BI (비즈니스 인텔리전스)</td><td>리포트·대시보드로 의사결정 지원</td></tr>
+<tr><td>BA (비즈니스 애널리틱스)</td><td>통계·예측 모형으로 "왜·앞으로"를 분석</td></tr>
+</table>
+<p><b>데이터 웨어하우스(DW) 4가지 특징</b></p>
+<table>
+<tr><th>특징</th><th>뜻</th></tr>
+<tr><td>주제지향적</td><td>업무 기능이 아니라 고객·상품 같은 주제 중심으로 구성</td></tr>
+<tr><td>통합적</td><td>여러 원천 데이터를 일관된 형식으로 통합</td></tr>
+<tr><td>시계열적</td><td>시간 흐름에 따른 변화(이력)를 보관</td></tr>
+<tr><td>비휘발적</td><td>운영 DB처럼 수시로 갱신·삭제하지 않고 적재·조회 위주로 사용</td></tr>
+</table>
+<p><b>데이터 마트</b>: DW의 일부를 특정 부서·주제용으로 떼어 낸 작은 저장소. <b>ETL</b>: 추출(Extract) → 변환(Transform) → 적재(Load).</p>
+</section>
+
+<section data-item="1-2-1">
+<h3>빅데이터의 이해</h3>
+<table>
+<tr><th>V</th><th>뜻</th></tr>
+<tr><td>Volume (규모)</td><td>데이터 양이 매우 크다</td></tr>
+<tr><td>Variety (다양성)</td><td>정형·반정형·비정형 등 형태가 다양하다</td></tr>
+<tr><td>Velocity (속도)</td><td>생성·처리 속도가 빠르다</td></tr>
+<tr><td>+ Value / Veracity</td><td>4V로 볼 때 가치 또는 정확성을 더한다</td></tr>
+</table>
+<p><b>빅데이터가 만든 본질적 변화 4가지</b> <span class="label">교재 정리</span></p>
+<table>
+<tr><th>이전</th><th>→</th><th>이후</th></tr>
+<tr><td>사전처리</td><td>→</td><td>사후처리 (일단 모으고 나중에 조합)</td></tr>
+<tr><td>표본조사</td><td>→</td><td>전수조사</td></tr>
+<tr><td>질(Quality)</td><td>→</td><td>양(Quantity)</td></tr>
+<tr><td>인과관계</td><td>→</td><td>상관관계</td></tr>
+</table>
+<p>출현 배경: 산업계(쌓인 고객 데이터 활용), 학계(거대 데이터를 다루는 연구 확산), 기술 발전(디지털화, 저장 비용 하락, 모바일·클라우드).</p>
+</section>
+
+<section data-item="1-2-2">
+<h3>빅데이터의 가치와 영향 <span class="label">교재 정리</span></h3>
+<p><b>가치를 정확히 산정하기 어려운 이유</b></p>
+<table>
+<tr><th>이유</th><th>뜻</th></tr>
+<tr><td>데이터 활용 방식</td><td>재사용·재조합·다목적 활용이 많아 누가 언제 어떻게 쓸지 모른다</td></tr>
+<tr><td>새로운 가치 창출</td><td>기존에 없던 가치를 만들어 측정 기준이 없다</td></tr>
+<tr><td>분석 기술의 발전</td><td>지금은 가치 없는 데이터도 새 기술로 가치가 생길 수 있다</td></tr>
+</table>
+<table>
+<tr><th>대상</th><th>영향</th></tr>
+<tr><td>기업</td><td>혁신, 경쟁력 강화, 생산성 향상</td></tr>
+<tr><td>정부</td><td>환경 탐색, 상황 분석, 미래 대응</td></tr>
+<tr><td>개인</td><td>목적에 따른 활용 (맞춤 서비스 등)</td></tr>
+</table>
+</section>
+
+<section data-item="1-2-3">
+<h3>비즈니스 모델 — 빅데이터 활용 기본 테크닉</h3>
+<table>
+<tr><th>테크닉</th><th>대표 질문(예)</th></tr>
+<tr><td>연관규칙학습</td><td>커피를 사는 사람은 탄산음료도 많이 사는가?</td></tr>
+<tr><td>유형분석(분류)</td><td>이 사용자는 어떤 특성을 가진 집단에 속하는가?</td></tr>
+<tr><td>유전 알고리즘</td><td>응급실 의사를 어떻게 배치해야 가장 효율적인가? (최적화)</td></tr>
+<tr><td>기계학습</td><td>시청 기록으로 볼 때 이 사람은 어떤 영화를 좋아할까?</td></tr>
+<tr><td>회귀분석</td><td>구매자의 나이가 구매 차량 종류에 어떤 영향을 주는가?</td></tr>
+<tr><td>감정분석</td><td>새 상품에 대한 고객 평가는 긍정인가 부정인가?</td></tr>
+<tr><td>소셜 네트워크 분석</td><td>고객 중 누가 가장 영향력이 큰가(인플루언서)?</td></tr>
+</table>
+</section>
+
+<section data-item="1-2-4">
+<h3>위기 요인과 통제 방안</h3>
+<p><span class="label">교재 정리</span></p>
+<table>
+<tr><th>위기 요인</th><th>예</th><th>통제 방안</th></tr>
+<tr><td>사생활 침해</td><td>SNS 글로 여행 중인 집을 노린 범죄</td><td>제공자의 '동의'에서 사용자의 '책임'으로</td></tr>
+<tr><td>책임 원칙 훼손</td><td>범죄 예측만으로 처벌 (영화 마이너리티 리포트)</td><td>결과 기반 책임 원칙 고수</td></tr>
+<tr><td>데이터 오용</td><td>잘못된 지표·알고리즘으로 불이익</td><td>알고리즘 접근 허용 + 알고리즈미스트</td></tr>
+</table>
+<p><b>알고리즈미스트</b>: 알고리즘 때문에 부당한 피해를 본 사람을 구제하는 전문가.</p>
+<p><b>개인정보 비식별화 기법</b></p>
+<table>
+<tr><th>기법</th><th>예</th></tr>
+<tr><td>가명처리</td><td>홍길동 → 임꺽정</td></tr>
+<tr><td>총계처리</td><td>개인 키 → 전체 평균 키</td></tr>
+<tr><td>데이터값 삭제</td><td>주민등록번호 열 삭제</td></tr>
+<tr><td>범주화</td><td>35세 → 30대</td></tr>
+<tr><td>데이터 마스킹</td><td>홍길동 → 홍○○</td></tr>
+</table>
+</section>
+
+<section data-item="1-2-5">
+<h3>미래의 빅데이터 <span class="label">교재 정리</span></h3>
+<table>
+<tr><th>요소</th><th>변화</th></tr>
+<tr><td>데이터</td><td>모든 것의 데이터화(Datafication), 사물인터넷</td></tr>
+<tr><td>기술</td><td>진화하는 알고리즘, 인공지능</td></tr>
+<tr><td>인력</td><td>데이터 사이언티스트, 알고리즈미스트</td></tr>
+</table>
+</section>
+
+<section data-item="1-3-1">
+<h3>빅데이터분석과 전략 인사이트 <span class="label">교재 정리</span></h3>
+<ul>
+<li>빅데이터 회의론의 원인: 과거 고가 솔루션 투자의 실패 경험(부정적 학습효과), 성과로 이어지지 않은 분석 사례.</li>
+<li>핵심은 데이터의 <b>양</b>이 아니라 <b>어떤 시각과 인사이트</b>로 분석하느냐다.</li>
+</ul>
+<table>
+<tr><th>구분</th><th>일차적 분석</th><th>전략 도출 가치 기반 분석</th></tr>
+<tr><td>범위</td><td>부서 단위 업무 개선</td><td>사업 전체의 성과·경쟁력</td></tr>
+<tr><td>관점</td><td>현재 업무 효율</td><td>환경 변화와 새로운 기회</td></tr>
+</table>
+</section>
+
+<section data-item="1-3-2">
+<h3>전략 인사이트 도출을 위한 필요 역량</h3>
+<p><b>데이터 사이언스</b>: 데이터에서 의미 있는 정보를 추출하는 학문. 정형·비정형을 모두 다루고, 분석뿐 아니라 구현과 전달까지 포함해 통계학보다 넓다.</p>
+<table>
+<tr><th>구성 영역</th><th>내용</th></tr>
+<tr><td>Analytics</td><td>수학, 통계, 머신러닝</td></tr>
+<tr><td>IT (데이터 엔지니어링)</td><td>프로그래밍, 데이터 처리·저장</td></tr>
+<tr><td>비즈니스 분석</td><td>커뮤니케이션, 프레젠테이션, 시각화</td></tr>
+</table>
+<p><span class="label">교재 정리</span></p>
+<table>
+<tr><th>데이터 사이언티스트 역량</th><th>내용</th></tr>
+<tr><td>Hard Skill</td><td>빅데이터 이론 지식, 분석 기술 숙련도</td></tr>
+<tr><td>Soft Skill</td><td>통찰력 있는 분석(창의적 사고·호기심), 설득력 있는 전달(스토리텔링·시각화), 다분야 간 협력(커뮤니케이션)</td></tr>
+</table>
+</section>
+
+<section data-item="1-3-3">
+<h3>빅데이터 그리고 데이터 사이언스의 미래 <span class="label">교재 정리</span></h3>
+<p><b>인문학적 사고가 중요해진 외부 환경 변화</b></p>
+<table>
+<tr><th>이전</th><th>→</th><th>이후</th></tr>
+<tr><td>단순 세계화</td><td>→</td><td>복잡한 세계화 (다양성·각 사회의 정체성)</td></tr>
+<tr><td>제품 생산</td><td>→</td><td>서비스 중심 비즈니스</td></tr>
+<tr><td>생산 중심 경제</td><td>→</td><td>시장 창조 중심 경제</td></tr>
+</table>
+<p><b>데이터 사이언스의 한계</b>: 모든 분석에는 분석가의 가정과 해석이 들어간다. 모델은 현실을 단순화한 것이라 한계가 있으므로 정량 분석과 정성적 판단을 함께 써야 한다.</p>
+</section>

@@ -1,0 +1,4 @@
+_preview.html
+.env
+*.local
+__pycache__/

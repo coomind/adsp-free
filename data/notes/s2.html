@@ -1,0 +1,89 @@
+<p class="small">표시 안내: <b>근거</b> = 공개 문서로 확인한 내용(문제로 출제) · <b>교재 정리</b> = 공개 근거를 찾지 못한 교재식 정리(참고용, 문제로는 내지 않음)</p>
+
+<section data-item="2-1-1">
+<h3>분석 기획 방향성 도출 <span class="label">교재 정리</span></h3>
+<p>분석 대상(What)과 분석 방법(How)을 아는지에 따라 네 가지 유형으로 나눈다.</p>
+<table>
+<tr><th></th><th>방법을 앎</th><th>방법을 모름</th></tr>
+<tr><th>대상을 앎</th><td>최적화(Optimization)</td><td>솔루션(Solution)</td></tr>
+<tr><th>대상을 모름</th><td>통찰(Insight)</td><td>발견(Discovery)</td></tr>
+</table>
+</section>
+
+<section data-item="2-1-2">
+<h3>분석 방법론 <span class="label">근거</span></h3>
+<p><b>KDD</b> (Knowledge Discovery in Databases)</p>
+<table>
+<tr><th>순서</th><th>단계</th><th>한 줄</th></tr>
+<tr><td>1</td><td>데이터셋 선택(Selection)</td><td>분석 대상 데이터를 고른다</td></tr>
+<tr><td>2</td><td>전처리(Pre-processing)</td><td>잡음·결측 관측치를 정제한다</td></tr>
+<tr><td>3</td><td>변환(Transformation)</td><td>분석에 맞게 변수를 바꾸고 줄인다</td></tr>
+<tr><td>4</td><td>데이터 마이닝</td><td>패턴을 찾는다</td></tr>
+<tr><td>5</td><td>결과 해석·평가</td><td>찾은 패턴을 해석·평가한다</td></tr>
+</table>
+<p><b>CRISP-DM</b> — 6단계, 단계 사이를 앞뒤로 오갈 수 있다(순서가 엄격하지 않음). 조사에서 가장 널리 쓰인 방법론.</p>
+<table>
+<tr><th>순서</th><th>단계</th></tr>
+<tr><td>1</td><td>업무 이해 (Business Understanding)</td></tr>
+<tr><td>2</td><td>데이터 이해 (Data Understanding)</td></tr>
+<tr><td>3</td><td>데이터 준비 (Data Preparation)</td></tr>
+<tr><td>4</td><td>모델링 (Modeling)</td></tr>
+<tr><td>5</td><td>평가 (Evaluation)</td></tr>
+<tr><td>6</td><td>전개 (Deployment)</td></tr>
+</table>
+<p><b>SEMMA</b> (SAS): Sample → Explore → Modify → Model → Assess</p>
+<table>
+<tr><th>개발 모델</th><th>핵심</th></tr>
+<tr><td>폭포수(Waterfall)</td><td>단계를 순차 진행, 뒤늦은 요구사항 변경 시 재작업 비용이 큼</td></tr>
+<tr><td>나선형(Spiral)</td><td>위험(risk) 중심으로 반복</td></tr>
+<tr><td>프로토타입</td><td>미완성 시제품으로 초기에 사용자 피드백을 받아 요구사항 구체화</td></tr>
+</table>
+</section>
+
+<section data-item="2-1-3">
+<h3>분석 과제 발굴 <span class="label">근거</span></h3>
+<table>
+<tr><th>접근</th><th>출발점</th><th>진행</th></tr>
+<tr><td>하향식(Top-down)</td><td>주어진 문제(큰 그림)</td><td>하위 문제로 분해해 해법을 찾는다</td></tr>
+<tr><td>상향식(Bottom-up)</td><td>개별 데이터·요소</td><td>조합해 더 큰 구조·인사이트로 쌓는다</td></tr>
+</table>
+<p><b>디자인 사고</b>: 아이디어를 넓히는 <b>발산적 사고</b>와 최선을 고르는 <b>수렴적 사고</b>를 번갈아 반복한다.</p>
+</section>
+
+<section data-item="2-1-4">
+<h3>분석 프로젝트 관리 방안 <span class="label">근거</span></h3>
+<p>PMBOK의 10개 지식 영역</p>
+<table>
+<tr><th>영역</th><th>한 줄</th></tr>
+<tr><td>통합</td><td>여러 활동을 하나로 조정</td></tr>
+<tr><td>범위</td><td>필요한 작업만, 빠짐없이</td></tr>
+<tr><td>일정(시간)</td><td>제때 완료</td></tr>
+<tr><td>원가</td><td>예산 수립·통제</td></tr>
+<tr><td>품질</td><td>품질 정책·목표</td></tr>
+<tr><td>자원</td><td>팀 구성·관리</td></tr>
+<tr><td>의사소통</td><td>정보를 제때 공유</td></tr>
+<tr><td>리스크</td><td>위험 식별·분석·대응</td></tr>
+<tr><td>조달</td><td>외부에서 제품·서비스 구매</td></tr>
+<tr><td>이해관계자</td><td>관련된 사람 식별·참여 관리</td></tr>
+</table>
+</section>
+
+<section data-item="2-2-1">
+<h3>마스터 플랜 수립 <span class="label">교재 정리</span></h3>
+<ul>
+<li>분석 과제의 우선순위는 보통 <b>시급성</b>(전략적 중요도)과 <b>난이도</b>(실행 용이성)를 함께 보고 정한다.</li>
+<li>중장기 로드맵은 단계적으로 분석 과제를 확산하는 순서로 짠다.</li>
+</ul>
+</section>
+
+<section data-item="2-2-2">
+<h3>분석 거버넌스 체계 수립</h3>
+<p><span class="label">근거</span> <b>데이터 거버넌스</b>: 조직의 데이터를 효과적이고 책임 있게 쓰도록 이끄는 원칙·정책·프로세스의 집합. 데이터 품질, 메타데이터 관리, 마스터 데이터 관리, 접근 통제, 생애주기 관리 등을 다룬다.</p>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>마스터 데이터 관리(MDM)</td><td>고객·상품·계좌처럼 공유하는 핵심 데이터를 일관되고 정확하게 관리</td></tr>
+<tr><td>데이터 사전</td><td>데이터의 의미·관계·출처·용도·형식을 모은 중앙 저장소</td></tr>
+</table>
+<p><span class="label">근거</span> <b>CMMI 성숙도 5단계</b>: 초기(Initial) → 관리(Managed) → 정의(Defined) → 정량적 관리(Quantitatively Managed) → 최적화(Optimizing)</p>
+<p><span class="label">교재 정리</span> 분석 성숙도는 도입 → 활용 → 확산 → 최적화 단계로, 분석 조직 구조는 집중형·기능형·분산형으로 나눠 설명한다.</p>
+</section>

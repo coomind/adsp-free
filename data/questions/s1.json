@@ -1,0 +1,742 @@
+[
+ {
+  "id": "s1-001",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "DIKW"
+  ],
+  "q": "다음 중 DIKW 피라미드에서 '정보(Information)'에 해당하는 것은?",
+  "choices": [
+   "오늘 기온이 어제보다 6도 낮아졌다",
+   "오늘 기온 12도, 어제 기온 18도",
+   "기온이 떨어졌으니 겉옷을 챙겨야겠다",
+   "일교차가 커지는 환절기에는 감기 환자가 늘 것이다"
+  ],
+  "answer": 0,
+  "explain": "'오늘 12도, 어제 18도'는 가공 전 측정값(데이터), '어제보다 6도 낮아졌다'는 두 데이터를 비교해 의미를 뽑은 정보, '겉옷을 챙겨야겠다'는 정보를 내 판단으로 만든 지식, '감기 환자가 늘 것'은 통찰을 더해 새로 추론한 지혜다.",
+  "sources": [
+   {
+    "t": "Wikipedia: DIKW pyramid",
+    "u": "https://en.wikipedia.org/wiki/DIKW_pyramid"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-002",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "SECI"
+  ],
+  "q": "숙련공의 노하우를 인터뷰해 업무 매뉴얼로 정리했다. SECI 모델에서 이 과정은?",
+  "choices": [
+   "공통화",
+   "표출화",
+   "연결화",
+   "내면화"
+  ],
+  "answer": 1,
+  "explain": "개인의 암묵지(노하우)를 문서라는 형식지로 바꾸는 것은 표출화(Externalization)다.",
+  "fixedOrder": true,
+  "sources": [
+   {
+    "t": "Wikipedia: SECI model of knowledge dimensions",
+    "u": "https://en.wikipedia.org/wiki/SECI_model_of_knowledge_dimensions"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-003",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "SECI"
+  ],
+  "q": "신입사원이 업무 매뉴얼을 읽고 반복 실습해 몸에 익혔다. SECI 모델에서 이 과정은?",
+  "choices": [
+   "공통화",
+   "표출화",
+   "연결화",
+   "내면화"
+  ],
+  "answer": 3,
+  "explain": "형식지(매뉴얼)를 개인의 암묵지로 체화하는 것은 내면화(Internalization)다.",
+  "fixedOrder": true,
+  "sources": [
+   {
+    "t": "Wikipedia: SECI model of knowledge dimensions",
+    "u": "https://en.wikipedia.org/wiki/SECI_model_of_knowledge_dimensions"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-004",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "데이터 유형"
+  ],
+  "q": "다음 중 정량적 데이터로 보기 어려운 것은?",
+  "choices": [
+   "하루 방문자 수",
+   "고객 만족도 설문의 주관식 의견",
+   "월별 매출액",
+   "센서가 측정한 온도값"
+  ],
+  "answer": 1,
+  "explain": "주관식 의견은 언어·문자로 된 정성적 데이터다. 나머지는 수치로 표현되는 정량적 데이터다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Qualitative property",
+    "u": "https://en.wikipedia.org/wiki/Qualitative_property"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-006",
+  "subject": 1,
+  "item": "1-1-2",
+  "tags": [
+   "DB 특징",
+   "틀린 것 찾기"
+  ],
+  "q": "데이터베이스의 일반적인 특징이 아닌 것은?",
+  "choices": [
+   "통합된 데이터",
+   "저장된 데이터",
+   "고정된 데이터",
+   "공용 데이터"
+  ],
+  "answer": 2,
+  "explain": "교재는 DB의 특징을 보통 통합된 데이터·저장된 데이터·운영 데이터·공용 데이터로 정리한다. TTA 용어사전도 삽입·삭제·갱신으로 계속 변하며 최신 상태를 유지하는 것을 DB의 특징으로 든다. 어느 쪽으로 봐도 '고정된 데이터'는 특징이 아니다.",
+  "sources": [
+   {
+    "t": "TTA 정보통신용어사전: 데이터베이스",
+    "u": "https://terms.tta.or.kr/dictionary/dictionaryView.do?subject=%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-007",
+  "subject": 1,
+  "item": "1-1-2",
+  "tags": [
+   "DB 특징"
+  ],
+  "q": "불필요한 중복 없이 데이터를 하나로 모아 관리한다는 데이터베이스의 특징은?",
+  "choices": [
+   "통합된 데이터",
+   "저장된 데이터",
+   "공용 데이터",
+   "운영 데이터"
+  ],
+  "answer": 0,
+  "explain": "중복을 없애고 하나로 모아 관리한다는 특징은 '통합된 데이터'다. 저장된·운영·공용 데이터도 DB의 특징이지만 뜻이 다르다.",
+  "fixedOrder": true,
+  "sources": [
+   {
+    "t": "TTA 정보통신용어사전: 데이터베이스",
+    "u": "https://terms.tta.or.kr/dictionary/dictionaryView.do?subject=%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-008",
+  "subject": 1,
+  "item": "1-1-2",
+  "tags": [
+   "DB 용어"
+  ],
+  "q": "데이터의 구조·속성 등을 설명하는 '데이터에 관한 데이터'를 무엇이라 하는가?",
+  "choices": [
+   "로그 데이터",
+   "인덱스",
+   "원시 데이터",
+   "메타데이터"
+  ],
+  "answer": 3,
+  "explain": "메타데이터는 데이터에 관한 데이터다. 인덱스는 검색 속도를 높이기 위한 구조다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Metadata",
+    "u": "https://en.wikipedia.org/wiki/Metadata"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-009",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW",
+   "틀린 것 찾기"
+  ],
+  "q": "데이터 웨어하우스의 특징이 아닌 것은?",
+  "choices": [
+   "휘발적",
+   "주제지향적",
+   "시계열적",
+   "통합적"
+  ],
+  "answer": 0,
+  "explain": "DW의 4가지 특징은 주제지향적·통합적·시계열적·비휘발적이다. 운영 DB처럼 수시로 갱신·삭제하지 않고 적재와 조회 위주로 쓴다(비휘발적).",
+  "sources": [
+   {
+    "t": "Wikipedia: Data warehouse (Inmon의 특징)",
+    "u": "https://en.wikipedia.org/wiki/Data_warehouse"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-010",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW"
+  ],
+  "q": "데이터 웨어하우스가 업무 처리 기능이 아니라 고객·상품 같은 주제를 중심으로 데이터를 구성하는 특징은?",
+  "choices": [
+   "주제지향적",
+   "통합적",
+   "시계열적",
+   "비휘발적"
+  ],
+  "answer": 0,
+  "explain": "업무 프로세스가 아닌 기업의 주요 주제(고객·상품 등)를 중심으로 구성하는 것이 주제지향적 특징이다.",
+  "fixedOrder": true,
+  "sources": [
+   {
+    "t": "Wikipedia: Data warehouse (Inmon의 특징)",
+    "u": "https://en.wikipedia.org/wiki/Data_warehouse"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-011",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DB 활용"
+  ],
+  "q": "다차원 데이터를 대화식으로 분석해 의사결정을 지원하는 처리 방식은?",
+  "choices": [
+   "OLTP",
+   "OLAP",
+   "ERP",
+   "EAI"
+  ],
+  "answer": 1,
+  "explain": "OLAP은 쌓인 데이터를 다차원으로 조회·집계하는 분석 처리다. OLTP는 주문·결제 같은 거래를 실시간 처리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Online analytical processing",
+    "u": "https://en.wikipedia.org/wiki/Online_analytical_processing"
+   },
+   {
+    "t": "Wikipedia: Online transaction processing",
+    "u": "https://en.wikipedia.org/wiki/Online_transaction_processing"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-012",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "기업 시스템"
+  ],
+  "q": "고객 데이터를 통합·분석해 고객과의 관계를 관리하고 충성 고객을 늘리는 시스템은?",
+  "choices": [
+   "ERP",
+   "KMS",
+   "CRM",
+   "SCM"
+  ],
+  "answer": 2,
+  "explain": "CRM(고객관계관리)이다. ERP는 기업 자원 통합, SCM은 공급망, KMS는 지식관리 시스템이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Customer relationship management",
+    "u": "https://en.wikipedia.org/wiki/Customer_relationship_management"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-013",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "기업 시스템"
+  ],
+  "q": "원자재 조달부터 생산·유통·판매까지 공급망 전체의 흐름을 최적화하는 시스템은?",
+  "choices": [
+   "BI",
+   "CRM",
+   "ERP",
+   "SCM"
+  ],
+  "answer": 3,
+  "explain": "SCM(공급망관리)이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Supply chain management",
+    "u": "https://en.wikipedia.org/wiki/Supply_chain_management"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-014",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW"
+  ],
+  "q": "여러 원천 시스템에서 데이터를 추출해 형식을 맞춘 뒤 데이터 웨어하우스에 적재하는 과정은?",
+  "choices": [
+   "ETL",
+   "OLAP",
+   "OLTP",
+   "데이터 마이닝"
+  ],
+  "answer": 0,
+  "explain": "ETL은 추출(Extract) → 변환(Transform) → 적재(Load)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Extract, transform, load",
+    "u": "https://en.wikipedia.org/wiki/Extract,_transform,_load"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-015",
+  "subject": 1,
+  "item": "1-2-1",
+  "tags": [
+   "3V",
+   "빅데이터 특징",
+   "틀린 것 찾기"
+  ],
+  "q": "빅데이터의 3V에 해당하지 않는 것은?",
+  "choices": [
+   "Volume",
+   "Visualization",
+   "Variety",
+   "Velocity"
+  ],
+  "answer": 1,
+  "explain": "3V는 Volume(규모), Variety(다양성), Velocity(속도)다. 시각화는 3V가 아니다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Big data (Characteristics)",
+    "u": "https://en.wikipedia.org/wiki/Big_data"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-018",
+  "subject": 1,
+  "item": "1-2-3",
+  "tags": [
+   "활용 테크닉",
+   "사례"
+  ],
+  "q": "'커피를 사는 고객은 탄산음료도 함께 사는가?'를 알고 싶을 때 가장 적합한 테크닉은?",
+  "choices": [
+   "유전 알고리즘",
+   "감정분석",
+   "연관규칙학습",
+   "회귀분석"
+  ],
+  "answer": 2,
+  "explain": "함께 발생하는 항목 사이의 규칙을 찾는 연관규칙학습이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Association rule learning",
+    "u": "https://en.wikipedia.org/wiki/Association_rule_learning"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-019",
+  "subject": 1,
+  "item": "1-2-3",
+  "tags": [
+   "활용 테크닉",
+   "사례"
+  ],
+  "q": "수많은 택배 차량 배치 조합 중에서 좋은 해를 골라 교차·변이시키는 과정을 반복해 배송 비용이 낮은 배치를 찾으려 한다. 가장 적합한 테크닉은?",
+  "choices": [
+   "감정분석",
+   "소셜 네트워크 분석",
+   "유형분석",
+   "유전 알고리즘"
+  ],
+  "answer": 3,
+  "explain": "선택·교차·돌연변이를 반복해 최적에 가까운 해를 찾는 방법은 유전 알고리즘이다. 스케줄링·배치 같은 최적화 문제에 쓴다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Genetic algorithm",
+    "u": "https://en.wikipedia.org/wiki/Genetic_algorithm"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-020",
+  "subject": 1,
+  "item": "1-2-3",
+  "tags": [
+   "활용 테크닉",
+   "사례"
+  ],
+  "q": "'고객 중 누가 가장 영향력이 큰가?'를 알고 싶을 때 가장 적합한 테크닉은?",
+  "choices": [
+   "소셜 네트워크 분석",
+   "연관규칙학습",
+   "감정분석",
+   "회귀분석"
+  ],
+  "answer": 0,
+  "explain": "사람 사이의 관계망에서 영향력 있는 사람을 찾는 것은 소셜 네트워크 분석이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Social network analysis (Centrality)",
+    "u": "https://en.wikipedia.org/wiki/Social_network_analysis"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-021",
+  "subject": 1,
+  "item": "1-2-3",
+  "tags": [
+   "활용 테크닉",
+   "사례"
+  ],
+  "q": "새로 출시한 상품에 대한 리뷰가 긍정적인지 부정적인지 판단하려면?",
+  "choices": [
+   "유전 알고리즘",
+   "감정분석",
+   "연관규칙학습",
+   "회귀분석"
+  ],
+  "answer": 1,
+  "explain": "글에 담긴 긍정·부정을 판별하는 것은 감정분석이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Sentiment analysis",
+    "u": "https://en.wikipedia.org/wiki/Sentiment_analysis"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-025",
+  "subject": 1,
+  "item": "1-2-4",
+  "tags": [
+   "비식별화"
+  ],
+  "q": "나이 '35세'를 '30대'로 바꾸는 개인정보 비식별화 기법은?",
+  "choices": [
+   "가명처리",
+   "총계처리",
+   "범주화",
+   "데이터 마스킹"
+  ],
+  "answer": 2,
+  "explain": "값을 구간이나 범주로 바꾸는 것은 범주화다(가이드라인 예: 나이를 10살 단위로 범주화).",
+  "sources": [
+   {
+    "t": "개인정보보호위원회 「가명정보 처리 가이드라인」(2024.2) 가명처리 기법",
+    "u": "https://data.gangwon.kr/images/pdf/%EA%B0%80%EB%AA%85%EC%A0%95%EB%B3%B4_%EC%B2%98%EB%A6%AC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8(2024_2_%EA%B0%9C%EC%A0%95).pdf"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-026",
+  "subject": 1,
+  "item": "1-2-4",
+  "tags": [
+   "비식별화"
+  ],
+  "q": "이름 '홍길동'을 '홍○○'으로 바꾸는 개인정보 비식별화 기법은?",
+  "choices": [
+   "가명처리",
+   "데이터값 삭제",
+   "범주화",
+   "데이터 마스킹"
+  ],
+  "answer": 3,
+  "explain": "값의 일부 또는 전부를 '*'·'○' 같은 기호로 가리는 것은 데이터 마스킹이다.",
+  "sources": [
+   {
+    "t": "개인정보보호위원회 「가명정보 처리 가이드라인」(2024.2) 가명처리 기법",
+    "u": "https://data.gangwon.kr/images/pdf/%EA%B0%80%EB%AA%85%EC%A0%95%EB%B3%B4_%EC%B2%98%EB%A6%AC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8(2024_2_%EA%B0%9C%EC%A0%95).pdf"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-030",
+  "subject": 1,
+  "item": "1-3-2",
+  "tags": [
+   "데이터 사이언스",
+   "틀린 것 찾기"
+  ],
+  "q": "데이터 사이언스에 대한 설명으로 옳지 않은 것은?",
+  "choices": [
+   "정형 데이터만을 분석 대상으로 한다",
+   "정형·비정형 데이터를 모두 다룬다",
+   "통계학보다 넓은 개념이다",
+   "분석뿐 아니라 구현과 전달까지 포함한다"
+  ],
+  "answer": 0,
+  "explain": "데이터 사이언스는 정형뿐 아니라 비정형 데이터까지 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data science",
+    "u": "https://en.wikipedia.org/wiki/Data_science"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-031",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "SECI"
+  ],
+  "fixedOrder": true,
+  "q": "여러 부서의 보고서를 모아 하나의 종합 보고서로 새로 만들었다. SECI 모델에서 이 과정은?",
+  "choices": [
+   "공통화",
+   "표출화",
+   "연결화",
+   "내면화"
+  ],
+  "answer": 2,
+  "explain": "서로 다른 형식지를 합쳐 새로운 형식지를 만드는 것은 연결화(Combination)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SECI model of knowledge dimensions",
+    "u": "https://en.wikipedia.org/wiki/SECI_model_of_knowledge_dimensions"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-032",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "SECI"
+  ],
+  "fixedOrder": true,
+  "q": "신입 요리사가 선배 옆에서 보고 따라 하며 칼질 요령을 익혔다. SECI 모델에서 이 과정은?",
+  "choices": [
+   "공통화",
+   "표출화",
+   "연결화",
+   "내면화"
+  ],
+  "answer": 0,
+  "explain": "관찰·모방·도제식 실습으로 암묵지를 다른 사람의 암묵지로 옮기는 것은 공통화(Socialization)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SECI model of knowledge dimensions",
+    "u": "https://en.wikipedia.org/wiki/SECI_model_of_knowledge_dimensions"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-033",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "암묵지·형식지"
+  ],
+  "q": "다음 중 암묵지에 가장 가까운 것은?",
+  "choices": [
+   "회사 업무 매뉴얼",
+   "자전거를 타는 요령",
+   "통계학 교과서",
+   "데이터베이스 설계 문서"
+  ],
+  "answer": 1,
+  "explain": "말이나 글로 옮기기 어렵고 몸으로 익히는 지식이 암묵지다. 매뉴얼·교과서·설계 문서는 글로 정리된 형식지다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Tacit knowledge",
+    "u": "https://en.wikipedia.org/wiki/Tacit_knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-034",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW"
+  ],
+  "fixedOrder": true,
+  "q": "데이터 웨어하우스가 과거부터 현재까지의 데이터 이력을 장기간 보관해 시간에 따른 변화를 분석할 수 있게 하는 특징은?",
+  "choices": [
+   "주제지향적",
+   "통합적",
+   "시계열적",
+   "비휘발적"
+  ],
+  "answer": 2,
+  "explain": "긴 기간의 이력 데이터를 보관하는 성질은 시계열적(time-variant) 특징이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data warehouse (Inmon의 특징)",
+    "u": "https://en.wikipedia.org/wiki/Data_warehouse"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-035",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW"
+  ],
+  "q": "특정 부서나 주제의 분석 요구에 맞춰 데이터 웨어하우스의 데이터를 제공하는 소규모 데이터 저장소는?",
+  "choices": [
+   "운영 데이터베이스",
+   "데이터 레이크",
+   "데이터 마트",
+   "메타데이터"
+  ],
+  "answer": 2,
+  "explain": "데이터 마트는 특정 부서·업무·주제에 초점을 둔 소규모 저장소로, 보통 데이터 웨어하우스의 부분집합이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mart",
+    "u": "https://en.wikipedia.org/wiki/Data_mart"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-036",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DB 활용"
+  ],
+  "q": "ATM 출금, 쇼핑몰 주문 입력처럼 거래를 실시간으로 처리하는 데이터베이스 처리 방식은?",
+  "choices": [
+   "데이터 마이닝",
+   "OLAP",
+   "ETL",
+   "OLTP"
+  ],
+  "answer": 3,
+  "explain": "OLTP(온라인 트랜잭션 처리)는 주문·결제 같은 거래를 실시간으로 처리하며 삽입·수정·삭제가 많다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Online transaction processing",
+    "u": "https://en.wikipedia.org/wiki/Online_transaction_processing"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-037",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "기업 시스템"
+  ],
+  "q": "인사·재무·생산·구매 등 기업의 핵심 업무 프로세스를 하나로 통합해 관리하는 시스템은?",
+  "choices": [
+   "ERP",
+   "CRM",
+   "SCM",
+   "BI"
+  ],
+  "answer": 0,
+  "explain": "ERP(전사적 자원관리)는 기업의 주요 업무 프로세스를 통합 관리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Enterprise resource planning",
+    "u": "https://en.wikipedia.org/wiki/Enterprise_resource_planning"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-038",
+  "subject": 1,
+  "item": "1-2-1",
+  "tags": [
+   "빅데이터 특징"
+  ],
+  "q": "빅데이터의 특징 중 '데이터가 생성되고 처리되는 속도'를 뜻하는 것은?",
+  "choices": [
+   "Volume",
+   "Velocity",
+   "Variety",
+   "Veracity"
+  ],
+  "answer": 1,
+  "explain": "Velocity는 속도, Volume은 규모, Variety는 다양성, Veracity는 데이터의 신뢰성·진실성(품질)이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Big data (Characteristics)",
+    "u": "https://en.wikipedia.org/wiki/Big_data"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-039",
+  "subject": 1,
+  "item": "1-2-4",
+  "tags": [
+   "비식별화"
+  ],
+  "q": "개인별 소득 대신 집단의 평균 소득만 보여 개인의 값을 드러내지 않는 비식별 기법은?",
+  "choices": [
+   "가명처리",
+   "데이터 마스킹",
+   "총계처리",
+   "범주화"
+  ],
+  "answer": 2,
+  "explain": "평균·합계·최댓값 등 통계값으로 바꿔 개별 값을 숨기는 것은 총계처리다.",
+  "sources": [
+   {
+    "t": "개인정보보호위원회 「가명정보 처리 가이드라인」(2024.2) 가명처리 기법",
+    "u": "https://data.gangwon.kr/images/pdf/%EA%B0%80%EB%AA%85%EC%A0%95%EB%B3%B4_%EC%B2%98%EB%A6%AC_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8(2024_2_%EA%B0%9C%EC%A0%95).pdf"
+   }
+  ],
+  "checked": "2026-09-29"
+ }
+]

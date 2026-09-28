@@ -1,0 +1,767 @@
+[
+ {
+  "id": "s3-001",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "결측값"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "x <- c(3, NA, 5)\nmean(x)",
+  "choices": [
+   "NA",
+   "4",
+   "8",
+   "에러가 난다"
+  ],
+  "answer": 0,
+  "explain": "결측값(NA)이 있는 벡터의 평균은 na.rm = FALSE(기본값)일 때 NA다.",
+  "sources": [
+   {
+    "t": "R 문서: mean (na.rm)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "NA"
+ },
+ {
+  "id": "s3-002",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "결측값"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "mean(c(3, NA, 5), na.rm = TRUE)",
+  "choices": [
+   "NA",
+   "4",
+   "2.67",
+   "8"
+  ],
+  "answer": 1,
+  "explain": "na.rm = TRUE면 NA를 빼고 (3 + 5) / 2 = 4를 계산한다.",
+  "sources": [
+   {
+    "t": "R 문서: mean (na.rm)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "4"
+ },
+ {
+  "id": "s3-003",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "인덱싱"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "x <- 1:6\nx[-2]",
+  "choices": [
+   "2",
+   "1 2 3 4 5",
+   "1 3 4 5 6",
+   "3 4 5 6"
+  ],
+  "answer": 2,
+  "explain": "음수 인덱스는 해당 위치를 뺀다. x[-2]는 두 번째 원소(2)를 제외한 1 3 4 5 6이다.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "1 3 4 5 6"
+ },
+ {
+  "id": "s3-004",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "벡터 생성"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "seq(2, 11, by = 3)",
+  "choices": [
+   "3 6 9",
+   "2 5 8",
+   "2 3 4 5 6 7 8 9 10 11",
+   "2 5 8 11"
+  ],
+  "answer": 3,
+  "explain": "seq(2, 11, by = 3)은 2부터 3씩 더해 11을 넘지 않을 때까지 만든다: 2 5 8 11.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "2 5 8 11"
+ },
+ {
+  "id": "s3-005",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "벡터 생성"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "rep(c(\"A\", \"B\"), times = 2)",
+  "choices": [
+   "A B A B",
+   "A A B B",
+   "A B",
+   "AB AB"
+  ],
+  "answer": 0,
+  "explain": "times = 2는 벡터 전체를 2번 반복한다(A B A B). 원소별로 반복하려면 each = 2(A A B B)를 쓴다.",
+  "sources": [
+   {
+    "t": "R 문서: rep (times, each)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/rep.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "A B A B"
+ },
+ {
+  "id": "s3-006",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "자료형"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "class(c(1, \"2\", TRUE))",
+  "choices": [
+   "\"numeric\"",
+   "\"character\"",
+   "\"logical\"",
+   "\"list\""
+  ],
+  "answer": 1,
+  "explain": "벡터는 한 가지 자료형만 가진다. 문자가 하나라도 섞이면 모든 원소가 문자형(character)으로 바뀐다.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "character"
+ },
+ {
+  "id": "s3-007",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "행렬"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "m <- matrix(1:6, nrow = 2)\nm[2, 3]",
+  "choices": [
+   "5",
+   "4",
+   "6",
+   "3"
+  ],
+  "answer": 2,
+  "explain": "matrix는 기본값(byrow = FALSE)으로 열부터 채운다. 1열 = 1,2 / 2열 = 3,4 / 3열 = 5,6이므로 m[2, 3] = 6.",
+  "sources": [
+   {
+    "t": "R 문서: matrix (byrow = FALSE → 열 우선)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/matrix.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "6"
+ },
+ {
+  "id": "s3-008",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "행렬"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "apply(matrix(1:6, nrow = 2), 1, sum)",
+  "choices": [
+   "3 7 11",
+   "21",
+   "6 15",
+   "9 12"
+  ],
+  "answer": 3,
+  "explain": "MARGIN = 1은 행 단위다. 열부터 채운 행렬의 1행은 1,3,5(합 9), 2행은 2,4,6(합 12).",
+  "sources": [
+   {
+    "t": "R 문서: apply (MARGIN 1 = 행)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/apply.html"
+   },
+   {
+    "t": "R 문서: matrix (byrow = FALSE → 열 우선)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/matrix.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "9 12"
+ },
+ {
+  "id": "s3-009",
+  "subject": 3,
+  "item": "3-1-3",
+  "tags": [
+   "R 코드",
+   "결측값"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "sum(is.na(c(1, NA, 3, NA)))",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "answer": 1,
+  "explain": "is.na()는 결측이면 TRUE를 돌려주고, sum()은 TRUE를 1로 센다. NA가 2개이므로 2.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "2",
+  "fixedOrder": true
+ },
+ {
+  "id": "s3-010",
+  "subject": 3,
+  "item": "3-1-1",
+  "tags": [
+   "R 코드",
+   "벡터 생성"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "length(c(1, 2, NULL, 4))",
+  "choices": [
+   "3",
+   "4",
+   "NA",
+   "에러가 난다"
+  ],
+  "answer": 0,
+  "explain": "NULL은 '값이 없음'이라 벡터에 들어가지 않는다. c(1, 2, NULL, 4)는 1 2 4이므로 길이는 3.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "3"
+ },
+ {
+  "id": "s3-011",
+  "subject": 3,
+  "item": "3-1-3",
+  "tags": [
+   "R 코드",
+   "결측값"
+  ],
+  "q": "다음 R 코드의 실행 결과는?",
+  "code": "df <- data.frame(a = c(1, NA, 3), b = c(NA, 2, 3))\nsum(complete.cases(df))",
+  "choices": [
+   "0",
+   "1",
+   "2",
+   "3"
+  ],
+  "answer": 1,
+  "explain": "complete.cases()는 모든 열에 결측이 없는 행만 TRUE다. 1행(b 결측)과 2행(a 결측)을 빼면 3행 하나만 남는다.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "1",
+  "fixedOrder": true
+ },
+ {
+  "id": "s3-012",
+  "subject": 3,
+  "item": "3-1-3",
+  "tags": [
+   "R 코드",
+   "결측값 대치"
+  ],
+  "q": "다음 R 코드를 실행한 뒤 a의 값은?",
+  "code": "a <- c(1, NA, 3)\na[is.na(a)] <- mean(a, na.rm = TRUE)\na",
+  "choices": [
+   "1 NA 3",
+   "1 2 3",
+   "1 0 3",
+   "1 4 3"
+  ],
+  "answer": 1,
+  "explain": "결측값을 나머지 값의 평균((1 + 3) / 2 = 2)으로 채우는 평균 대치다.",
+  "sources": [
+   {
+    "t": "R 문서: mean (na.rm)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "1 2 3"
+ },
+ {
+  "id": "s3-013",
+  "subject": 3,
+  "item": "3-1-3",
+  "tags": [
+   "R 코드",
+   "이상값"
+  ],
+  "q": "다음 데이터에서 IQR 규칙(Q1 − 1.5×IQR 미만 또는 Q3 + 1.5×IQR 초과)으로 이상값이 되는 값은? (R quantile 기본값 사용)",
+  "code": "v <- c(2, 4, 4, 5, 6, 7, 8, 30)",
+  "choices": [
+   "2",
+   "8",
+   "30",
+   "이상값 없음"
+  ],
+  "answer": 2,
+  "explain": "R 기본 quantile(type 7)로 Q1 = 4, Q3 = 7.25, IQR = 3.25다. 상한 7.25 + 4.875 = 12.125를 넘는 30만 이상값이다.",
+  "sources": [
+   {
+    "t": "R 문서: quantile (기본 type 7)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "30"
+ },
+ {
+  "id": "s3-014",
+  "subject": 3,
+  "item": "3-3-3",
+  "tags": [
+   "군집분석"
+  ],
+  "q": "k-means 군집분석에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "덴드로그램으로 군집 수를 나중에 고른다",
+   "군집 수를 알고리즘이 자동으로 정한다",
+   "범주형 목표변수가 반드시 필요하다",
+   "군집 수 k를 분석 전에 정해야 한다"
+  ],
+  "answer": 3,
+  "explain": "k-means에서 군집 수 k는 입력값이라 미리 정해야 한다. k를 잘못 고르면 결과가 나빠질 수 있어 엘보 방법·실루엣 등으로 정한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: k-means clustering",
+    "u": "https://en.wikipedia.org/wiki/K-means_clustering"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-015",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "기술통계",
+   "계산"
+  ],
+  "q": "R에서 var(c(2, 4, 6, 8))의 값은? (소수 셋째 자리까지)",
+  "choices": [
+   "6.667",
+   "5.000",
+   "20.000",
+   "2.582"
+  ],
+  "answer": 0,
+  "explain": "평균 5, 편차 제곱합 = 9+1+1+9 = 20. R의 var는 분모 n−1 = 3을 쓰므로 20/3 ≈ 6.667.",
+  "sources": [
+   {
+    "t": "R 문서: var·cor (분모 n−1)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cor.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "6.667"
+ },
+ {
+  "id": "s3-016",
+  "subject": 3,
+  "item": "3-3-1",
+  "tags": [
+   "데이터 마이닝 개요"
+  ],
+  "q": "과대적합(overfitting)에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "학습 데이터에 지나치게 맞춰져 새 데이터에서 성능이 떨어지는 현상",
+   "모형이 너무 단순해 학습 데이터도 설명하지 못하는 현상",
+   "데이터가 많을수록 반드시 생기는 현상",
+   "검증 데이터 성능이 학습 데이터보다 항상 높은 현상"
+  ],
+  "answer": 0,
+  "explain": "과대적합은 학습 데이터(잡음까지)에 너무 가깝게 맞춰져 새 데이터를 잘 예측하지 못하는 것이다. ②는 과소적합이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Overfitting",
+    "u": "https://en.wikipedia.org/wiki/Overfitting"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-017",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "기술통계",
+   "계산"
+  ],
+  "q": "R에서 sd(c(2, 4, 4, 4, 5, 5, 7, 9))의 값은? (소수 셋째 자리까지)",
+  "choices": [
+   "2.000",
+   "2.138",
+   "4.571",
+   "5.000"
+  ],
+  "answer": 1,
+  "explain": "평균 5, 편차 제곱합 32. 분모 n−1 = 7로 나눈 분산 4.571의 제곱근 ≈ 2.138. (분모 n이면 2.000)",
+  "sources": [
+   {
+    "t": "R 문서: var·cor (분모 n−1)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cor.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "2.138"
+ },
+ {
+  "id": "s3-018",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "상관분석",
+   "계산"
+  ],
+  "q": "x = 1, 2, 3, 4, 5와 y = 2, 1, 4, 3, 5의 피어슨 상관계수는?",
+  "choices": [
+   "0.5",
+   "0.6",
+   "0.8",
+   "1"
+  ],
+  "answer": 2,
+  "explain": "x·y 평균은 모두 3. 편차곱의 합 8, x 편차제곱합 10, y 편차제곱합 10이므로 r = 8 / √(10×10) = 0.8.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "0.8"
+ },
+ {
+  "id": "s3-019",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "회귀분석",
+   "계산"
+  ],
+  "q": "x = 1, 2, 3, 4, 5와 y = 2, 3, 5, 6, 9로 최소제곱 단순선형회귀를 적합했을 때의 회귀식은?",
+  "choices": [
+   "y = 1 + 1.5x",
+   "y = 0.5 + 1.5x",
+   "y = −1 + 2x",
+   "y = −0.1 + 1.7x"
+  ],
+  "answer": 3,
+  "explain": "x 평균 3, y 평균 5. 기울기 = Σ(x−x̄)(y−ȳ) / Σ(x−x̄)² = 17 / 10 = 1.7, 절편 = 5 − 1.7×3 = −0.1.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "-0.1 1.7"
+ },
+ {
+  "id": "s3-020",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "회귀분석",
+   "계산"
+  ],
+  "q": "x = 1, 2, 3, 4, 5와 y = 2, 4, 5, 4, 5로 단순선형회귀를 적합했을 때 결정계수 R²는? (소수 셋째 자리까지)",
+  "choices": [
+   "0.600",
+   "0.300",
+   "0.775",
+   "0.900"
+  ],
+  "answer": 0,
+  "explain": "기울기 0.6, 절편 2.2. 잔차 제곱합 2.4, 총제곱합 6.0이므로 R² = 1 − 2.4/6.0 = 0.600.",
+  "sources": [],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "0.600"
+ },
+ {
+  "id": "s3-021",
+  "subject": 3,
+  "item": "3-2-1",
+  "tags": [
+   "가설검정"
+  ],
+  "q": "유의수준 0.05에서 검정 결과 p-value가 0.03이었다. 올바른 판단은?",
+  "choices": [
+   "귀무가설을 채택한다고 증명된다",
+   "귀무가설을 기각한다",
+   "대립가설이 거짓이다",
+   "유의수준을 0.01로 바꿔야 한다"
+  ],
+  "answer": 1,
+  "explain": "p-value가 유의수준보다 작으면 귀무가설을 기각한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: p-value",
+    "u": "https://en.wikipedia.org/wiki/P-value"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-022",
+  "subject": 3,
+  "item": "3-2-1",
+  "tags": [
+   "가설검정"
+  ],
+  "q": "제1종 오류에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "표본 크기가 작아 생기는 오류",
+   "귀무가설이 거짓인데 기각하지 않는 오류",
+   "귀무가설이 참인데 기각하는 오류",
+   "대립가설이 참인데 채택하는 경우"
+  ],
+  "answer": 2,
+  "explain": "제1종 오류는 참인 귀무가설을 잘못 기각하는 것(거짓 양성), 제2종 오류는 거짓인 귀무가설을 기각하지 못하는 것이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Type I and type II errors",
+    "u": "https://en.wikipedia.org/wiki/Type_I_and_type_II_errors"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-023",
+  "subject": 3,
+  "item": "3-2-1",
+  "tags": [
+   "확률분포",
+   "계산"
+  ],
+  "q": "점수가 평균 70, 표준편차 10인 정규분포를 따를 때, 90점 이상일 확률은 약 얼마인가? (R의 1 - pnorm(90, 70, 10))",
+  "choices": [
+   "약 0.1%",
+   "약 15.9%",
+   "약 5.0%",
+   "약 2.3%"
+  ],
+  "answer": 3,
+  "explain": "90점은 평균보다 2 표준편차 위(z = 2)다. P(Z ≥ 2) = 1 − 0.97725 ≈ 0.0228, 약 2.3%. (±2σ 안이 약 95%라 한쪽 꼬리는 약 2.5%에 가깝다)",
+  "sources": [
+   {
+    "t": "Wikipedia: 68–95–99.7 rule",
+    "u": "https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule"
+   },
+   {
+    "t": "R 문서: Normal (pnorm)",
+    "u": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "2.3"
+ },
+ {
+  "id": "s3-024",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "가설검정"
+  ],
+  "q": "서로 다른 두 집단(치료군 50명, 대조군 50명)의 평균을 비교할 때 가장 적합한 검정은?",
+  "choices": [
+   "독립표본 t-검정",
+   "대응표본 t-검정",
+   "카이제곱 독립성 검정",
+   "상관분석"
+  ],
+  "answer": 0,
+  "explain": "겹치지 않는 두 독립 집단의 평균 비교에는 독립표본(two-sample) t-검정을 쓴다. 같은 사람을 두 번 재면 대응표본 t-검정이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Student's t-test",
+    "u": "https://en.wikipedia.org/wiki/Student%27s_t-test"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-025",
+  "subject": 3,
+  "item": "3-2-2",
+  "tags": [
+   "가설검정"
+  ],
+  "q": "성별(남/여)과 선호 브랜드(A/B/C)가 서로 관련이 있는지 분할표로 검정하려면?",
+  "choices": [
+   "독립표본 t-검정",
+   "카이제곱 독립성 검정",
+   "단순선형회귀",
+   "분산분석"
+  ],
+  "answer": 1,
+  "explain": "두 범주형 변수의 독립성은 분할표에 대한 카이제곱 검정으로 확인한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Chi-squared test",
+    "u": "https://en.wikipedia.org/wiki/Chi-squared_test"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-026",
+  "subject": 3,
+  "item": "3-2-3",
+  "tags": [
+   "주성분분석",
+   "계산"
+  ],
+  "q": "두 주성분의 고유값이 3과 1일 때, 첫 번째 주성분이 설명하는 분산의 비율은?",
+  "choices": [
+   "25%",
+   "50%",
+   "75%",
+   "100%"
+  ],
+  "answer": 2,
+  "explain": "각 주성분의 설명 분산 비율 = 고유값 / 고유값 합 = 3 / 4 = 75%.",
+  "sources": [
+   {
+    "t": "Wikipedia: Principal component analysis",
+    "u": "https://en.wikipedia.org/wiki/Principal_component_analysis"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "75",
+  "fixedOrder": true
+ },
+ {
+  "id": "s3-027",
+  "subject": 3,
+  "item": "3-2-4",
+  "tags": [
+   "시계열"
+  ],
+  "q": "ARIMA(p, d, q) 모형에서 d가 뜻하는 것은?",
+  "choices": [
+   "자기회귀 차수",
+   "이동평균 차수",
+   "차분 횟수",
+   "계절 주기"
+  ],
+  "answer": 2,
+  "explain": "p는 자기회귀(AR) 차수, d는 차분(differencing) 횟수, q는 이동평균(MA) 차수다.",
+  "sources": [
+   {
+    "t": "Wikipedia: ARIMA",
+    "u": "https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-028",
+  "subject": 3,
+  "item": "3-2-4",
+  "tags": [
+   "시계열"
+  ],
+  "q": "정상성(stationarity)을 가진 시계열에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "항상 계절성을 가진다",
+   "시간이 지날수록 평균이 계속 증가한다",
+   "분산이 시간에 비례해 커진다",
+   "평균과 분산 같은 통계적 성질이 시간에 따라 변하지 않는다"
+  ],
+  "answer": 3,
+  "explain": "정상 시계열은 평균·분산 등 통계적 성질이 시간이 지나도 일정하다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Stationary process",
+    "u": "https://en.wikipedia.org/wiki/Stationary_process"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s3-029",
+  "subject": 3,
+  "item": "3-3-2",
+  "tags": [
+   "분류 평가",
+   "계산"
+  ],
+  "q": "혼동행렬이 TP = 40, FN = 10, FP = 20, TN = 30일 때 정밀도(precision)는? (소수 셋째 자리까지)",
+  "choices": [
+   "0.667",
+   "0.800",
+   "0.700",
+   "0.600"
+  ],
+  "answer": 0,
+  "explain": "정밀도 = TP / (TP + FP) = 40 / 60 ≈ 0.667. 재현율은 TP / (TP + FN) = 0.800.",
+  "sources": [
+   {
+    "t": "Wikipedia: Precision and recall",
+    "u": "https://en.wikipedia.org/wiki/Precision_and_recall"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "0.667"
+ },
+ {
+  "id": "s3-030",
+  "subject": 3,
+  "item": "3-3-4",
+  "tags": [
+   "연관분석",
+   "계산"
+  ],
+  "q": "거래 10건 중 A 포함 5건, B 포함 5건, A와 B를 함께 포함 3건이다. 규칙 A → B의 향상도(lift)는?",
+  "choices": [
+   "0.6",
+   "1.2",
+   "1.5",
+   "0.3"
+  ],
+  "answer": 1,
+  "explain": "지지도(A,B) = 0.3, 지지도(A) = 0.5, 지지도(B) = 0.5. 향상도 = 0.3 / (0.5 × 0.5) = 1.2. 1보다 크면 A가 B 구매와 양의 관계다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Association rule learning (support, confidence, lift)",
+    "u": "https://en.wikipedia.org/wiki/Association_rule_learning"
+   }
+  ],
+  "checked": "2026-09-29",
+  "verify": "verify/s3.R",
+  "verifyValue": "1.2"
+ }
+]

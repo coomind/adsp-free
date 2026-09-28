@@ -1,0 +1,16 @@
+{
+ "name": "ADsP 무료 문제풀이",
+ "short_name": "ADsP",
+ "description": "데이터분석 준전문가(ADsP) 자체 제작 예상문제·요약 노트·모의고사",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#070708",
+ "theme_color": "#070708",
+ "lang": "ko",
+ "icons": [
+  {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+  {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+  {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+ ]
+}

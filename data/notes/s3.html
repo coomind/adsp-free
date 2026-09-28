@@ -1,0 +1,104 @@
+<p class="small">코드 결과는 R 4.6.1에서 실제로 실행해 확인했어요. 개념은 R 공식 문서·백과사전으로 확인했어요.</p>
+
+<section data-item="3-1-1">
+<h3>R 기초</h3>
+<table>
+<tr><th>코드</th><th>결과</th><th>포인트</th></tr>
+<tr><td><code>mean(c(3, NA, 5))</code></td><td>NA</td><td>NA가 있으면 결과도 NA</td></tr>
+<tr><td><code>mean(c(3, NA, 5), na.rm = TRUE)</code></td><td>4</td><td>na.rm = TRUE로 NA 제외</td></tr>
+<tr><td><code>x &lt;- 1:6; x[-2]</code></td><td>1 3 4 5 6</td><td>음수 인덱스 = 그 위치 빼기</td></tr>
+<tr><td><code>seq(2, 11, by = 3)</code></td><td>2 5 8 11</td><td>by 간격</td></tr>
+<tr><td><code>rep(c("A","B"), times = 2)</code></td><td>A B A B</td><td>each = 2면 A A B B</td></tr>
+<tr><td><code>class(c(1, "2", TRUE))</code></td><td>"character"</td><td>벡터는 한 자료형, 문자가 우선</td></tr>
+<tr><td><code>length(c(1, 2, NULL, 4))</code></td><td>3</td><td>NULL은 들어가지 않음</td></tr>
+</table>
+<table>
+<tr><th>행렬</th><th>포인트</th></tr>
+<tr><td><code>matrix(1:6, nrow = 2)</code></td><td>기본은 <b>열부터</b> 채움(byrow = FALSE). 1열 1,2 / 2열 3,4 / 3열 5,6</td></tr>
+<tr><td><code>apply(m, 1, sum)</code></td><td>MARGIN 1 = 행, 2 = 열</td></tr>
+</table>
+</section>
+
+<section data-item="3-1-2">
+<h3>데이터 마트</h3>
+<p>분석 목적에 맞게 데이터를 요약·변환해 모아 둔 분석용 데이터셋. R에서는 <code>table()</code>(빈도), <code>aggregate()</code>(그룹별 요약), <code>merge()</code>(결합) 등으로 만든다.</p>
+</section>
+
+<section data-item="3-1-3">
+<h3>결측값 처리와 이상값 검색</h3>
+<table>
+<tr><th>코드·방법</th><th>뜻</th></tr>
+<tr><td><code>is.na(x)</code></td><td>결측이면 TRUE. <code>sum(is.na(x))</code> = 결측 개수</td></tr>
+<tr><td><code>complete.cases(df)</code></td><td>모든 열에 결측이 없는 행만 TRUE</td></tr>
+<tr><td>평균 대치</td><td>결측값을 관측값의 평균으로 채움</td></tr>
+<tr><td>IQR 규칙</td><td>Q1 − 1.5×IQR 미만, Q3 + 1.5×IQR 초과를 이상값으로 봄 (IQR = Q3 − Q1). R <code>quantile</code> 기본은 type 7</td></tr>
+</table>
+</section>
+
+<section data-item="3-2-1">
+<h3>통계학 개론</h3>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>p-value</td><td>유의수준(예: 0.05)보다 작으면 귀무가설 기각</td></tr>
+<tr><td>제1종 오류</td><td>귀무가설이 참인데 기각 (거짓 양성)</td></tr>
+<tr><td>제2종 오류</td><td>귀무가설이 거짓인데 기각하지 못함 (거짓 음성)</td></tr>
+<tr><td>68–95–99.7 규칙</td><td>정규분포에서 평균 ±1σ 약 68%, ±2σ 약 95%, ±3σ 약 99.7%</td></tr>
+</table>
+</section>
+
+<section data-item="3-2-2">
+<h3>기초 통계분석</h3>
+<table>
+<tr><th>상황</th><th>방법</th></tr>
+<tr><td>독립된 두 집단 평균 비교</td><td>독립표본 t-검정</td></tr>
+<tr><td>같은 대상의 전후 비교</td><td>대응표본 t-검정</td></tr>
+<tr><td>두 범주형 변수의 관련성</td><td>카이제곱 독립성 검정</td></tr>
+<tr><td>두 연속형 변수의 직선 관계</td><td>상관분석(−1 ~ 1)</td></tr>
+<tr><td>한 변수로 다른 변수 예측</td><td>단순선형회귀, 설명력은 결정계수 R² = 1 − 잔차제곱합/총제곱합</td></tr>
+</table>
+<p>R의 <code>var()</code>·<code>sd()</code>는 분모 <b>n − 1</b>(표본분산). 예: <code>var(c(2,4,6,8))</code> = 20/3 ≈ 6.667</p>
+</section>
+
+<section data-item="3-2-3">
+<h3>다변량 분석</h3>
+<p><b>주성분분석(PCA)</b>: 각 주성분이 설명하는 분산 비율 = 그 고유값 / 고유값 합. 예: 고유값 3, 1 → 첫 주성분 75%.</p>
+</section>
+
+<section data-item="3-2-4">
+<h3>시계열 예측</h3>
+<table>
+<tr><th>용어</th><th>뜻</th></tr>
+<tr><td>정상성</td><td>평균·분산 같은 통계적 성질이 시간에 따라 변하지 않음</td></tr>
+<tr><td>ARIMA(p, d, q)</td><td>p = 자기회귀(AR) 차수, d = 차분 횟수, q = 이동평균(MA) 차수</td></tr>
+</table>
+</section>
+
+<section data-item="3-3-1">
+<h3>데이터 마이닝 개요</h3>
+<p><b>과대적합</b>: 학습 데이터에 지나치게 맞춰져 새 데이터 예측이 나빠지는 것. 반대로 너무 단순해 학습 데이터도 못 맞추면 과소적합.</p>
+</section>
+
+<section data-item="3-3-2">
+<h3>분류분석 평가</h3>
+<table>
+<tr><th>지표</th><th>식</th></tr>
+<tr><td>정확도</td><td>(TP + TN) / 전체</td></tr>
+<tr><td>정밀도(Precision)</td><td>TP / (TP + FP) — 양성이라 예측한 것 중 진짜 양성</td></tr>
+<tr><td>재현율(Recall)</td><td>TP / (TP + FN) — 진짜 양성 중 찾아낸 비율</td></tr>
+</table>
+</section>
+
+<section data-item="3-3-3">
+<h3>군집분석</h3>
+<p><b>k-means</b>: 군집 수 k를 미리 정해야 한다. k를 잘못 고르면 결과가 나빠지므로 엘보 방법·실루엣 등으로 고른다.</p>
+</section>
+
+<section data-item="3-3-4">
+<h3>연관분석</h3>
+<table>
+<tr><th>지표</th><th>식</th></tr>
+<tr><td>지지도(A→B)</td><td>A와 B를 함께 포함한 거래 / 전체 거래</td></tr>
+<tr><td>신뢰도(A→B)</td><td>지지도(A,B) / 지지도(A)</td></tr>
+<tr><td>향상도(A→B)</td><td>지지도(A,B) / (지지도(A) × 지지도(B)). 1보다 크면 양의 관계</td></tr>
+</table>
+</section>
