@@ -175,7 +175,7 @@ function diagEstimate(results) {
   const lo = Math.max(0, Math.round(mid - halfW)), hi = Math.min(100, Math.round(mid + halfW));
   const risk = subs.filter((x) => x.n && x.lo < x.failAt);
   const status = lo >= EXAM.passTotal && !risk.length ? '여유' : hi < EXAM.passTotal ? '부족' : '아슬아슬';
-  const weak = subs.filter((x) => x.n).sort((a, b) => (a.ok / a.n - b.ok / b.n) || (b.max - a.max))[0];
+  const weak = subs.filter((x) => x.n && x.ok < x.n).sort((a, b) => (a.ok / a.n - b.ok / b.n) || (b.max - a.max))[0];
   return { subs, lo, hi, status, risk, weak, right: results.filter((x) => x.ok).length, total: results.length };
 }
 route(/^\/diagnose$/, (app) => {
