@@ -455,6 +455,11 @@ let deferred = null;
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; if (!DB.banner) $('#installBanner').hidden = false; });
 $('#installBtn').addEventListener('click', async () => { if (deferred) { deferred.prompt(); await deferred.userChoice; } DB.banner = true; save(); $('#installBanner').hidden = true; });
 $('#installClose').addEventListener('click', () => { DB.banner = true; save(); $('#installBanner').hidden = true; });
+// iPhone Safari has no install prompt: show the manual path once (Share -> Add to Home Screen)
+if (/iPhone|iPad|iPod/.test(navigator.userAgent) && !navigator.standalone && !DB.banner) {
+  $('#installBanner span').textContent = '공유 버튼 → 홈 화면에 추가하면 앱처럼, 오프라인에서도 볼 수 있어요';
+  $('#installBtn').hidden = true; $('#installBanner').hidden = false;
+}
 if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
 
 document.addEventListener('click', (e) => { const t = e.target.closest('[data-track]'); if (t) track(t.dataset.track); });
