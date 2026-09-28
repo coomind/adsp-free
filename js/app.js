@@ -410,13 +410,13 @@ route(/^\/verify$/, (app) => {
   <tr><td>1. 출제 기준</td><td>모든 문제를 공식 출제 기준 세부항목에 연결</td><td>${n} / ${n}</td></tr>
   <tr><td>2. 공개 근거 링크</td><td>개념 문제마다 공개 문서(백과사전, 표준 용어사전, 정부 가이드라인 등) 링크를 달고, 링크를 실제로 열어 내용이 정답·해설과 일치하는지 확인. 근거를 못 찾은 문제는 제외</td><td>${withSrc} / ${n}</td></tr>
   <tr><td>3. 실행 검증</td><td>계산·R 코드 문제는 R 또는 Python으로 실제 실행해 정답 확정. 스크립트를 <a href="https://github.com/${CFG.repo}/tree/main/verify" target="_blank" rel="noopener">verify/ 폴더</a>에 공개</td><td>${withRun}문제</td></tr>
-  <tr><td>4. 교차 검토</td><td>서로 다른 회사의 AI 모델 3개(Claude, ChatGPT, Gemini)에게 과목별 전체 문제를 보여 주고 틀리거나 애매하거나 복수정답인 문제를 찾게 함. 의견이 갈리고 확실하지 않으면 제외</td><td>과목별 진행</td></tr>
+  <tr><td>4. 교차 검토</td><td>서로 다른 회사의 AI 모델 3개(Claude, ChatGPT, Gemini)에게 과목별 전체 문제를 보여 주고 틀리거나 애매하거나 복수정답인 문제를 찾게 함. 의견이 갈리고 확실하지 않으면 제외</td><td>전 과목 완료</td></tr>
   <tr><td>5. 베타 신고</td><td>풀이하는 분들의 오류 신고를 GitHub Issues로 받아 반영</td><td>상시</td></tr></table>
   <h3>과목별 교차 검토 현황</h3>
   <table><tr><th>과목</th><th>상태</th></tr>
-  <tr><td>1과목 데이터 이해 (40)</td><td>공개 근거 확인 + Claude 검토 완료. 처음 30문제는 ChatGPT·Gemini 교차 검토 완료, 추가 10문제는 예정</td></tr>
-  <tr><td>2과목 데이터분석 기획 (40)</td><td>공개 근거 확인 + Claude 검토 완료. 처음 30문제는 ChatGPT·Gemini 교차 검토 완료, 추가 10문제는 예정</td></tr>
-  <tr><td>3과목 데이터분석 (90)</td><td>Claude 교차 검토 + R·Python 실행 검증 완료, ChatGPT·Gemini 추가 검토 예정</td></tr></table>
+  <tr><td>1과목 데이터 이해 (40)</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
+  <tr><td>2과목 데이터분석 기획 (40)</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
+  <tr><td>3과목 데이터분석 (90)</td><td>R·Python 실행 검증 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr></table>
   <p>기출·복원 문제는 쓰지 않아요. 한국데이터산업진흥원은 기출문제의 복제·배포를 허가하지 않아요(데이터자격시험 FAQ).</p>
   <p class="small">AI 교차 검토와 공개 근거도 틀릴 수 있어요. 이상한 점이 보이면 꼭 신고해 주세요.</p></div>`;
 });
