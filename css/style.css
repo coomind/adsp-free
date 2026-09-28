@@ -101,6 +101,7 @@ table.plain td, table.plain th { border-bottom: 1px solid var(--line); padding: 
 .foot { max-width: 720px; margin: 24px auto 0; padding: 16px; font-size: 14px; color: var(--sub); border-top: 1px solid var(--line); }
 .foot p { margin: 4px 0; }
 .made { font-size: 13px; color: var(--dim); }
+.install[hidden] { display: none; }
 .install { position: fixed; left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 7; display: flex; align-items: center; gap: 10px;
   background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; font-size: 15px; }
 .install span { flex: 1; }
