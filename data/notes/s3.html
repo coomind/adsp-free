@@ -17,11 +17,27 @@
 <tr><td><code>matrix(1:6, nrow = 2)</code></td><td>기본은 <b>열부터</b> 채움(byrow = FALSE). 1열 1,2 / 2열 3,4 / 3열 5,6</td></tr>
 <tr><td><code>apply(m, 1, sum)</code></td><td>MARGIN 1 = 행, 2 = 열</td></tr>
 </table>
+<table>
+<tr><th>코드</th><th>결과</th><th>포인트</th></tr>
+<tr><td><code>order(c(30, 10, 20))</code></td><td>2 3 1</td><td>값이 아니라 정렬 순서의 원래 위치</td></tr>
+<tr><td><code>which(c(3, 8, 1, 8) == 8)</code></td><td>2 4</td><td>TRUE인 위치</td></tr>
+<tr><td><code>unique(c(2, 2, 3, 1, 3))</code></td><td>2 3 1</td><td>처음 나온 순서 유지</td></tr>
+<tr><td><code>levels(factor(c("b","a","b")))</code></td><td>"a" "b"</td><td>수준은 정렬 순서</td></tr>
+<tr><td><code>length(list(a = 1:3, b = "x"))</code></td><td>2</td><td>리스트 원소 개수</td></tr>
+<tr><td><code>length("ADsP")</code> / <code>nchar("ADsP")</code></td><td>1 / 4</td><td>원소 개수 vs 글자 수</td></tr>
+<tr><td><code>sort(c(3, NA, 1))</code></td><td>1 3</td><td>기본으로 NA를 뺀다(na.last = NA)</td></tr>
+<tr><td><code>round(2.5)</code></td><td>2</td><td>5는 짝수 쪽으로 반올림(round(0.5) = 0)</td></tr>
+</table>
 </section>
 
 <section data-item="3-1-2">
 <h3>데이터 마트</h3>
 <p>분석 목적에 맞게 데이터를 요약·변환해 모아 둔 분석용 데이터셋. R에서는 <code>table()</code>(빈도), <code>aggregate()</code>(그룹별 요약), <code>merge()</code>(결합) 등으로 만든다.</p>
+<table>
+<tr><th>코드</th><th>포인트</th></tr>
+<tr><td><code>aggregate(v ~ g, data, FUN = mean)</code></td><td>그룹별 요약</td></tr>
+<tr><td><code>merge(x, y)</code></td><td>기본은 양쪽에 다 있는 키만 남기는 내부 조인</td></tr>
+</table>
 </section>
 
 <section data-item="3-1-3">
@@ -33,6 +49,12 @@
 <tr><td>평균 대치</td><td>결측값을 관측값의 평균으로 채움</td></tr>
 <tr><td>IQR 규칙</td><td>Q1 − 1.5×IQR 미만, Q3 + 1.5×IQR 초과를 이상값으로 봄 (IQR = Q3 − Q1). R <code>quantile</code> 기본은 type 7</td></tr>
 </table>
+<table>
+<tr><th>방법</th><th>식·특징</th></tr>
+<tr><td>중앙값 대치</td><td>이상값에 덜 민감(평균은 이상값에 끌려감)</td></tr>
+<tr><td>표준화(z)</td><td>(x − 평균) / 표준편차. R <code>scale()</code>은 분모 n − 1 표준편차</td></tr>
+<tr><td>최소-최대 정규화</td><td>(x − 최소) / (최대 − 최소), 0~1</td></tr>
+</table>
 </section>
 
 <section data-item="3-2-1">
@@ -43,6 +65,14 @@
 <tr><td>제1종 오류</td><td>귀무가설이 참인데 기각 (거짓 양성)</td></tr>
 <tr><td>제2종 오류</td><td>귀무가설이 거짓인데 기각하지 못함 (거짓 음성)</td></tr>
 <tr><td>68–95–99.7 규칙</td><td>정규분포에서 평균 ±1σ 약 68%, ±2σ 약 95%, ±3σ 약 99.7%</td></tr>
+</table>
+<table>
+<tr><th>개념</th><th>뜻</th></tr>
+<tr><td>중심극한정리</td><td>표본이 커지면 표본평균의 분포가 정규분포에 가까워짐(모집단 분포와 무관, 분산 유한)</td></tr>
+<tr><td>표준오차</td><td>σ / √n</td></tr>
+<tr><td>95% 신뢰구간</td><td>같은 방법으로 여러 번 만들면 약 95%가 참값을 포함. 평균(σ 알 때): x̄ ± 1.96·σ/√n</td></tr>
+<tr><td>이항분포</td><td>P(X = k) = nCk·pᵏ(1−p)ⁿ⁻ᵏ, R <code>dbinom</code></td></tr>
+<tr><td>포아송분포</td><td>P(X = 0) = e^(−λ), R <code>dpois</code></td></tr>
 </table>
 </section>
 
@@ -57,11 +87,19 @@
 <tr><td>한 변수로 다른 변수 예측</td><td>단순선형회귀, 설명력은 결정계수 R² = 1 − 잔차제곱합/총제곱합</td></tr>
 </table>
 <p>R의 <code>var()</code>·<code>sd()</code>는 분모 <b>n − 1</b>(표본분산). 예: <code>var(c(2,4,6,8))</code> = 20/3 ≈ 6.667</p>
+<table>
+<tr><th>개념</th><th>식·특징</th></tr>
+<tr><td>모분산 vs 표본분산</td><td>분모 n vs n − 1</td></tr>
+<tr><td>스피어만 상관</td><td>순위로 계산, 1 − 6Σd² / (n(n² − 1))</td></tr>
+<tr><td>수정 결정계수</td><td>1 − (1 − R²)(n − 1) / (n − p − 1)</td></tr>
+<tr><td>일원분산분석 F</td><td>집단 간 평균제곱 / 집단 내 평균제곱</td></tr>
+</table>
 </section>
 
 <section data-item="3-2-3">
 <h3>다변량 분석</h3>
 <p><b>주성분분석(PCA)</b>: 각 주성분이 설명하는 분산 비율 = 그 고유값 / 고유값 합. 예: 고유값 3, 1 → 첫 주성분 75%.</p>
+<p><b>다중공선성</b>: 회귀의 설명변수들끼리 강한 선형 관계. 분산팽창계수(VIF)로 진단.</p>
 </section>
 
 <section data-item="3-2-4">
@@ -71,11 +109,13 @@
 <tr><td>정상성</td><td>평균·분산 같은 통계적 성질이 시간에 따라 변하지 않음</td></tr>
 <tr><td>ARIMA(p, d, q)</td><td>p = 자기회귀(AR) 차수, d = 차분 횟수, q = 이동평균(MA) 차수</td></tr>
 </table>
+<p><b>이동평균</b>: 최근 k개의 평균. <b>단순 지수평활</b>: s_t = α·x_t + (1 − α)·s_(t−1), 0 ≤ α ≤ 1. <b>차분</b>: <code>diff(x, differences = 2)</code>는 두 번 차분.</p>
 </section>
 
 <section data-item="3-3-1">
 <h3>데이터 마이닝 개요</h3>
 <p><b>과대적합</b>: 학습 데이터에 지나치게 맞춰져 새 데이터 예측이 나빠지는 것. 반대로 너무 단순해 학습 데이터도 못 맞추면 과소적합.</p>
+<p><b>k-겹 교차검증</b>: 데이터를 k개로 나눠 하나씩 검증용, 나머지로 학습하는 것을 k번 반복해 평균.</p>
 </section>
 
 <section data-item="3-3-2">
@@ -86,11 +126,29 @@
 <tr><td>정밀도(Precision)</td><td>TP / (TP + FP) — 양성이라 예측한 것 중 진짜 양성</td></tr>
 <tr><td>재현율(Recall)</td><td>TP / (TP + FN) — 진짜 양성 중 찾아낸 비율</td></tr>
 </table>
+<table>
+<tr><th>지표·개념</th><th>식·특징</th></tr>
+<tr><td>특이도</td><td>TN / (TN + FP)</td></tr>
+<tr><td>F1</td><td>2 × 정밀도 × 재현율 / (정밀도 + 재현율)</td></tr>
+<tr><td>ROC·AUC</td><td>TPR 대 FPR 곡선. AUC 1 완벽, 0.5 무작위 수준</td></tr>
+<tr><td>지니 불순도</td><td>1 − Σpᵢ²</td></tr>
+<tr><td>엔트로피</td><td>−Σpᵢ log₂ pᵢ (반반이면 1)</td></tr>
+<tr><td>오즈</td><td>p / (1 − p). 로지스틱 계수 β → 오즈 e^β배</td></tr>
+<tr><td>k-NN</td><td>가까운 k개 이웃의 다수결</td></tr>
+<tr><td>랜덤 포레스트</td><td>부트스트랩 표본으로 여러 나무(배깅) + 무작위 변수, 다수결. 순차적으로 오류에 가중치 → 부스팅</td></tr>
+</table>
 </section>
 
 <section data-item="3-3-3">
 <h3>군집분석</h3>
 <p><b>k-means</b>: 군집 수 k를 미리 정해야 한다. k를 잘못 고르면 결과가 나빠지므로 엘보 방법·실루엣 등으로 고른다.</p>
+<table>
+<tr><th>개념</th><th>식·특징</th></tr>
+<tr><td>유클리드 거리</td><td>√Σ(차이²)</td></tr>
+<tr><td>맨해튼 거리</td><td>Σ|차이|</td></tr>
+<tr><td>k-means 중심</td><td>군집에 속한 점들의 평균</td></tr>
+<tr><td>단일·완전 연결</td><td>두 군집 사이 가장 가까운 / 가장 먼 점의 거리, 결과는 덴드로그램</td></tr>
+</table>
 </section>
 
 <section data-item="3-3-4">

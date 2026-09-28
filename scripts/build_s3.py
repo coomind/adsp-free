@@ -131,6 +131,11 @@ qs = [
       "지지도(A,B) = 0.3, 지지도(A) = 0.5, 지지도(B) = 0.5. 향상도 = 0.3 / (0.5 × 0.5) = 1.2. 1보다 크면 A가 B 구매와 양의 관계다.", ["arl"], value="1.2"),
 ]
 
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from s3_more import more
+qs += more(Q, S)
+
 out = os.path.join(os.path.dirname(__file__), '..', 'data', 'questions', 's3.json')
 json.dump(qs, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(qs), 'questions ->', os.path.normpath(out))

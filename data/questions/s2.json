@@ -731,5 +731,248 @@
    }
   ],
   "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-031",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차에서 '데이터 마이닝' 바로 다음 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "전처리",
+   "변환",
+   "결과 해석·평가"
+  ],
+  "answer": 3,
+  "explain": "KDD는 선택 → 전처리 → 변환 → 데이터 마이닝 → 결과 해석·평가다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s2-032",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차에서 '전처리' 바로 다음 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "전처리",
+   "변환",
+   "데이터 마이닝"
+  ],
+  "answer": 2,
+  "explain": "전처리 다음은 변환(Transformation), 그다음이 데이터 마이닝이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s2-033",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM에서 '데이터 준비' 바로 다음 단계는?",
+  "choices": [
+   "데이터 이해",
+   "전개",
+   "평가",
+   "모델링"
+  ],
+  "answer": 3,
+  "explain": "데이터 준비 다음은 모델링(Modeling)이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-034",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "SEMMA"
+  ],
+  "q": "SEMMA에서 'Explore' 바로 다음 단계는?",
+  "choices": [
+   "Sample",
+   "Modify",
+   "Model",
+   "Assess"
+  ],
+  "answer": 1,
+  "explain": "SEMMA는 Sample → Explore → Modify → Model → Assess다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SEMMA",
+    "u": "https://en.wikipedia.org/wiki/SEMMA"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s2-035",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트의 비용을 계획·추정하고 예산을 세워 통제하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "원가 관리",
+   "조달 관리",
+   "범위 관리",
+   "자원 관리"
+  ],
+  "answer": 0,
+  "explain": "원가 관리(Cost Management)는 비용 계획·추정·예산 수립·통제를 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-036",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "품질 정책·목표·책임을 정하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "리스크 관리",
+   "품질 관리",
+   "통합 관리",
+   "일정 관리"
+  ],
+  "answer": 1,
+  "explain": "품질 관리(Quality Management)는 품질 정책·목표·책임을 정한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-037",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 정보를 제때 적절하게 계획·수집·생성·배포하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "자원 관리",
+   "이해관계자 관리",
+   "의사소통 관리",
+   "조달 관리"
+  ],
+  "answer": 2,
+  "explain": "의사소통 관리(Communications Management)는 프로젝트 정보의 적시·적절한 계획·수집·생성·배포를 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-038",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "여러 프로젝트 관리 활동을 식별·정의·결합·조정해 하나로 묶는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "의사소통 관리",
+   "범위 관리",
+   "품질 관리",
+   "통합 관리"
+  ],
+  "answer": 3,
+  "explain": "통합 관리(Integration Management)는 여러 프로세스와 활동을 식별·정의·결합·통일·조정한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-039",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 팀을 조직·관리·이끄는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "자원 관리",
+   "조달 관리",
+   "원가 관리",
+   "리스크 관리"
+  ],
+  "answer": 0,
+  "explain": "자원 관리(Resource Management, 이전 명칭 인적자원 관리)는 프로젝트 팀을 조직·관리·이끈다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s2-040",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "나선형 모델이 폭포수·점진적·진화적 프로토타이핑 가운데 어떤 방식의 요소를 쓸지 정하는 기준은?",
+  "choices": [
+   "코드 줄 수",
+   "프로젝트의 위험 패턴",
+   "개발자 선호",
+   "최소 비용만"
+  ],
+  "answer": 1,
+  "explain": "나선형 모델은 위험 중심(risk-driven)으로, 프로젝트 고유의 위험 패턴에 따라 다른 모델의 요소를 채택한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Spiral model",
+    "u": "https://en.wikipedia.org/wiki/Spiral_model"
+   }
+  ],
+  "checked": "2026-09-29"
  }
 ]

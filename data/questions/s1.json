@@ -738,5 +738,250 @@
    }
   ],
   "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-040",
+  "subject": 1,
+  "item": "1-2-1",
+  "tags": [
+   "빅데이터 특징"
+  ],
+  "q": "빅데이터 특징 중 '데이터의 종류와 성격이 정형·반정형·비정형 등으로 다양함'을 뜻하는 것은?",
+  "choices": [
+   "Volume",
+   "Variety",
+   "Velocity",
+   "Veracity"
+  ],
+  "answer": 1,
+  "explain": "Variety는 데이터의 유형과 성격(다양성)이다. Volume 규모, Velocity 속도, Veracity 신뢰성.",
+  "sources": [
+   {
+    "t": "Wikipedia: Big data (Characteristics)",
+    "u": "https://en.wikipedia.org/wiki/Big_data"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s1-041",
+  "subject": 1,
+  "item": "1-2-1",
+  "tags": [
+   "빅데이터 특징"
+  ],
+  "q": "빅데이터 특징 중 '데이터의 진실성·신뢰성(품질)'을 뜻하는 것은?",
+  "choices": [
+   "Volume",
+   "Variety",
+   "Velocity",
+   "Veracity"
+  ],
+  "answer": 3,
+  "explain": "Veracity는 데이터의 진실성 또는 신뢰성이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Big data (Characteristics)",
+    "u": "https://en.wikipedia.org/wiki/Big_data"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s1-042",
+  "subject": 1,
+  "item": "1-2-1",
+  "tags": [
+   "빅데이터 특징"
+  ],
+  "q": "빅데이터 특징 중 '생성·저장되는 데이터의 양'을 뜻하는 것은?",
+  "choices": [
+   "Volume",
+   "Variety",
+   "Velocity",
+   "Veracity"
+  ],
+  "answer": 0,
+  "explain": "Volume은 생성·저장되는 데이터의 양(규모)이다. 종류의 다양성은 Variety, 생성·처리 속도는 Velocity, 신뢰성은 Veracity.",
+  "sources": [
+   {
+    "t": "Wikipedia: Big data (Characteristics)",
+    "u": "https://en.wikipedia.org/wiki/Big_data"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s1-043",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "DIKW"
+  ],
+  "q": "DIKW 피라미드의 가장 위(꼭대기)에 있는 단계는?",
+  "choices": [
+   "데이터",
+   "정보",
+   "지식",
+   "지혜"
+  ],
+  "answer": 3,
+  "explain": "DIKW는 데이터가 바닥, 지혜가 꼭대기인 위계다.",
+  "sources": [
+   {
+    "t": "Wikipedia: DIKW pyramid",
+    "u": "https://en.wikipedia.org/wiki/DIKW_pyramid"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s1-044",
+  "subject": 1,
+  "item": "1-1-1",
+  "tags": [
+   "암묵지·형식지"
+  ],
+  "q": "다음 중 형식지에 해당하는 것은?",
+  "choices": [
+   "자전거를 타는 요령",
+   "반죽을 치대는 손 감각",
+   "악기 연주 감각",
+   "회사 업무 매뉴얼"
+  ],
+  "answer": 3,
+  "explain": "글·그림으로 옮겨 쉽게 전달되는 지식이 형식지다. 자전거 타기·반죽·악기 연주는 대표적인 암묵지 예다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Tacit knowledge",
+    "u": "https://en.wikipedia.org/wiki/Tacit_knowledge"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-045",
+  "subject": 1,
+  "item": "1-1-2",
+  "tags": [
+   "DB 용어"
+  ],
+  "q": "책의 제목·저자·출판일은 그 책에 대한 무엇에 해당하는가?",
+  "choices": [
+   "메타데이터",
+   "원시 데이터",
+   "인덱스",
+   "트랜잭션"
+  ],
+  "answer": 0,
+  "explain": "다른 데이터의 특징을 정의·설명하는 데이터가 메타데이터다. 책의 제목·저자·출판일이 대표 예다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Metadata",
+    "u": "https://en.wikipedia.org/wiki/Metadata"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-046",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "DW"
+  ],
+  "q": "여러 운영 시스템에서 온 데이터의 불일치를 없애 일관된 형식으로 모으는 데이터 웨어하우스의 특징은?",
+  "choices": [
+   "주제지향적",
+   "통합적",
+   "시계열적",
+   "비휘발적"
+  ],
+  "answer": 1,
+  "explain": "여러 원천 시스템의 불일치를 제거해 하나로 맞추는 것이 통합적(integrated) 특징이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data warehouse (Inmon의 특징)",
+    "u": "https://en.wikipedia.org/wiki/Data_warehouse"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true
+ },
+ {
+  "id": "s1-047",
+  "subject": 1,
+  "item": "1-1-3",
+  "tags": [
+   "OLAP"
+  ],
+  "q": "OLAP에서 요약된 데이터에서 더 세부적인 데이터로 내려가며 살펴보는 연산은?",
+  "choices": [
+   "롤업",
+   "드릴다운",
+   "슬라이싱",
+   "ETL"
+  ],
+  "answer": 1,
+  "explain": "드릴다운은 세부 내용으로 내려가 탐색하는 연산이다. 롤업(통합)은 반대로 한 차원 이상에서 데이터를 집계한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Online analytical processing (operations)",
+    "u": "https://en.wikipedia.org/wiki/Online_analytical_processing"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-048",
+  "subject": 1,
+  "item": "1-3-2",
+  "tags": [
+   "데이터 사이언티스트"
+  ],
+  "q": "분석 결과를 기획자·경영진 등 이해관계자에게 시각 자료와 비기술적 언어로 전달해 의사결정으로 연결하는 역량은?",
+  "choices": [
+   "통계적 모델링 역량",
+   "데이터 수집 및 처리 역량",
+   "도메인 지식과 의사소통 능력",
+   "알고리즘 구현 속도"
+  ],
+  "answer": 2,
+  "explain": "TTA 용어사전은 데이터 과학자의 주요 역량으로 데이터 수집·처리, 통계적 모델링·알고리즘 활용, 도메인 지식과 의사소통 능력을 들고, 결과를 이해관계자에게 전달하는 것을 의사소통 능력으로 설명한다. (ADsP 교재는 이를 Soft Skill의 '설득력 있는 전달'로 설명하기도 한다.)",
+  "sources": [
+   {
+    "t": "TTA 정보통신용어사전: 데이터 과학자",
+    "u": "https://terms.tta.or.kr/dictionary/dictionaryView.do?subject=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90"
+   }
+  ],
+  "checked": "2026-09-29"
+ },
+ {
+  "id": "s1-049",
+  "subject": 1,
+  "item": "1-2-3",
+  "tags": [
+   "활용 테크닉"
+  ],
+  "q": "소셜 네트워크 분석에서 노드의 '중요도·영향력'을 수치로 나타내는 지표는?",
+  "choices": [
+   "엔트로피",
+   "지지도",
+   "신뢰도",
+   "중심성"
+  ],
+  "answer": 3,
+  "explain": "중심성(centrality)은 네트워크에서 노드의 중요도나 영향력을 수치화하는 지표다. 지지도·신뢰도는 연관분석, 엔트로피는 불순도 지표다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Social network analysis (Centrality)",
+    "u": "https://en.wikipedia.org/wiki/Social_network_analysis"
+   }
+  ],
+  "checked": "2026-09-29"
  }
 ]

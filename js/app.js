@@ -414,9 +414,9 @@ route(/^\/verify$/, (app) => {
   <tr><td>5. 베타 신고</td><td>풀이하는 분들의 오류 신고를 GitHub Issues로 받아 반영</td><td>상시</td></tr></table>
   <h3>과목별 교차 검토 현황</h3>
   <table><tr><th>과목</th><th>상태</th></tr>
-  <tr><td>1과목 데이터 이해</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
-  <tr><td>2과목 데이터분석 기획</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
-  <tr><td>3과목 데이터분석</td><td>Claude 교차 검토 + R·Python 실행 검증 완료, ChatGPT·Gemini 추가 검토 예정</td></tr></table>
+  <tr><td>1과목 데이터 이해 (40)</td><td>공개 근거 확인 + Claude 검토 완료. 처음 30문제는 ChatGPT·Gemini 교차 검토 완료, 추가 10문제는 예정</td></tr>
+  <tr><td>2과목 데이터분석 기획 (40)</td><td>공개 근거 확인 + Claude 검토 완료. 처음 30문제는 ChatGPT·Gemini 교차 검토 완료, 추가 10문제는 예정</td></tr>
+  <tr><td>3과목 데이터분석 (90)</td><td>Claude 교차 검토 + R·Python 실행 검증 완료, ChatGPT·Gemini 추가 검토 예정</td></tr></table>
   <p>기출·복원 문제는 쓰지 않아요. 한국데이터산업진흥원은 기출문제의 복제·배포를 허가하지 않아요(데이터자격시험 FAQ).</p>
   <p class="small">AI 교차 검토와 공개 근거도 틀릴 수 있어요. 이상한 점이 보이면 꼭 신고해 주세요.</p></div>`;
 });
