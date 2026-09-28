@@ -1,7 +1,7 @@
 // Offline cache: app shell + data are precached; fonts and anything else are cached on first use.
-const VERSION = 'adsp-v2';
+const VERSION = 'adsp-v3';
 const SHELL = [
-  './', 'index.html', 'css/style.css', 'js/app.js', 'manifest.webmanifest',
+  './', 'index.html', 'og.png', 'css/style.css', 'js/app.js', 'manifest.webmanifest',
   'icons/icon-192.png', 'icons/icon-512.png',
   'data/exam.json', 'data/mock/index.json',
   'data/questions/s1.json', 'data/questions/s2.json', 'data/questions/s3.json',
