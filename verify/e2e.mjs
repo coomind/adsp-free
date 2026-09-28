@@ -41,6 +41,7 @@ const go = async (hash) => { await send('Page.navigate', { url: `${site}${hash}`
 const t0 = Date.now(); await send('Page.navigate', { url: `${site}#/` });
 for (let i = 0; i < 100 && !(await ev(`!!document.querySelector('#app h1')`)); i++) await sleep(100);
 results.firstRenderMs = Date.now() - t0;
+await ev(`window.__ev = []; window.goatcounter = { count: (o) => window.__ev.push(o.path) }; true`);
 results.homeButton = await ev(`!!document.querySelector('a[href="#/diagnose"]')`);
 await ev(`document.getElementById('installClose')?.click(); true`);
 await shot('e2e_1_home.png');
@@ -68,13 +69,22 @@ results.card = await ev(`(async () => { let url = null; const orig = HTMLAnchorE
   if (!url) return null; const img = new Image(); img.src = url; await img.decode(); return { w: img.width, h: img.height, url }; })()`);
 if (results.card?.url) { writeFileSync(join(outDir, 'e2e_4_card.png'), Buffer.from(results.card.url.split(',')[1], 'base64')); results.card = `${results.card.w}x${results.card.h}`; }
 
-// mock exam: starts with timer and 50 cells
-await go('#/mock/m1');
+// mock list, then mock 3 starts with timer and 50 cells; report-click tracking
+await go('#/mock');
+results.mockList = await ev(`[...document.querySelectorAll('#app .card b')].map((b) => b.textContent)`);
+await go('#/practice/1/%EC%A0%84%EC%B2%B4');
+await ev(`document.querySelector('.choice').click(); true`); await sleep(200);
+await ev(`(() => { const a = document.querySelector('[data-track="report_click"]'); a.removeAttribute('href'); a.click(); return true; })()`);
+await go('#/mock/m3');
 results.mockCells = await ev(`document.querySelectorAll('.palette button').length`);
 results.mockTimer = await ev(`document.getElementById('timer')?.textContent`);
 await shot('e2e_5_mock.png');
+await ev(`window.confirm = () => true; document.getElementById('submit').click(); true`); await sleep(500);
+results.mockResult = await ev(`document.querySelector('.score')?.textContent + ' / ' + document.querySelector('.card p b')?.textContent`);
+await shot('e2e_6_mock_result.png');
 
 // share preview tags
+results.events = await ev(`window.__ev`);
 results.og = await ev(`['og:title','og:description','og:image'].map((p) => document.querySelector('meta[property="' + p + '"]')?.content)`);
 results.errors = errors;
 console.log(JSON.stringify(results, null, 1));
