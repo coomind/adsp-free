@@ -1,5 +1,6 @@
 """Build the cross-review prompt for one subject (pasted once into each external model).
-Usage: python scripts/review_prompt.py 2   -> review/s2_review_prompt.txt"""
+Usage: python scripts/review_prompt.py 2                    -> review/s2_review_prompt.txt
+       python scripts/review_prompt.py 1 s1-040 s1-049      -> review/s1_s1-040_s1-049_review_prompt.txt (only that id range)"""
 import json, os, sys
 
 s = sys.argv[1]
@@ -7,6 +8,9 @@ root = os.path.join(os.path.dirname(__file__), '..')
 exam = json.load(open(os.path.join(root, 'data', 'exam.json'), encoding='utf-8'))
 name = next(x['name'] for x in exam['subjects'] if str(x['id']) == s)
 qs = json.load(open(os.path.join(root, 'data', 'questions', f's{s}.json'), encoding='utf-8'))
+rng = sys.argv[2:4]
+if rng:
+    qs = [q for q in qs if rng[0] <= q['id'] <= rng[1]]
 N = '①②③④'
 out = [f"다음은 ADsP(데이터분석 준전문가) {s}과목 '{name}' 대비로 직접 만든 4지선다 예상문제 {len(qs)}개입니다. 각 문제에 우리가 정한 정답과 해설을 붙였습니다.",
        "",
@@ -21,6 +25,6 @@ for q in qs:
     out.append(f"  정답: {N[q['answer']]} / 해설: {q['explain']}")
     out.append("")
 os.makedirs(os.path.join(root, 'review'), exist_ok=True)
-path = os.path.join(root, 'review', f's{s}_review_prompt.txt')
+path = os.path.join(root, 'review', f"s{s}_{'_'.join(rng) + '_' if rng else ''}review_prompt.txt")
 open(path, 'w', encoding='utf-8').write('\n'.join(out))
 print(path, len('\n'.join(out)))
