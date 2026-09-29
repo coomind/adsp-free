@@ -21,7 +21,8 @@ def prep(size=45, force=()):
         if s.get('excluded'): continue
         if force and q['_file'] in force: todo.append(q); continue
         hist = s.get('solve', [])
-        if not hist or (hist[-1]['r'] != 'ok' and hist[-1]['h'] != chash(q)) or (s.get('review', {}).get('ok') is False and s['review'].get('h') != chash(q)):
+        # a miss on unchanged content waits for an edit; any edit (even of a question that passed) needs a fresh solve + review
+        if not hist or hist[-1]['h'] != chash(q) or s.get('review', {}).get('h') != chash(q):
             todo.append(q)
     rnd = time.strftime('r%m%d%H%M')
     for i in range(0, len(todo), size):

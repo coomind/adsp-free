@@ -575,7 +575,7 @@ route(/^\/verify$/, async (app) => {
   <tr><td>2. 실행 검증</td><td>계산·R 코드·R 출력 해석 문제는 R과 Python으로 각각 실행해 둘 다 정답과 같아야 통과. R 출력 화면은 실제로 R을 돌려 만든 것</td><td>${V ? V.exec : '-'}문제</td></tr>
   <tr><td>3. 근거 검증</td><td>개념 문제는 공개 문서(백과사전, 공식 문서 등) 링크를 달고, 그 페이지를 실제로 내려받아 핵심 문구가 들어 있는지 자동 확인${V ? ` (처음 공개한 ${V.legacyManual}문제는 사람이 링크를 열어 확인)` : ''}</td><td>${V ? V.evidence + V.legacyManual : '-'}문제</td></tr>
   <tr><td>4. 독립 풀이</td><td>정답과 해설을 보지 못한 별도의 AI가 모든 문제를 직접 풂. 답이 다르면 문제를 고쳐 다시 풀게 하고, 두 번 연속 어긋나면 제외. 보기 순서를 섞은 뒤 한 번 더 풀게 함</td><td>${V ? `첫 풀이 일치 ${(V.solverFirstMatch * 100).toFixed(1)}%` : '-'}</td></tr>
-  <tr><td>5. 교차 검토</td><td>또 다른 AI(Claude)가 정답·해설을 보고 오답·복수정답·애매함·해설 오류를 전부 검토. ChatGPT·Gemini 교차 검토는 처음 170문제 완료, 추가분은 진행 예정</td><td>${V ? V.reviewed : '-'} / ${n}</td></tr></table>
+  <tr><td>5. 교차 검토</td><td>또 다른 AI(Claude)가 정답·해설을 보고 오답·복수정답·애매함·해설 오류를 전부 검토. ChatGPT·Gemini도 전체 문제를 따로 검토(정답 오류 0, 지적된 표현은 수정 후 다시 검증)</td><td>${V ? V.reviewed : '-'} / ${n}</td></tr></table>
   ${V ? `<p class="small">문제 은행 ${V.bank}문제 중 ${V.published}문제 공개 · 보류 ${V.held} · 제외 ${V.excluded}</p>` : ''}
   <p>검증 스크립트는 <a href="https://github.com/${CFG.repo}/tree/main/verify" target="_blank" rel="noopener">verify/ 폴더</a>에 공개돼 있어요.</p>
   <p class="small">이상한 점이 보이면 문제 아래 ⚑ 오류 신고를 눌러 주세요. 같은 기준으로 다시 검증해 고쳐요.</p></div>`;

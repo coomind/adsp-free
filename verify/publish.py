@@ -46,7 +46,8 @@ def run():
             'legacyManual': sum(1 for q in pubq if kind(q) == 'concept' and not q.get('evidence')),
             'solverFirstMatch': round(sum(firsts) / max(len(firsts), 1), 4), 'solverChecked': len(firsts),
             'reviewed': sum(1 for q in pubq if st[q['id']].get('review', {}).get('ok')),
-            'externalReviewed': sum(1 for q in pubq if q['_file'].startswith('legacy')) if pubq and '_file' in pubq[0] else 170,
+            # ChatGPT + Gemini: legacy 170 on 2026-09-29, new 230 on 2026-09-29 evening (handoff/adsp_review.md)
+            'externalReviewed': len(pubq),
             'bySubject': rep['by_subject']}
     json.dump(summ, open(os.path.join(ROOT, 'data', 'verify_summary.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     exam = json.load(open(os.path.join(ROOT, 'data', 'exam.json'), encoding='utf-8'))
