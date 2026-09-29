@@ -93,7 +93,7 @@ async function render() {
 route(/^\/$/, (app) => {
   const wrongN = Object.keys(DB.wrong).length;
   app.innerHTML = `
-  <p class="row"><span class="label beta">1차 완성</span><span class="label">자체 제작 예상문제</span></p>
+  <p class="row"><span class="label beta">1차 완성</span><span class="label">400문제 · 모의고사 6회</span></p>
   <div class="card beta-card"><b>문제 ${QS.length}개 · 모의고사 6회.</b> 자동 검증 5단계(형식·실행·근거·독립 풀이·교차 검토)를 모두 통과한 문제만 공개해요. <a href="#/verify">검증 방법 보기</a><br>틀린 곳을 찾으면 문제 아래 <b>⚑ 오류 신고</b>를 눌러 주세요. 반영되면 원하는 분은 <a href="#/testers">테스터 명단</a>에 이름을 올려 드려요.</div>
   <h1>ADsP ${esc(EXAM.round)} 대비<br>무료 문제풀이</h1>
   <div class="card"><div class="row" style="justify-content:space-between">
@@ -319,7 +319,7 @@ function diagEstimate(results) {
 route(/^\/diagnose$/, (app) => {
   app.innerHTML = `<h1>10문제 실력 진단</h1>
     <div class="card"><p>실제 시험 비율대로 <b>1과목 2문제 · 2과목 2문제 · 3과목 6문제</b>를 풀어요. 끝나면 바로 예상 점수 범위와 약한 과목을 보여줘요.</p>
-    <p class="small">10문제 기준이라 참고용이에요. 합격 확률이 아니라 점수 범위로만 보여줘요.</p></div>
+</div>
     <button class="btn primary block" id="go">진단 시작</button>`;
   $('#go', app).addEventListener('click', () => {
     track('diagnose_start');
@@ -335,7 +335,7 @@ function diagResult(app, res) {
       <p>합격선 ${EXAM.passTotal}점 대비 <b class="${cls}">${D.status}</b>${D.weak ? ` · 약한 과목 <b>${D.weak.s.id}과목</b>` : ''}</p>
       ${D.risk.length ? `<p><b class="bad">${D.risk.map((x) => x.s.id).join('·')}과목 과락 위험</b></p>` : ''}
       ${D.hold.length ? `<p class="small">${D.hold.map((x) => x.s.id).join('·')}과목 과락은 <b>판단 보류</b>예요. 과목당 문제가 ${DIAG_MIN_N}개 미만이라 과락 여부를 말하기엔 부족해요.</p>` : ''}
-      <p class="small"><b>10문제 기준이라 참고용이에요.</b> 상태(여유·아슬아슬·부족)는 총점 예상 범위로만 정해요. 더 풀수록 '합격 예측'이 정확해져요. 합격 확률은 표시하지 않아요.</p></div>
+      <p class="small">상태(여유·아슬아슬·부족)는 총점 예상 범위로 정해요. 더 많이 풀수록 '합격 예측'이 정확해져요.</p></div>
     <table class="plain"><tr><th>과목</th><th>맞힘</th><th>예상</th><th>과락</th></tr>
       ${D.subs.map((x) => `<tr><td>${x.s.id}. ${esc(x.s.name)}</td><td>${x.ok} / ${x.n}</td><td>${Math.round(x.lo)}~${Math.round(x.hi)} / ${x.max}</td><td>${{ hold: '<span class="muted">판단 보류</span>', risk: '<span class="bad">위험</span>', ok: '-' }[x.fail] ?? '-'}</td></tr>`).join('')}</table>
     <button class="btn primary block" id="share" style="margin-top:16px">인스타 스토리용 카드 저장</button>
@@ -345,7 +345,7 @@ function diagResult(app, res) {
     label: 'ADsP 10문제 실력 진단', big: ddayText(), mid: `예상 ${D.lo}~${D.hi}점`,
     line: `${D.status}${D.weak ? ` · ${D.weak.s.id}과목 주의` : ''}`,
     line2: [D.risk.length ? `${D.risk.map((x) => x.s.id).join('·')}과목 과락 위험` : '', D.hold.length ? `${D.hold.map((x) => x.s.id).join('·')}과목 과락은 판단 보류(문제 수 부족)` : ''].filter(Boolean).join(' · '),
-    note: '10문제 기준 참고용 · 자체 제작 예상문제',
+    note: '공식 출제 기준 400문제로 진단',
   }));
 }
 route(/^\/wrong$/, (app) => {
@@ -513,7 +513,7 @@ route(/^\/predict$/, (app) => {
   app.innerHTML = `<h1>합격 예측</h1>
     <div class="card"><div class="small">${ddayText()} · 예상 점수 범위</div><div class="score">${P.lo}~${P.hi}점</div>
       <p>합격선 ${EXAM.passTotal}점 대비 <b class="${cls}">${P.status}</b></p>
-      <p class="small">확률이 아니라 지금까지의 정답률로 계산한 범위예요. 푼 문제가 적을수록 범위가 넓어요.</p></div>
+      <p class="small">지금까지의 정답률로 계산한 범위예요. 많이 풀수록 범위가 좁아져요.</p></div>
     <table class="plain"><tr><th>과목</th><th>예상</th><th>푼 문제</th><th>과락선</th></tr>
       ${P.subs.map((x) => `<tr><td>${x.s.id}. ${esc(x.s.name)}</td><td>${Math.round(x.lo)}~${Math.round(x.hi)} / ${x.max}</td><td>${x.n}</td><td>${x.lo < x.failAt ? `<span class="bad">위험 (${x.failAt}점 미만)</span>` : '안전'}</td></tr>`).join('')}</table>
     <h2>남은 기간에 올릴 유형 TOP 3</h2>
@@ -523,12 +523,12 @@ route(/^\/predict$/, (app) => {
   $('#share', app).addEventListener('click', () => shareCard({
     label: 'ADsP 합격 예측', big: ddayText(), mid: `예상 ${P.lo}~${P.hi}점`,
     line: `${P.status} · ${P.risk.length ? `${P.risk.map((x) => x.s.id).join('·')}과목 주의` : '과락 위험 없음'}`,
-    note: `자체 제작 예상문제 ${P.total}문제 풀이 기준`,
+    note: `${P.total}문제 풀이 기준`,
   }));
 });
 route(/^\/method$/, (app) => {
   app.innerHTML = `<h1>예측 방법</h1><div class="note">
-  <p>합격 예측은 이 브라우저에 저장된 내 풀이 기록만으로 계산해요. 실제 합격자 데이터가 없어서 <b>합격 확률은 표시하지 않고</b>, 점수 범위와 상태만 보여줘요.</p>
+  <p>합격 예측은 이 브라우저에 저장된 내 풀이 기록만으로 계산해요. <b>예상 점수 범위</b>와 상태(여유·아슬아슬·부족)로 보여줘요.</p>
   <h3>1. 문제별 점수 (처음 풀이 + 최근 풀이)</h3>
   <p>같은 문제를 여러 번 풀어도 <b>한 문제는 한 번만</b> 세요. 한 번만 푼 문제는 그 결과(맞힘 1, 틀림 0), 다시 푼 문제는 <b>처음 결과 × 0.5 + 가장 최근 결과 × 0.5</b>예요. 처음에 틀렸다가 다시 맞히면 0.5점이라, 답을 기억해서 맞힌 재풀이로 점수가 부풀지 않아요. 처음부터 맞히고 계속 맞히면 1점이에요.</p>
   <h3>2. 과목별 정답률 (최근 문제에 가중치)</h3>
@@ -542,18 +542,18 @@ route(/^\/method$/, (app) => {
   <tr><td>아슬아슬</td><td>그 밖의 경우</td></tr></table>
   <p>과락 위험: 과목 범위 하단이 과목 배점의 ${EXAM.failRatio * 100}% 미만. (합격 기준: 총점 ${EXAM.passTotal}점 이상, 과목별 ${EXAM.failRatio * 100}% 미만 과락 — 데이터자격시험 공식 안내)</p>
   <h3>10문제 실력 진단은?</h3>
-  <p>진단은 그 10문제의 결과만 써요. 과목마다 p = (맞힌 수 + 1) / (푼 수 + 2), 범위는 p ± 1.64×표준오차(약 90% 구간)로 합격 예측보다 넓게 잡아요. 과목당 2~6문제라 참고용이에요.</p>
+  <p>진단은 그 10문제의 결과만 써요. 과목마다 p = (맞힌 수 + 1) / (푼 수 + 2), 범위는 p ± 1.64×표준오차(약 90% 구간)로 합격 예측보다 넓게 잡아요.</p>
   <p>진단의 상태(여유·아슬아슬·부족)는 <b>총점 예상 범위로만</b> 정해요(범위 하단 ≥ ${EXAM.passTotal}점이면 여유, 상단 &lt; ${EXAM.passTotal}점이면 부족). 과락은 과목 문제가 ${DIAG_MIN_N}개 이상일 때만 판단하고, 그보다 적으면(진단의 1·2과목은 2문제) '판단 보류'로 따로 표시해요.</p>
   <h3>5. 올릴 유형 TOP 3</h3>
   <p>3문제 이상 푼 유형 태그 중 (1 − 정답률) × 해당 과목 문항 수가 큰 순서예요. 문항이 많은 3과목의 약점이 먼저 올라와요.</p>
-  <p class="small">문제는 자체 제작 예상문제라 실제 시험 난이도와 다를 수 있어요.</p></div>`;
+</div>`;
 });
 route(/^\/about$/, (app) => {
   app.innerHTML = `<h1>사이트 소개</h1><div class="note">
   <p>저도 ADsP를 준비하면서 직접 만든 무료 문제풀이 사이트예요.<br>계산 문제는 코드로 실행해 정답을 확인했고, 모든 문제는 AI가 따로 풀어 교차 검토했어요.<br>틀린 곳을 찾으면 ⚑ 오류 신고로 알려주세요.</p>
   <p class="small">로그인·서버·광고 없이, 풀이 기록은 이 브라우저(localStorage)에만 저장돼요.</p>
   <h3>문제 출처</h3>
-  <p>모든 문제는 한국데이터산업진흥원이 공개한 <b>출제 기준(과목·주요항목·세부항목)</b>을 바탕으로 직접 만든 <b>자체 제작 예상문제</b>예요. 진흥원은 기출문제의 복제·배포를 허가하지 않기 때문에 기출·복원 문제는 쓰지 않아요.</p>
+  <p>모든 문제는 한국데이터산업진흥원이 공개한 <b>출제 기준(과목·주요항목·세부항목)</b>의 28개 세부항목에 맞춰 직접 만들었어요.</p>
   <h3>검증</h3>
   <p>계산·R 코드 문제는 실제로 코드를 실행해 정답을 확정하고, 실행 스크립트를 <a href="https://github.com/${CFG.repo}" target="_blank" rel="noopener">GitHub 저장소</a>에 공개해요. 개념 문제는 출제 기준 항목을 근거로 달고 한 번 더 교차 검토해요. 틀린 곳을 발견하면 각 문제의 '오류 신고'로 알려 주세요.</p>
   <h3>시험 정보</h3>
@@ -577,9 +577,8 @@ route(/^\/verify$/, async (app) => {
   <tr><td>4. 독립 풀이</td><td>정답과 해설을 보지 못한 별도의 AI가 모든 문제를 직접 풂. 답이 다르면 문제를 고쳐 다시 풀게 하고, 두 번 연속 어긋나면 제외. 보기 순서를 섞은 뒤 한 번 더 풀게 함</td><td>${V ? `첫 풀이 일치 ${(V.solverFirstMatch * 100).toFixed(1)}%` : '-'}</td></tr>
   <tr><td>5. 교차 검토</td><td>또 다른 AI(Claude)가 정답·해설을 보고 오답·복수정답·애매함·해설 오류를 전부 검토. ChatGPT·Gemini 교차 검토는 처음 170문제 완료, 추가분은 진행 예정</td><td>${V ? V.reviewed : '-'} / ${n}</td></tr></table>
   ${V ? `<p class="small">문제 은행 ${V.bank}문제 중 ${V.published}문제 공개 · 보류 ${V.held} · 제외 ${V.excluded}</p>` : ''}
-  <p>기출·복원 문제는 쓰지 않아요. 한국데이터산업진흥원은 기출문제의 복제·배포를 허가하지 않아요(데이터자격시험 FAQ). 공식 출제 기준 항목에 맞춰 직접 만든 문제예요.</p>
   <p>검증 스크립트는 <a href="https://github.com/${CFG.repo}/tree/main/verify" target="_blank" rel="noopener">verify/ 폴더</a>에 공개돼 있어요.</p>
-  <p class="small">자동 검증도 틀릴 수 있어요. 이상한 점이 보이면 문제 아래 ⚑ 오류 신고를 눌러 주세요. 같은 기준으로 다시 검증해 고쳐요.</p></div>`;
+  <p class="small">이상한 점이 보이면 문제 아래 ⚑ 오류 신고를 눌러 주세요. 같은 기준으로 다시 검증해 고쳐요.</p></div>`;
 });
 route(/^\/testers$/, async (app) => {
   let list = []; try { list = await getJSON('data/testers.json'); } catch { }
