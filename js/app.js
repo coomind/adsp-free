@@ -164,6 +164,7 @@ route(/^\/today$/, (app) => quiz(app, examMix10(), { title: '오늘의 10문제'
 
 // ---------- 10-question diagnosis ----------
 // Only these 10 answers count. With 2/2/6 questions per subject the band is deliberately wide (z = 1.64, ~90%).
+const DIAG_MIN_N = 5; // fewer questions than this in a subject: no fail call for that subject
 function diagEstimate(results) {
   const subs = EXAM.subjects.map((S) => {
     const r = results.filter((x) => x.q.subject === S.id); const n = r.length, ok = r.filter((x) => x.ok).length;
@@ -173,10 +174,11 @@ function diagEstimate(results) {
   const mid = subs.reduce((a, x) => a + x.mid, 0);
   const halfW = Math.sqrt(subs.reduce((a, x) => a + Math.pow((x.hi - x.lo) / 2, 2), 0));
   const lo = Math.max(0, Math.round(mid - halfW)), hi = Math.min(100, Math.round(mid + halfW));
-  const risk = subs.filter((x) => x.n && x.lo < x.failAt);
-  const status = lo >= EXAM.passTotal && !risk.length ? '여유' : hi < EXAM.passTotal ? '부족' : '아슬아슬';
+  subs.forEach((x) => { x.fail = !x.n ? '' : x.n < DIAG_MIN_N ? 'hold' : x.lo < x.failAt ? 'risk' : 'ok'; });
+  const risk = subs.filter((x) => x.fail === 'risk'), hold = subs.filter((x) => x.fail === 'hold');
+  const status = lo >= EXAM.passTotal ? '여유' : hi < EXAM.passTotal ? '부족' : '아슬아슬'; // total range only
   const weak = subs.filter((x) => x.n && x.ok < x.n).sort((a, b) => (a.ok / a.n - b.ok / b.n) || (b.max - a.max))[0];
-  return { subs, lo, hi, status, risk, weak, right: results.filter((x) => x.ok).length, total: results.length };
+  return { subs, lo, hi, status, risk, hold, weak, right: results.filter((x) => x.ok).length, total: results.length };
 }
 route(/^\/diagnose$/, (app) => {
   app.innerHTML = `<h1>10문제 실력 진단</h1>
@@ -195,15 +197,19 @@ function diagResult(app, res) {
   app.innerHTML = `<h1>진단 결과</h1>
     <div class="card"><div class="small">${ddayText()} · 10문제 중 ${D.right}문제 정답</div><div class="score">예상 ${D.lo}~${D.hi}점</div>
       <p>합격선 ${EXAM.passTotal}점 대비 <b class="${cls}">${D.status}</b>${D.weak ? ` · 약한 과목 <b>${D.weak.s.id}과목</b>` : ''}</p>
-      <p class="small"><b>10문제 기준이라 참고용이에요.</b> 문제가 적어서 범위를 넓게 잡았어요. 더 풀수록 '합격 예측'이 정확해져요. 합격 확률은 표시하지 않아요.</p></div>
-    <table class="plain"><tr><th>과목</th><th>맞힘</th><th>예상</th></tr>
-      ${D.subs.map((x) => `<tr><td>${x.s.id}. ${esc(x.s.name)}</td><td>${x.ok} / ${x.n}</td><td>${Math.round(x.lo)}~${Math.round(x.hi)} / ${x.max}</td></tr>`).join('')}</table>
+      ${D.risk.length ? `<p><b class="bad">${D.risk.map((x) => x.s.id).join('·')}과목 과락 위험</b></p>` : ''}
+      ${D.hold.length ? `<p class="small">${D.hold.map((x) => x.s.id).join('·')}과목 과락은 <b>판단 보류</b>예요. 과목당 문제가 ${DIAG_MIN_N}개 미만이라 과락 여부를 말하기엔 부족해요.</p>` : ''}
+      <p class="small"><b>10문제 기준이라 참고용이에요.</b> 상태(여유·아슬아슬·부족)는 총점 예상 범위로만 정해요. 더 풀수록 '합격 예측'이 정확해져요. 합격 확률은 표시하지 않아요.</p></div>
+    <table class="plain"><tr><th>과목</th><th>맞힘</th><th>예상</th><th>과락</th></tr>
+      ${D.subs.map((x) => `<tr><td>${x.s.id}. ${esc(x.s.name)}</td><td>${x.ok} / ${x.n}</td><td>${Math.round(x.lo)}~${Math.round(x.hi)} / ${x.max}</td><td>${{ hold: '<span class="muted">판단 보류</span>', risk: '<span class="bad">위험</span>', ok: '-' }[x.fail] ?? '-'}</td></tr>`).join('')}</table>
     <button class="btn primary block" id="share" style="margin-top:16px">인스타 스토리용 카드 저장</button>
     <div class="grid" style="margin-top:12px"><a class="btn" href="#/wrong">틀린 문제 다시 보기</a><a class="btn" href="#/mock">모의고사</a><a class="btn" href="#/predict">전체 기록으로 합격 예측</a></div>
     <p class="small"><a href="#/method">계산 방법 보기</a></p>`;
   $('#share', app).addEventListener('click', () => shareCard({
     label: 'ADsP 10문제 실력 진단', big: ddayText(), mid: `예상 ${D.lo}~${D.hi}점`,
-    line: `${D.status}${D.weak ? ` · ${D.weak.s.id}과목 주의` : ''}`, note: '10문제 기준 참고용 · 자체 제작 예상문제',
+    line: `${D.status}${D.weak ? ` · ${D.weak.s.id}과목 주의` : ''}`,
+    line2: [D.risk.length ? `${D.risk.map((x) => x.s.id).join('·')}과목 과락 위험` : '', D.hold.length ? `${D.hold.map((x) => x.s.id).join('·')}과목 과락은 판단 보류(문제 수 부족)` : ''].filter(Boolean).join(' · '),
+    note: '10문제 기준 참고용 · 자체 제작 예상문제',
   }));
 }
 route(/^\/wrong$/, (app) => {
@@ -245,7 +251,7 @@ function quiz(app, list, { title, mode, onDone }) {
       <p class="tag">${q.subject}과목 · ${esc(itemName(q.item).split(' › ').pop())} · ${q.tags.map(esc).join(' · ')}</p>
       ${qBody(q)}
       <div class="choices">${q.choices.map((c, k) => `<button class="choice" data-k="${k}"><span class="n">${NUM[k]}</span><span>${esc(c)}</span></button>`).join('')}</div>
-      <div id="after"></div>`;
+      ${KBD_HINT}<div id="after"></div>`;
     app.querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => {
       if (app.querySelector('.choice.right')) return;
       const k = +b.dataset.k; const ok = record(q, k, mode); if (ok) right++; results.push({ q, ok });
@@ -286,11 +292,12 @@ route(/^\/mock\/(\w+)$/, async (app, id) => {
   const show = () => {
     const q = list[i];
     app.innerHTML = `<div class="qhead"><span>${esc(set.title)}</span><span class="timer" id="timer"></span></div>
-      <div class="palette">${list.map((_, k) => `<button class="${ans[k] !== null ? 'done' : ''} ${k === i ? 'cur' : ''}" data-go="${k}">${k + 1}</button>`).join('')}</div>
+      <div class="mockwrap"><aside class="mockside"><div class="palette">${list.map((_, k) => `<button class="${ans[k] !== null ? 'done' : ''} ${k === i ? 'cur' : ''}" data-go="${k}" aria-label="${k + 1}번">${k + 1}</button>`).join('')}</div>
+      <p class="small side-only">푼 문제 ${ans.filter((a) => a !== null).length} / ${list.length}</p></aside><div class="mockmain">
       <p class="tag">${i + 1}번 · ${q.subject}과목</p>${qBody(q)}
       <div class="choices">${q.choices.map((c, k) => `<button class="choice ${ans[i] === k ? 'sel' : ''}" data-k="${k}"><span class="n">${NUM[k]}</span><span>${esc(c)}</span></button>`).join('')}</div>
       <div class="row" style="margin-top:16px"><button class="btn" id="prev" ${i ? '' : 'disabled'}>이전</button><button class="btn" id="nextQ" ${i + 1 < list.length ? '' : 'disabled'}>다음</button>
-      <button class="btn primary" id="submit" style="margin-left:auto">제출</button></div>`;
+      <button class="btn primary" id="submit" style="margin-left:auto">제출</button></div>${KBD_HINT}</div></div>`;
     tick();
     app.querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => { ans[i] = +b.dataset.k; if (i + 1 < list.length) i++; show(); }));
     app.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => { i = +b.dataset.go; show(); }));
@@ -382,6 +389,7 @@ route(/^\/method$/, (app) => {
   <p>과락 위험: 과목 범위 하단이 과목 배점의 ${EXAM.failRatio * 100}% 미만. (합격 기준: 총점 ${EXAM.passTotal}점 이상, 과목별 ${EXAM.failRatio * 100}% 미만 과락 — 데이터자격시험 공식 안내)</p>
   <h3>10문제 실력 진단은?</h3>
   <p>진단은 그 10문제의 결과만 써요. 과목마다 p = (맞힌 수 + 1) / (푼 수 + 2), 범위는 p ± 1.64×표준오차(약 90% 구간)로 합격 예측보다 넓게 잡아요. 과목당 2~6문제라 참고용이에요.</p>
+  <p>진단의 상태(여유·아슬아슬·부족)는 <b>총점 예상 범위로만</b> 정해요(범위 하단 ≥ ${EXAM.passTotal}점이면 여유, 상단 &lt; ${EXAM.passTotal}점이면 부족). 과락은 과목 문제가 ${DIAG_MIN_N}개 이상일 때만 판단하고, 그보다 적으면(진단의 1·2과목은 2문제) '판단 보류'로 따로 표시해요.</p>
   <h3>4. 올릴 유형 TOP 3</h3>
   <p>3문제 이상 푼 유형 태그 중 (1 − 정답률) × 해당 과목 문항 수가 큰 순서예요. 문항이 많은 3과목의 약점이 먼저 올라와요.</p>
   <p class="small">문제는 자체 제작 예상문제라 실제 시험 난이도와 다를 수 있어요.</p></div>`;
@@ -428,7 +436,7 @@ route(/^\/testers$/, async (app) => {
 });
 
 // ---------- share card (1080x1920) ----------
-async function shareCard({ label, big, mid, line, note }) {
+async function shareCard({ label, big, mid, line, line2, note }) {
   track('card_save');
   const c = document.createElement('canvas'); c.width = 1080; c.height = 1920; const g = c.getContext('2d');
   await document.fonts.ready;
@@ -437,9 +445,12 @@ async function shareCard({ label, big, mid, line, note }) {
   g.fillStyle = '#8E8E93'; g.font = `600 40px ${F}`; g.fillText(label, 96, 420);
   g.fillStyle = '#F5F5F2'; g.font = `800 150px ${F}`; g.fillText(big, 96, 610);
   g.font = `800 96px ${F}`; g.fillText(mid, 96, 790);
-  g.font = `700 64px ${F}`; g.fillText(line, 96, 920);
-  g.fillStyle = '#C8FF3D'; g.beginPath(); g.arc(112, 1010, 16, 0, Math.PI * 2); g.fill();
-  g.fillStyle = '#8E8E93'; g.font = `500 38px ${F}`; g.fillText(note, 148, 1024);
+  const fit = (txt, weight, size, x, y) => { let fs = size; do { g.font = `${weight} ${fs}px ${F}`; } while (g.measureText(txt).width > 1080 - 96 - x && --fs > 20); g.fillText(txt, x, y); };
+  fit(line, 700, 64, 96, 920);
+  const ny = line2 ? 1110 : 1010;
+  if (line2) { g.fillStyle = '#F5F5F2'; fit(line2, 600, 44, 96, 1010); }
+  g.fillStyle = '#C8FF3D'; g.beginPath(); g.arc(112, ny, 16, 0, Math.PI * 2); g.fill();
+  g.fillStyle = '#8E8E93'; fit(note, 500, 38, 148, ny + 14);
   g.fillStyle = '#58585D'; g.font = `500 34px ${F}`; g.fillText(CFG.site, 96, 1440); g.fillText('@prie.note', 96, 1490);
   const url = c.toDataURL('image/png'); const a = document.createElement('a');
   a.href = url; a.download = `adsp_${big}.png`; document.body.appendChild(a); a.click(); a.remove();
@@ -462,6 +473,19 @@ if (/iPhone|iPad|iPod/.test(navigator.userAgent) && !navigator.standalone && !DB
 }
 if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
 
+const KBD_HINT = '<p class="kbd-hint">키보드: <kbd>1</kbd>~<kbd>4</kbd> 보기 선택 · <kbd>Enter</kbd> 다음 문제</p>';
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
+  const tgt = e.target; if (tgt.closest && tgt.closest('input, textarea, select, [contenteditable]')) return;
+  if (/^[1-4]$/.test(e.key)) {
+    const b = document.querySelector(`#app .choice[data-k="${+e.key - 1}"]`);
+    if (b && !b.disabled) { e.preventDefault(); b.click(); }
+  } else if (e.key === 'Enter') {
+    if (tgt.closest && tgt.closest('button, a, summary')) return; // native activation already handles focused controls
+    const nx = document.querySelector('#app #next') || document.querySelector('#app #nextQ:not(:disabled)');
+    if (nx) { e.preventDefault(); nx.click(); }
+  }
+});
 document.addEventListener('click', (e) => { const t = e.target.closest('[data-track]'); if (t) track(t.dataset.track); });
 
 applyTheme();
