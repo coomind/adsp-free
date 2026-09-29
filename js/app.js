@@ -59,9 +59,9 @@ function migrateSrs() {
   for (const [id, t] of Object.entries(DB.wrong)) if (!DB.srs[id]) DB.srs[id] = { box: 0, due: t + DAY };
 }
 const dueList = () => Object.entries(DB.srs || {}).filter(([id, v]) => v.due <= Date.now() && QMAP[id]).map(([id]) => QMAP[id]);
-function record(q, pick, mode) {
+function record(q, pick, mode, mid) {
   const ok = pick === q.answer;
-  DB.attempts.push({ id: q.id, s: q.subject, ok, t: Date.now(), m: mode });
+  DB.attempts.push(Object.assign({ id: q.id, s: q.subject, ok, t: Date.now(), m: mode }, mid ? { mid } : {}));
   DB.srs = DB.srs || {};
   if (!ok) { DB.wrong[q.id] = Date.now(); DB.srs[q.id] = { box: 0, due: Date.now() + DAY }; }
   else if (mode === 'review' && DB.srs[q.id]) {
@@ -107,7 +107,7 @@ route(/^\/$/, (app) => {
   <div class="grid">
     <a class="btn" href="#/freq">빈출 포인트</a><a class="btn" href="#/compare">헷갈리는 개념 비교</a>
     <a class="btn" href="#/formulas">공식 모음</a><a class="btn" href="#/d7">D-7 벼락치기 1장</a>
-    <a class="btn" href="#/map">진도 지도 (28개 항목)</a>
+    <a class="btn" href="#/map">진도 지도 (28개 항목)</a><a class="btn" href="#/settings">설정 · 백업 · 초기화</a>
   </div>
   <h2>과목별 진도</h2>
   ${EXAM.subjects.map((s) => {
@@ -173,10 +173,11 @@ route(/^\/map$/, (app) => {
   const at = {};
   DB.attempts.forEach((a) => { const q = QMAP[a.id]; if (!q) return; const k = q.item; at[k] = at[k] || { n: 0, ok: 0, ids: new Set() }; at[k].n++; at[k].ok += a.ok ? 1 : 0; at[k].ids.add(a.id); });
   const cls = (x) => (!x ? ['미풀이', 'muted'] : x.ok / x.n >= 0.8 ? ['좋음', 'ok'] : x.ok / x.n >= 0.6 ? ['보통', 'warn'] : ['약함', 'bad']);
-  app.innerHTML = `<h1>진도 지도</h1><p class="small">공식 출제 기준 세부항목별로 푼 문제와 정답률을 보여줘요. 정답률 80% 이상 좋음 · 60% 이상 보통 · 그 아래 약함. 항목을 누르면 그 항목 문제만 풀어요.</p>
+  app.innerHTML = `<h1>진도 지도</h1><p class="small">공식 출제 기준 세부항목별로 몇 회독째인지와 정답률을 보여줘요. 'n회독째 a/b'는 이번 회독에서 b문제 중 a문제를 풀었다는 뜻이에요. 정답률 80% 이상 좋음 · 60% 이상 보통 · 그 아래 약함. 항목을 누르면 그 항목 문제만 풀어요.</p>
   ${EXAM.subjects.map((S) => `<h2>${S.id}과목 ${esc(S.name)}</h2>${S.items.map((it) => `<p class="small" style="margin:14px 0 4px"><b>${esc(it.name)}</b></p>${it.subs.map((sb) => {
-    const x = at[sb.id]; const [lab, c] = cls(x); const total = QS.filter((q) => q.item === sb.id).length;
-    return `<a class="maprow" href="#/practice/${S.id}/${encodeURIComponent('항목:' + sb.id)}"><span>${esc(sb.name)}</span><span class="small">${x ? x.ids.size : 0}/${total}문제${x ? ` · ${Math.round((x.ok / x.n) * 100)}%` : ''}</span><b class="${c}">${lab}</b></a>`;
+    const x = at[sb.id]; const [lab, c] = cls(x); const qs = QS.filter((q) => q.item === sb.id); const total = qs.length;
+    const cnt = qs.map((q) => DB.attempts.filter((a) => a.id === q.id).length); const done = total ? Math.min(...cnt) : 0; const prog = cnt.filter((v) => v > done).length;
+    return `<a class="maprow" href="#/practice/${S.id}/${encodeURIComponent('항목:' + sb.id)}"><span>${esc(sb.name)}<br><span class="small">${done ? `${done}회독 완료 · ` : ''}${done + 1}회독째 ${prog}/${total}</span></span><span class="small">${x ? `${Math.round((x.ok / x.n) * 100)}%` : ''}</span><b class="${c}">${lab}</b></a>`;
   }).join('')}`).join('')}`).join('')}`;
 });
 route(/^\/review$/, (app) => {
@@ -198,6 +199,52 @@ route(/^\/survey$/, (app) => {
   if (go) go.addEventListener('click', () => { track(`survey/actual-${$('#sv-a', app).value}/mock-${band(mk)}`); DB.survey = true; save(); render(); });
 });
 
+// ---------- settings: shuffle, backup, resets ----------
+const ask = (msg) => window.confirm(msg);
+function resetSubject(sid) {
+  const ids = new Set(QS.filter((q) => q.subject === sid).map((q) => q.id));
+  DB.attempts = DB.attempts.filter((a) => a.s !== sid);
+  for (const k of ['wrong', 'srs', 'diff']) for (const id of Object.keys(DB[k] || {})) if (ids.has(id)) delete DB[k][id];
+}
+route(/^\/settings$/, async (app) => {
+  let sets = []; try { sets = await getJSON('data/mock/index.json'); } catch { }
+  app.innerHTML = `<h1>설정 · 기록 관리</h1>
+    <div class="card"><b>보기 순서 섞기</b><p class="small">다시 풀 때 정답 위치를 외워서 맞히지 않도록 보기 순서를 매번 섞어요. 해설이 보기 번호(①②…)를 가리키는 일부 문제는 섞지 않아요.</p>
+      <button class="btn block" id="st-shuffle">${DB.shuffle === false ? '꺼짐 → 켜기' : '켜짐 → 끄기'}</button></div>
+    <div class="card"><b>기록 백업 (폰 ↔ PC)</b><p class="small">기록은 서버에 저장되지 않고 이 브라우저에만 있어요. 파일로 내보내서 다른 기기에서 불러오면 옮길 수 있어요.</p>
+      <div class="grid"><button class="btn" id="st-export">기록 내보내기 (파일)</button><label class="btn" for="st-import">기록 불러오기</label></div>
+      <input type="file" id="st-import" accept="application/json,.json" hidden></div>
+    <div class="card"><b>초기화</b><p class="small">지운 기록은 되돌릴 수 없어요. 먼저 내보내기로 백업해 두면 안전해요.</p>
+      <button class="btn block" id="st-wrong">오답노트만 비우기 (${Object.keys(DB.wrong).length}문제)</button>
+      ${EXAM.subjects.map((S) => `<button class="btn block" data-reset-s="${S.id}" style="margin-top:8px">${S.id}과목 기록 초기화 (${DB.attempts.filter((a) => a.s === S.id).length}회 풀이)</button>`).join('')}
+      ${sets.map((m) => `<button class="btn block" data-reset-m="${m.id}" style="margin-top:8px">${esc(m.title)} 기록 초기화 (${DB.mocks.filter((x) => x.id === m.id).length}회 응시)</button>`).join('')}
+      <button class="btn block report-btn" id="st-all" style="margin-top:14px">전체 기록 초기화</button></div>
+    <p class="small" id="st-msg"></p>`;
+  const msg = (t) => { $('#st-msg', app).textContent = t; };
+  $('#st-shuffle', app).addEventListener('click', () => { DB.shuffle = DB.shuffle === false; save(); render(); });
+  $('#st-export', app).addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify({ app: 'adsp-free', v: 1, exported: new Date().toISOString(), data: DB })], { type: 'application/json' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `adsp_backup_${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a); a.click(); a.remove(); track('backup_export'); msg('기록 파일을 내려받았어요.');
+  });
+  $('#st-import', app).addEventListener('change', async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      const j = JSON.parse(await f.text());
+      if (j.app !== 'adsp-free' || !j.data || !Array.isArray(j.data.attempts)) throw new Error('형식이 달라요');
+      if (!ask(`${j.exported ? j.exported.slice(0, 10) + '에 ' : ''}내보낸 기록(풀이 ${j.data.attempts.length}회)으로 지금 기록을 바꿀까요? 지금 기록은 사라져요.`)) return;
+      DB = Object.assign({ attempts: [], wrong: {}, mocks: [], theme: null, banner: false }, j.data); migrateSrs(); save(); track('backup_import'); render();
+    } catch (err) { msg('불러오지 못했어요: ' + err.message); }
+  });
+  $('#st-wrong', app).addEventListener('click', () => { if (!ask('오답노트를 비울까요? (풀이 기록과 합격 예측은 그대로예요)')) return; DB.wrong = {}; DB.srs = {}; save(); render(); });
+  app.querySelectorAll('[data-reset-s]').forEach((b) => b.addEventListener('click', () => { const sid = +b.dataset.resetS;
+    if (!ask(`${sid}과목의 풀이 기록·오답·복습 일정을 모두 지울까요?`)) return; resetSubject(sid); save(); render(); }));
+  app.querySelectorAll('[data-reset-m]').forEach((b) => b.addEventListener('click', () => { const mid = b.dataset.resetM;
+    if (!ask('이 모의고사 회차의 응시 기록(점수와 그때 푼 기록)을 지울까요?')) return; DB.mocks = DB.mocks.filter((x) => x.id !== mid); DB.attempts = DB.attempts.filter((a) => a.mid !== mid); save(); render(); }));
+  $('#st-all', app).addEventListener('click', () => { if (!ask('전체 기록(풀이·오답·모의고사·설정)을 모두 지울까요? 되돌릴 수 없어요.')) return;
+    const theme = DB.theme; DB = { attempts: [], wrong: {}, mocks: [], theme, banner: DB.banner, srs: {} }; save(); render(); });
+});
+
 // ---------- practice ----------
 route(/^\/practice$/, (app) => {
   app.innerHTML = `<h1>문제 풀기</h1>
@@ -206,14 +253,23 @@ route(/^\/practice$/, (app) => {
     return `<div class="card"><b>${s.id}과목 ${esc(s.name)}</b><p class="small">${n ? `${n}문제` : '준비 중'}</p>${n ? `<a class="btn block" href="#/practice/${s.id}">유형별로 풀기</a>` : ''}</div>`; }).join('')}
   <a class="btn block" href="#/wrong">오답노트 (${Object.keys(DB.wrong).length})</a>`;
 });
+// practice modes: all / unsolved / currently wrong / wrong two or more times (saved as DB.pmode)
+const PMODES = [['all', '전체'], ['new', '안 푼 문제만'], ['wrong', '틀린 문제만'], ['wrong2', '두 번 이상 틀린 문제만']];
+const wrongCount = (id) => DB.attempts.filter((a) => a.id === id && !a.ok).length;
+const byMode = (list, m) => (m === 'new' ? list.filter((q) => !DB.attempts.some((a) => a.id === q.id))
+  : m === 'wrong' ? list.filter((q) => DB.wrong[q.id]) : m === 'wrong2' ? list.filter((q) => wrongCount(q.id) >= 2) : list);
+const modeChips = (pool) => `<div class="row modes">${PMODES.map(([k, l]) => `<button type="button" class="chip ${(DB.pmode || 'all') === k ? 'on' : ''}" data-pmode="${k}">${l} (${byMode(pool, k).length})</button>`).join('')}</div>`;
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-pmode]'); if (!b) return; DB.pmode = b.dataset.pmode; save(); render(); });
 route(/^\/practice\/(\d)(?:\/(.+))?$/, (app, s, tag) => {
   const S = subj(s); tag = tag ? decodeURIComponent(tag) : null;
   const pool = QS.filter((q) => q.subject === +s);
   const tags = [...new Set(pool.flatMap((q) => q.tags))];
   const items = S.items.flatMap((it) => it.subs).filter((sb) => pool.some((q) => q.item === sb.id));
   if (!tag) {
+    const mp = byMode(pool, DB.pmode || 'all');
     app.innerHTML = `<h1>${S.id}과목 ${esc(S.name)}</h1>
-      <a class="btn primary block" href="#/practice/${s}/전체">전체 ${pool.length}문제 풀기</a>
+      <p class="small">풀이 모드 (항목·태그별 풀기에도 똑같이 적용돼요)</p>${modeChips(pool)}
+      <a class="btn primary block" href="#/practice/${s}/전체">${esc(PMODES.find((x) => x[0] === (DB.pmode || 'all'))[1])} ${mp.length}문제 풀기</a>
       <h2>출제 기준 항목별</h2><div class="row">${items.map((sb) => `<a class="chip" href="#/practice/${s}/${encodeURIComponent('항목:' + sb.id)}">${esc(sb.name)} (${pool.filter((q) => q.item === sb.id).length})</a>`).join('')}</div>
       <h2>유형 태그별</h2><div class="row">${tags.map((t) => `<a class="chip" href="#/practice/${s}/${encodeURIComponent(t)}">${esc(t)} (${pool.filter((q) => q.tags.includes(t)).length})</a>`).join('')}</div>`;
     return;
@@ -221,7 +277,9 @@ route(/^\/practice\/(\d)(?:\/(.+))?$/, (app, s, tag) => {
   let list = pool;
   if (tag.startsWith('항목:')) list = pool.filter((q) => q.item === tag.slice(3));
   else if (tag !== '전체') list = pool.filter((q) => q.tags.includes(tag));
-  quiz(app, list, { title: `${S.id}과목 · ${tag.startsWith('항목:') ? itemName(tag.slice(3)).split(' › ').pop() : tag}`, mode: 'practice' });
+  const m = DB.pmode || 'all'; const ml = byMode(list, m);
+  if (!ml.length) { app.innerHTML = `<h1>${S.id}과목</h1>${modeChips(list)}<p class="muted">이 모드에 해당하는 문제가 없어요. 위에서 모드를 바꿔 보세요.</p>`; return; }
+  quiz(app, m === 'all' ? ml : shuffle(ml), { title: `${S.id}과목 · ${tag.startsWith('항목:') ? itemName(tag.slice(3)).split(' › ').pop() : tag}${m === 'all' ? '' : ' · ' + PMODES.find((x) => x[0] === m)[1]}`, mode: 'practice' });
 });
 function examMix10() {
   // prefer unsolved, then wrong ones, keep subject mix close to the exam (1:1:3)
@@ -310,8 +368,14 @@ function qBody(q) {
   const code = q.code ? `<pre>${esc(q.code)}</pre>` : '';
   return `<div class="qtext">${esc(q.q)}</div>${code}`;
 }
-function explainBox(q, ok) {
-  return `<div class="explain"><p class="res ${ok ? 'ok' : 'bad'}">${ok ? '정답' : '오답'} · 정답 ${NUM[q.answer]}</p>
+// Choice order is shuffled on screen (setting, default on) so a re-solve can't be answered by remembering the position.
+// Questions whose explanation names choices by number (①…) or that must keep their order are never shuffled.
+const canShuffle = (q) => DB.shuffle !== false && !q.fixedOrder && !/[\u2460-\u2463]/.test(q.explain || '');
+const orderFor = (q) => (canShuffle(q) ? shuffle([0, 1, 2, 3].slice(0, q.choices.length)) : q.choices.map((_, k) => k));
+const choiceBtns = (q, ord, sel) => ord.map((k, pos) => `<button class="choice ${sel === k ? 'sel' : ''}" data-k="${k}" data-pos="${pos + 1}"><span class="n">${NUM[pos]}</span><span>${esc(q.choices[k])}</span></button>`).join('');
+function explainBox(q, ok, ord) {
+  const shown = ord ? ord.indexOf(q.answer) : q.answer;
+  return `<div class="explain"><p class="res ${ok ? 'ok' : 'bad'}">${ok ? '정답' : '오답'} · 정답 ${NUM[shown]}${ord && shown !== q.answer ? ` <span class="small">(보기 순서를 섞었어요)</span>` : ''}</p>
     <p>${esc(q.explain)}</p>
     <p class="small">출제 기준: ${esc(itemName(q.item))}</p>
     ${(q.sources || []).length ? `<p class="small">근거: ${q.sources.map((x) => `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join(' · ')}</p>` : ''}
@@ -324,18 +388,18 @@ function quiz(app, list, { title, mode, onDone }) {
   if (!list.length) { app.innerHTML = `<h1>${esc(title)}</h1><p class="muted">문제가 아직 없어요.</p>`; return; }
   let i = 0, right = 0; const results = [];
   const show = () => {
-    const q = list[i];
+    const q = list[i]; const ord = orderFor(q);
     app.innerHTML = `<div class="qhead"><span>${esc(title)}</span><span>${i + 1} / ${list.length}</span></div>
       <div class="bar" style="margin:8px 0 4px"><i style="width:${(i / list.length) * 100}%"></i></div>
       <p class="tag">${q.subject}과목 · ${esc(itemName(q.item).split(' › ').pop())} · ${q.tags.map(esc).join(' · ')}</p>
       ${qBody(q)}
-      <div class="choices">${q.choices.map((c, k) => `<button class="choice" data-k="${k}"><span class="n">${NUM[k]}</span><span>${esc(c)}</span></button>`).join('')}</div>
+      <div class="choices">${choiceBtns(q, ord)}</div>
       ${KBD_HINT}<div id="after"></div>`;
     app.querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => {
       if (app.querySelector('.choice.right')) return;
       const k = +b.dataset.k; const ok = record(q, k, mode); if (ok) right++; results.push({ q, ok });
       app.querySelectorAll('.choice').forEach((c) => { const kk = +c.dataset.k; c.disabled = true; if (kk === q.answer) c.classList.add('right'); else if (kk === k) c.classList.add('wrong'); });
-      $('#after', app).innerHTML = explainBox(q, ok) + `<button class="btn primary block" id="next" style="margin-top:14px">${i + 1 < list.length ? '다음 문제' : '결과 보기'}</button>`;
+      $('#after', app).innerHTML = explainBox(q, ok, ord) + `<button class="btn primary block" id="next" style="margin-top:14px">${i + 1 < list.length ? '다음 문제' : '결과 보기'}</button>`;
       $('#next', app).addEventListener('click', () => { i++; i < list.length ? show() : done(); });
       $('#after', app).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }));
@@ -356,8 +420,8 @@ route(/^\/mock$/, async (app) => {
   let sets = [];
   try { sets = await getJSON('data/mock/index.json'); } catch { /* none yet */ }
   app.innerHTML = `<h1>모의고사</h1><p class="small">실제 시험과 같은 ${EXAM.totalQuestions}문항 · ${EXAM.durationMin}분. 끝나면 과목별 점수와 합격 여부를 보여줘요.</p>
-    ${sets.length ? sets.map((m) => { const last = DB.mocks.filter((x) => x.id === m.id).pop();
-      return `<div class="card"><b>${esc(m.title)}</b><p class="small">${last ? `최근 ${last.total}점 · ${last.pass ? '합격' : '불합격'}` : '아직 안 풀었어요'}</p><a class="btn primary block" href="#/mock/${m.id}">시작하기</a></div>`; }).join('')
+    ${sets.length ? sets.map((m) => { const hist = DB.mocks.filter((x) => x.id === m.id);
+      return `<div class="card"><b>${esc(m.title)}</b><p class="small">${hist.length ? `응시 기록: ${hist.map((h, k) => `${k + 1}회차 ${h.total}점${h.pass ? '' : '(불합격)'}`).join(' → ')}` : '아직 안 풀었어요'}</p><a class="btn ${hist.length ? '' : 'primary'} block" href="#/mock/${m.id}">${hist.length ? `다시 풀기 (${hist.length + 1}회차)` : '시작하기'}</a></div>`; }).join('')
       : '<p class="muted">모의고사 준비 중이에요.</p>'}`;
 });
 route(/^\/mock\/(\w+)$/, async (app, id) => {
@@ -365,6 +429,7 @@ route(/^\/mock\/(\w+)$/, async (app, id) => {
   const list = set ? set.questions.map((qid) => QMAP[qid]).filter(Boolean) : [];
   if (!set || list.length !== set.questions.length) { app.innerHTML = `<h1>모의고사</h1><p class="muted">문제를 불러오지 못했어요.</p>`; return; }
   const ans = new Array(list.length).fill(null); let i = 0; const end = Date.now() + EXAM.durationMin * 60000;
+  const ords = list.map(orderFor); // fixed for this sitting
   const tick = () => { const left = Math.max(0, end - Date.now()); const el = $('#timer', app);
     if (el) el.textContent = `${String(Math.floor(left / 60000)).padStart(2, '0')}:${String(Math.floor(left / 1000) % 60).padStart(2, '0')}`;
     if (!left) grade(); };
@@ -374,7 +439,7 @@ route(/^\/mock\/(\w+)$/, async (app, id) => {
       <div class="mockwrap"><aside class="mockside"><div class="palette">${list.map((_, k) => `<button class="${ans[k] !== null ? 'done' : ''} ${k === i ? 'cur' : ''}" data-go="${k}" aria-label="${k + 1}번">${k + 1}</button>`).join('')}</div>
       <p class="small side-only">푼 문제 ${ans.filter((a) => a !== null).length} / ${list.length}</p></aside><div class="mockmain">
       <p class="tag">${i + 1}번 · ${q.subject}과목</p>${qBody(q)}
-      <div class="choices">${q.choices.map((c, k) => `<button class="choice ${ans[i] === k ? 'sel' : ''}" data-k="${k}"><span class="n">${NUM[k]}</span><span>${esc(c)}</span></button>`).join('')}</div>
+      <div class="choices">${choiceBtns(q, ords[i], ans[i])}</div>
       <div class="row" style="margin-top:16px"><button class="btn" id="prev" ${i ? '' : 'disabled'}>이전</button><button class="btn" id="nextQ" ${i + 1 < list.length ? '' : 'disabled'}>다음</button>
       <button class="btn primary" id="submit" style="margin-left:auto">제출</button></div>${KBD_HINT}</div></div>`;
     tick();
@@ -389,14 +454,15 @@ route(/^\/mock\/(\w+)$/, async (app, id) => {
   const grade = () => {
     if (graded) return; graded = true; stopTimer(); track('mock_complete');
     const per = {}; EXAM.subjects.forEach((s) => (per[s.id] = { ok: 0, n: 0 }));
-    list.forEach((q, k) => { per[q.subject].n++; const ok = ans[k] !== null && record(q, ans[k], 'mock'); if (ans[k] === null) { DB.attempts.push({ id: q.id, s: q.subject, ok: false, t: Date.now(), m: 'mock' }); DB.wrong[q.id] = Date.now(); DB.srs = DB.srs || {}; DB.srs[q.id] = { box: 0, due: Date.now() + DAY }; } if (ok) per[q.subject].ok++; });
+    list.forEach((q, k) => { per[q.subject].n++; const ok = ans[k] !== null && record(q, ans[k], 'mock', id); if (ans[k] === null) { DB.attempts.push({ id: q.id, s: q.subject, ok: false, t: Date.now(), m: 'mock', mid: id }); DB.wrong[q.id] = Date.now(); DB.srs = DB.srs || {}; DB.srs[q.id] = { box: 0, due: Date.now() + DAY }; } if (ok) per[q.subject].ok++; });
     const rows = EXAM.subjects.map((s) => { const p = per[s.id]; const pts = p.ok * EXAM.pointsEach; const max = p.n * EXAM.pointsEach; const fail = pts < max * EXAM.failRatio; return { s, pts, max, fail }; });
     const total = rows.reduce((a, r) => a + r.pts, 0); const pass = total >= EXAM.passTotal && !rows.some((r) => r.fail);
     DB.mocks.push({ id, t: Date.now(), total, pass, per: rows.map((r) => r.pts) }); save();
     app.innerHTML = `<h1>${esc(set.title)} 결과</h1><div class="card"><div class="score">${total}점</div><p class="${pass ? 'ok' : 'bad'}"><b>${pass ? '합격' : '불합격'}</b> 기준: 총점 ${EXAM.passTotal}점 이상, 과목별 ${EXAM.failRatio * 100}% 미만 과락</p></div>
       <table class="plain"><tr><th>과목</th><th>점수</th><th>과락</th></tr>${rows.map((r) => `<tr><td>${r.s.id}. ${esc(r.s.name)}</td><td>${r.pts} / ${r.max}</td><td>${r.fail ? '<span class="bad">과락</span>' : '-'}</td></tr>`).join('')}</table>
-      <h2>문항별 해설</h2>${list.map((q, k) => `<details class="card"><summary>${k + 1}번 ${ans[k] === q.answer ? '<span class="ok">정답</span>' : '<span class="bad">오답</span>'} · ${esc(q.q.slice(0, 40))}…</summary>${qBody(q)}${explainBox(q, ans[k] === q.answer)}</details>`).join('')}
-      <div class="grid"><a class="btn primary" href="#/predict">합격 예측 보기</a><a class="btn" href="#/wrong">오답노트</a></div>`;
+      <h2>문항별 해설</h2>${list.map((q, k) => `<details class="card"><summary>${k + 1}번 ${ans[k] === q.answer ? '<span class="ok">정답</span>' : '<span class="bad">오답</span>'} · ${esc(q.q.slice(0, 40))}…</summary>${qBody(q)}${explainBox(q, ans[k] === q.answer, ords[k])}</details>`).join('')}
+      <p class="small">${(() => { const h = DB.mocks.filter((x) => x.id === id); return h.length > 1 ? `이 회차 기록: ${h.map((x, k) => `${k + 1}회차 ${x.total}점`).join(' → ')}` : ''; })()}</p>
+      <div class="grid"><a class="btn primary" href="#/predict">합격 예측 보기</a><a class="btn" href="#/wrong">오답노트</a><a class="btn" href="#/mock/${id}">다시 풀기</a></div>`;
   };
   track('mock_start'); show(); TIMER = setInterval(tick, 1000);
 });
@@ -405,10 +471,17 @@ function confirmInline(_app, msg) { return window.confirm(msg); }
 // ---------- prediction ----------
 // Recency-weighted accuracy per subject; range widens when few problems are solved. No probabilities.
 const HALF = 30; // weight halves every 30 attempts back (per subject)
+// Each question counts once. Solved once: that result. Solved again: half the first result + half the latest result,
+// so re-solving a question you have seen can lift its score at most halfway (it can't inflate the prediction).
+function questionScores(sid) {
+  const m = new Map();
+  DB.attempts.forEach((a) => { if (a.s !== sid) return; const x = m.get(a.id); if (!x) m.set(a.id, { first: a.ok, last: a.ok, n: 1, t: a.t }); else { x.last = a.ok; x.n++; x.t = a.t; } });
+  return [...m.values()].map((x) => ({ score: x.n === 1 ? +x.first : 0.5 * x.first + 0.5 * x.last, t: x.t, n: x.n })).sort((a, b) => a.t - b.t);
+}
 function subjectStat(sid) {
-  const at = DB.attempts.filter((a) => a.s === sid);
+  const at = questionScores(sid);
   let sw = 0, sw2 = 0, sok = 0;
-  at.slice().reverse().forEach((a, k) => { const w = Math.pow(0.5, k / HALF); sw += w; sw2 += w * w; sok += w * (a.ok ? 1 : 0); });
+  at.slice().reverse().forEach((a, k) => { const w = Math.pow(0.5, k / HALF); sw += w; sw2 += w * w; sok += w * a.score; });
   const nEff = sw ? (sw * sw) / sw2 : 0;
   const p = (sok + 1) / (sw + 2); // Laplace prior keeps tiny samples near 50%
   const se = Math.sqrt((p * (1 - p)) / (nEff + 2));
@@ -456,11 +529,13 @@ route(/^\/predict$/, (app) => {
 route(/^\/method$/, (app) => {
   app.innerHTML = `<h1>예측 방법</h1><div class="note">
   <p>합격 예측은 이 브라우저에 저장된 내 풀이 기록만으로 계산해요. 실제 합격자 데이터가 없어서 <b>합격 확률은 표시하지 않고</b>, 점수 범위와 상태만 보여줘요.</p>
-  <h3>1. 과목별 정답률 (최근 풀이에 가중치)</h3>
-  <p>과목마다 가장 최근 풀이의 가중치가 1이고, ${HALF}문제 전 풀이는 0.5, ${HALF * 2}문제 전은 0.25로 줄어요. 가중 정답률 p = (가중 정답 수 + 1) / (가중 풀이 수 + 2)로 계산해 풀이가 적을 때 50% 쪽으로 당겨요.</p>
-  <h3>2. 범위</h3>
+  <h3>1. 문제별 점수 (처음 풀이 + 최근 풀이)</h3>
+  <p>같은 문제를 여러 번 풀어도 <b>한 문제는 한 번만</b> 세요. 한 번만 푼 문제는 그 결과(맞힘 1, 틀림 0), 다시 푼 문제는 <b>처음 결과 × 0.5 + 가장 최근 결과 × 0.5</b>예요. 처음에 틀렸다가 다시 맞히면 0.5점이라, 답을 기억해서 맞힌 재풀이로 점수가 부풀지 않아요. 처음부터 맞히고 계속 맞히면 1점이에요.</p>
+  <h3>2. 과목별 정답률 (최근 문제에 가중치)</h3>
+  <p>문제들을 마지막으로 푼 순서로 놓고, 가장 최근 문제의 가중치가 1, ${HALF}문제 전은 0.5, ${HALF * 2}문제 전은 0.25로 줄여요. 가중 정답률 p = (가중 점수 합 + 1) / (가중치 합 + 2)로 계산해 푼 문제가 적을 때 50% 쪽으로 당겨요.</p>
+  <h3>3. 범위</h3>
   <p>유효 풀이 수 n = (가중치 합)² / (가중치 제곱합)으로 표준오차 √(p(1−p)/(n+2))를 구하고, p ± 1.28×표준오차(약 80% 구간)를 과목 배점에 곱해요. 과목 범위를 합칠 때는 반폭을 제곱합의 제곱근으로 더해요. 그래서 푼 문제가 적으면 범위가 넓어져요.</p>
-  <h3>3. 상태</h3>
+  <h3>4. 상태</h3>
   <table><tr><th>상태</th><th>조건</th></tr>
   <tr><td>여유</td><td>범위 하단 ≥ ${EXAM.passTotal}점, 과락 위험 과목 없음</td></tr>
   <tr><td>부족</td><td>범위 상단 &lt; ${EXAM.passTotal}점</td></tr>
@@ -469,7 +544,7 @@ route(/^\/method$/, (app) => {
   <h3>10문제 실력 진단은?</h3>
   <p>진단은 그 10문제의 결과만 써요. 과목마다 p = (맞힌 수 + 1) / (푼 수 + 2), 범위는 p ± 1.64×표준오차(약 90% 구간)로 합격 예측보다 넓게 잡아요. 과목당 2~6문제라 참고용이에요.</p>
   <p>진단의 상태(여유·아슬아슬·부족)는 <b>총점 예상 범위로만</b> 정해요(범위 하단 ≥ ${EXAM.passTotal}점이면 여유, 상단 &lt; ${EXAM.passTotal}점이면 부족). 과락은 과목 문제가 ${DIAG_MIN_N}개 이상일 때만 판단하고, 그보다 적으면(진단의 1·2과목은 2문제) '판단 보류'로 따로 표시해요.</p>
-  <h3>4. 올릴 유형 TOP 3</h3>
+  <h3>5. 올릴 유형 TOP 3</h3>
   <p>3문제 이상 푼 유형 태그 중 (1 − 정답률) × 해당 과목 문항 수가 큰 순서예요. 문항이 많은 3과목의 약점이 먼저 올라와요.</p>
   <p class="small">문제는 자체 제작 예상문제라 실제 시험 난이도와 다를 수 있어요.</p></div>`;
 });
@@ -555,7 +630,7 @@ document.addEventListener('keydown', (e) => {
   if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
   const tgt = e.target; if (tgt.closest && tgt.closest('input, textarea, select, [contenteditable]')) return;
   if (/^[1-4]$/.test(e.key)) {
-    const b = document.querySelector(`#app .choice[data-k="${+e.key - 1}"]`);
+    const b = document.querySelector(`#app .choice[data-pos="${e.key}"]`);
     if (b && !b.disabled) { e.preventDefault(); b.click(); }
   } else if (e.key === 'Enter') {
     if (tgt.closest && tgt.closest('button, a, summary')) return; // native activation already handles focused controls
