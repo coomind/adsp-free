@@ -1,0 +1,4262 @@
+{
+ "s1-001": {
+  "lint": "pass",
+  "review": {
+   "h": "e24664d97161",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터/정보/지식/지혜 구분이 표준 DIKW 예시와 일치하고 정답 외 오답이 해설과 모순되지 않는다."
+  },
+  "solve": [
+   {
+    "h": "e24664d97161",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-002": {
+  "lint": "pass",
+  "review": {
+   "h": "8d6d17ba04f0",
+   "ok": true,
+   "round": "r09291116",
+   "why": "암묵지를 문서화하는 과정은 표출화가 맞고 다른 선택지와 혼동될 여지가 없다."
+  },
+  "solve": [
+   {
+    "h": "8d6d17ba04f0",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-003": {
+  "lint": "pass",
+  "review": {
+   "h": "67f5f0030a27",
+   "ok": true,
+   "round": "r09291116",
+   "why": "형식지를 반복 실습으로 체화하는 것은 내면화가 맞다."
+  },
+  "solve": [
+   {
+    "h": "67f5f0030a27",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-004": {
+  "lint": "pass",
+  "review": {
+   "h": "bd986eee8ae2",
+   "ok": true,
+   "round": "r09291116",
+   "why": "주관식 의견만 정성적 데이터이고 나머지 셋은 모두 수치형이라 정답이 유일하다."
+  },
+  "solve": [
+   {
+    "h": "bd986eee8ae2",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-006": {
+  "lint": "pass",
+  "review": {
+   "h": "335bb4b7c8ba",
+   "ok": true,
+   "round": "r09291116",
+   "why": "DB의 표준 특징(통합·저장·운영·공용)과 달리 '고정된 데이터'는 특징이 아니라는 판정이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "335bb4b7c8ba",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-007": {
+  "lint": "pass",
+  "review": {
+   "h": "f74c7cc0f98d",
+   "ok": true,
+   "round": "r09291116",
+   "why": "중복 제거·통합 관리는 통합된 데이터의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f74c7cc0f98d",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-008": {
+  "lint": "pass",
+  "review": {
+   "h": "73e3f45bd746",
+   "ok": true,
+   "round": "r09291116",
+   "why": "'데이터에 관한 데이터' 정의는 메타데이터가 맞고 인덱스와 명확히 구분된다."
+  },
+  "solve": [
+   {
+    "h": "73e3f45bd746",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-009": {
+  "lint": "pass",
+  "review": {
+   "h": "81dba70d1962",
+   "ok": true,
+   "round": "r09291116",
+   "why": "DW의 4대 특징 중 하나는 비휘발적이므로 '휘발적'을 특징이 아닌 것으로 고른 것이 옳다."
+  },
+  "solve": [
+   {
+    "h": "81dba70d1962",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-010": {
+  "lint": "pass",
+  "review": {
+   "h": "1e198bb72731",
+   "ok": true,
+   "round": "r09291116",
+   "why": "업무가 아닌 주제 중심 구성은 주제지향적의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "1e198bb72731",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-011": {
+  "lint": "pass",
+  "review": {
+   "h": "6425a865a354",
+   "ok": true,
+   "round": "r09291116",
+   "why": "다차원 대화식 분석은 OLAP의 정의이고 OLTP·ERP·EAI와 뚜렷이 구분된다."
+  },
+  "solve": [
+   {
+    "h": "6425a865a354",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-012": {
+  "lint": "pass",
+  "review": {
+   "h": "fc567cbcf403",
+   "ok": true,
+   "round": "r09291116",
+   "why": "고객 데이터 통합·관계관리는 CRM의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fc567cbcf403",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-013": {
+  "lint": "pass",
+  "review": {
+   "h": "b7e017ed544b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "조달~판매 공급망 최적화는 SCM의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "b7e017ed544b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-014": {
+  "lint": "pass",
+  "review": {
+   "h": "039e69c5f76c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "추출-변환-적재 절차는 ETL의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "039e69c5f76c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-015": {
+  "lint": "pass",
+  "review": {
+   "h": "97db0afc1392",
+   "ok": true,
+   "round": "r09291116",
+   "why": "3V(Volume·Variety·Velocity)에 Visualization은 포함되지 않아 정답이 명확하다."
+  },
+  "solve": [
+   {
+    "h": "97db0afc1392",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-018": {
+  "lint": "pass",
+  "review": {
+   "h": "e212391e383f",
+   "ok": true,
+   "round": "r09291116",
+   "why": "동시 구매 패턴 탐색은 연관규칙학습의 전형적 예시(장바구니 분석)와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "e212391e383f",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-019": {
+  "lint": "pass",
+  "review": {
+   "h": "533c3d55ecd0",
+   "ok": true,
+   "round": "r09291116",
+   "why": "선택·교차·변이를 반복하는 최적화 설명은 유전 알고리즘의 정의와 정확히 맞는다."
+  },
+  "solve": [
+   {
+    "h": "533c3d55ecd0",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-020": {
+  "lint": "pass",
+  "review": {
+   "h": "5e261dc389c8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "관계망에서 영향력 있는 사람 파악은 소셜 네트워크 분석의 전형적 용례다."
+  },
+  "solve": [
+   {
+    "h": "5e261dc389c8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-021": {
+  "lint": "pass",
+  "review": {
+   "h": "aeb123d1702e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "리뷰의 긍·부정 판별은 감정분석의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "aeb123d1702e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-025": {
+  "lint": "pass",
+  "review": {
+   "h": "deaaa21ea5a5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "나이를 구간(30대)으로 바꾸는 것은 가이드라인상 범주화의 예시와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "deaaa21ea5a5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-026": {
+  "lint": "pass",
+  "review": {
+   "h": "ed305a2a7962",
+   "ok": true,
+   "round": "r09291116",
+   "why": "이름 일부를 기호로 가리는 것은 데이터 마스킹의 정의와 일치하며 가명처리와 구분된다."
+  },
+  "solve": [
+   {
+    "h": "ed305a2a7962",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-030": {
+  "lint": "pass",
+  "review": {
+   "h": "f9c0b73a1d9d",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터 사이언스는 비정형까지 포괄하므로 '정형만 다룬다'는 설명이 틀린 문장으로서 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f9c0b73a1d9d",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-031": {
+  "lint": "pass",
+  "review": {
+   "h": "a42084132d8e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "형식지끼리 결합해 새 형식지를 만드는 것은 연결화의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "a42084132d8e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-032": {
+  "lint": "pass",
+  "review": {
+   "h": "93e43b6af723",
+   "ok": true,
+   "round": "r09291116",
+   "why": "관찰·모방으로 암묵지를 전이하는 것은 공통화의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "93e43b6af723",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-033": {
+  "lint": "pass",
+  "review": {
+   "h": "8c472e79cc1e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "자전거 타는 요령은 대표적 암묵지 예시이며 나머지는 모두 형식지다."
+  },
+  "solve": [
+   {
+    "h": "8c472e79cc1e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-034": {
+  "lint": "pass",
+  "review": {
+   "h": "0626298d95d2",
+   "ok": true,
+   "round": "r09291116",
+   "why": "장기간 이력 보관·시간에 따른 변화 분석은 시계열적 특징의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "0626298d95d2",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-035": {
+  "lint": "pass",
+  "review": {
+   "h": "b861121c08de",
+   "ok": true,
+   "round": "r09291116",
+   "why": "부서·주제별 소규모 저장소 설명은 데이터 마트의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "b861121c08de",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-036": {
+  "lint": "pass",
+  "review": {
+   "h": "56ea6f553754",
+   "ok": true,
+   "round": "r09291116",
+   "why": "실시간 거래 처리 설명은 OLTP의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "56ea6f553754",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-037": {
+  "lint": "pass",
+  "review": {
+   "h": "7369750ce049",
+   "ok": true,
+   "round": "r09291116",
+   "why": "인사·재무·생산·구매 통합 관리 설명은 ERP의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "7369750ce049",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-038": {
+  "lint": "pass",
+  "review": {
+   "h": "3c34a7773034",
+   "ok": true,
+   "round": "r09291116",
+   "why": "생성·처리 속도 설명은 Velocity의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3c34a7773034",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-039": {
+  "lint": "pass",
+  "review": {
+   "h": "647b7127ebb5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "평균 등 통계값으로 개별 값을 숨기는 것은 총계처리의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "647b7127ebb5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-040": {
+  "lint": "pass",
+  "review": {
+   "h": "d048d2e9a5fc",
+   "ok": true,
+   "round": "r09291116",
+   "why": "표·글·이미지·위치 등 서로 다른 유형을 함께 다루는 상황은 Variety의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d048d2e9a5fc",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-041": {
+  "lint": "pass",
+  "review": {
+   "h": "99ed262325f6",
+   "ok": true,
+   "round": "r09291116",
+   "why": "진실성·신뢰성(품질) 설명은 Veracity의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "99ed262325f6",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-042": {
+  "lint": "pass",
+  "review": {
+   "h": "89ec268c5bd3",
+   "ok": true,
+   "round": "r09291116",
+   "why": "생성·저장되는 데이터의 양 설명은 Volume의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "89ec268c5bd3",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-043": {
+  "lint": "pass",
+  "review": {
+   "h": "a0c47e69881c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "DIKW 최상위 단계는 지혜라는 표준 위계와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "a0c47e69881c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-044": {
+  "lint": "pass",
+  "review": {
+   "h": "32deca3bca8f",
+   "ok": true,
+   "round": "r09291116",
+   "why": "업무 매뉴얼은 글로 정리된 형식지의 대표 예이며 나머지 셋은 암묵지 예시다."
+  },
+  "solve": [
+   {
+    "h": "32deca3bca8f",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-045": {
+  "lint": "pass",
+  "review": {
+   "h": "31767273f0e3",
+   "ok": true,
+   "round": "r09291116",
+   "why": "책의 제목·저자·출판일은 메타데이터의 대표 예시와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "31767273f0e3",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-046": {
+  "lint": "pass",
+  "review": {
+   "h": "e83e27481148",
+   "ok": true,
+   "round": "r09291116",
+   "why": "여러 원천의 불일치 제거·일관된 형식 통합 설명은 통합적 특징의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "e83e27481148",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-047": {
+  "lint": "pass",
+  "review": {
+   "h": "76a02b4c84e5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "요약에서 세부로 내려가는 연산은 드릴다운의 정의이며 롤업·슬라이싱·다이싱과 구분된다."
+  },
+  "solve": [
+   {
+    "h": "76a02b4c84e5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-048": {
+  "lint": "pass",
+  "review": {
+   "h": "244398a1697a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "비기술적 언어·시각자료로 이해관계자에게 전달하는 설명은 의사소통 능력을 다룬 선택지와 가장 부합하고 다른 선택지와 혼동되지 않는다."
+  },
+  "solve": [
+   {
+    "h": "244398a1697a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-049": {
+  "lint": "pass",
+  "review": {
+   "h": "2809b1be775b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "노드의 중요도·영향력 수치화는 중심성의 정의이며 지지도·신뢰도·엔트로피와 명확히 구분된다."
+  },
+  "solve": [
+   {
+    "h": "2809b1be775b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s1-050": {
+  "lint": "pass",
+  "review": {
+   "h": "6a676ea68948",
+   "ok": true,
+   "round": "r09291245",
+   "why": "암묵지가 경험 공유로 다른 사람의 암묵지로 옮겨가는 공통화 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "6a676ea68948",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-051": {
+  "lint": "pass",
+  "review": {
+   "h": "629713a62c94",
+   "ok": true,
+   "round": "r09291245",
+   "why": "암묵지를 인터뷰해 문서(형식지)로 옮기는 표출화 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "629713a62c94",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-052": {
+  "lint": "pass",
+  "review": {
+   "h": "e575991b3cc0",
+   "ok": true,
+   "round": "r09291245",
+   "why": "기존 형식지들을 모아 새 형식지로 재구성하는 연결화 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "e575991b3cc0",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-053": {
+  "lint": "pass",
+  "review": {
+   "h": "c9c6431b009a",
+   "ok": true,
+   "round": "r09291245",
+   "why": "형식지를 읽고 실행해 암묵지로 체화하는 내면화 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "c9c6431b009a",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-054": {
+  "lint": "pass",
+  "review": {
+   "h": "3bc14b8c47b8",
+   "ok": true,
+   "round": "r09291245",
+   "why": "태그·키로 구조를 스스로 설명하는 JSON/XML은 반정형 데이터라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "3bc14b8c47b8",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-055": {
+  "lint": "pass",
+  "review": {
+   "h": "87180843f523",
+   "ok": true,
+   "round": "r09291245",
+   "why": "정해진 모델 없이 텍스트 위주인 데이터는 비정형 데이터라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "87180843f523",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-056": {
+  "lint": "pass",
+  "review": {
+   "h": "febee4d78126",
+   "ok": true,
+   "round": "r09291245",
+   "why": "실시간 거래 처리·기록은 OLTP라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "febee4d78126",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-057": {
+  "lint": "pass",
+  "review": {
+   "h": "b61cc23cde2e",
+   "ok": true,
+   "round": "r09291245",
+   "why": "다차원 관점의 빠른 집계·비교는 OLAP이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "b61cc23cde2e",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-058": {
+  "lint": "pass",
+  "review": {
+   "h": "c6dafd1b3c85",
+   "ok": true,
+   "round": "r09291245",
+   "why": "월별을 분기별로 요약하는 것은 롤업이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "c6dafd1b3c85",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-059": {
+  "lint": "pass",
+  "review": {
+   "h": "eff95eacc506",
+   "ok": true,
+   "round": "r09291245",
+   "why": "고객 접점 이력 관리로 관계를 강화하는 시스템은 CRM이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "eff95eacc506",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-060": {
+  "lint": "pass",
+  "review": {
+   "h": "d1c2d78c65be",
+   "ok": true,
+   "round": "r09291245",
+   "why": "특정 조각을 잘라낸 뒤 다른 관점으로 보는 것은 슬라이싱과 다이싱이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "d1c2d78c65be",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-061": {
+  "lint": "pass",
+  "review": {
+   "h": "966616b409b7",
+   "ok": true,
+   "round": "r09291245",
+   "why": "조달부터 판매까지 흐름 관리는 SCM이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "966616b409b7",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-062": {
+  "lint": "pass",
+  "review": {
+   "h": "f9ae1865d762",
+   "ok": true,
+   "round": "r09291245",
+   "why": "실시간 처리 요구는 Velocity라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "f9ae1865d762",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-063": {
+  "lint": "pass",
+  "review": {
+   "h": "278fc2f67da0",
+   "ok": true,
+   "round": "r09291245",
+   "why": "빅데이터는 기존 소프트웨어로 다루기 어려운 크고 복잡한 데이터라는 정의가 정확하다."
+  },
+  "solve": [
+   {
+    "h": "278fc2f67da0",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-064": {
+  "lint": "pass",
+  "review": {
+   "h": "b62b66c135c2",
+   "ok": true,
+   "round": "r09291245",
+   "why": "새로운 상관관계 발견을 통한 활용이 빅데이터 가치라는 설명이 정확하고, 인과관계 오답도 타당하게 배제된다."
+  },
+  "solve": [
+   {
+    "h": "b62b66c135c2",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-065": {
+  "lint": "pass",
+  "review": {
+   "h": "67b44456eade",
+   "ok": true,
+   "round": "r09291245",
+   "why": "경험만으로 결정하는 전통 방식은 빅데이터 활용 사례가 아니라는 점에서 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "67b44456eade",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-066": {
+  "lint": "pass",
+  "review": {
+   "h": "bef9e2b58821",
+   "ok": true,
+   "round": "r09291245",
+   "why": "재사용 불가라는 서술은 사실과 반대이므로 가치 산정이 어려운 이유로 가장 거리가 먼 것이라는 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "bef9e2b58821",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-067": {
+  "lint": "pass",
+  "review": {
+   "h": "32a11401e0a8",
+   "ok": true,
+   "round": "r09291245",
+   "why": "빅데이터가 개발 분야 의사결정 개선에 쓰인다는 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "32a11401e0a8",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-068": {
+  "lint": "pass",
+  "review": {
+   "h": "5a9634d537b5",
+   "ok": true,
+   "round": "r09291245",
+   "why": "기저귀-맥주 사례는 연관 규칙 학습(장바구니 분석)의 대표 예로 정답이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "5a9634d537b5",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-069": {
+  "lint": "pass",
+  "review": {
+   "h": "3b1b55590ec0",
+   "ok": true,
+   "round": "r09291245",
+   "why": "SNS 글의 긍정·부정 반응 파악은 감성 분석이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "3b1b55590ec0",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-070": {
+  "lint": "pass",
+  "review": {
+   "h": "f70dc4d21ce1",
+   "ok": true,
+   "round": "r09291245",
+   "why": "친구 관계망에서 영향력 있는 사람을 찾는 것은 소셜 네트워크 분석이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "f70dc4d21ce1",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-071": {
+  "lint": "pass",
+  "review": {
+   "h": "006f3285f5b8",
+   "ok": true,
+   "round": "r09291245",
+   "why": "교배·변이로 세대를 거듭해 해를 찾는 것은 유전 알고리즘이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "006f3285f5b8",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-072": {
+  "lint": "pass",
+  "review": {
+   "h": "10277762093e",
+   "ok": true,
+   "round": "r09291245",
+   "why": "경영 전략·운영 의사결정을 지원하는 기술·전략을 통칭하는 것은 BI라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "10277762093e",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-073": {
+  "lint": "pass",
+  "review": {
+   "h": "a2404349ec0c",
+   "ok": true,
+   "round": "r09291245",
+   "why": "추가 정보로 재식별 가능한 가명 대체는 가명처리라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "a2404349ec0c",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-074": {
+  "lint": "pass",
+  "review": {
+   "h": "31beb90c28ac",
+   "ok": true,
+   "round": "r09291245",
+   "why": "형식은 유지하되 값을 무의미하게 바꾸는 것은 데이터 마스킹이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "31beb90c28ac",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-075": {
+  "lint": "pass",
+  "review": {
+   "h": "d1be65bacc42",
+   "ok": true,
+   "round": "r09291250",
+   "why": "k-익명성의 정의(준식별자 조합 동일 레코드 k개 이상)가 정답이며 나머지는 l-다양성·t-근접성·오답 왜곡으로 명확히 구분된다."
+  },
+  "solve": [
+   {
+    "h": "92c215de9554",
+    "r": "ok",
+    "round": "r09291245"
+   },
+   {
+    "h": "d1be65bacc42",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-076": {
+  "lint": "pass",
+  "review": {
+   "h": "9983fe73aa88",
+   "ok": true,
+   "round": "r09291245",
+   "why": "동질성 공격을 보완하는 모델은 l-다양성이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "9983fe73aa88",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-077": {
+  "lint": "pass",
+  "review": {
+   "h": "dcfaf2baf635",
+   "ok": true,
+   "round": "r09291245",
+   "why": "그룹 분포와 전체 분포 차이를 제한하는 것은 t-근접성이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "dcfaf2baf635",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-078": {
+  "lint": "pass",
+  "review": {
+   "h": "42bc3e888b3c",
+   "ok": true,
+   "round": "r09291245",
+   "why": "값을 더 넓은 범주로 바꾸는 것은 일반화(범주화)라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "42bc3e888b3c",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-079": {
+  "lint": "pass",
+  "review": {
+   "h": "0b03e6a8bde6",
+   "ok": true,
+   "round": "r09291245",
+   "why": "생활의 여러 측면이 데이터로 바뀌는 흐름은 데이터화라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "0b03e6a8bde6",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-080": {
+  "lint": "pass",
+  "review": {
+   "h": "0c0b6ff1dae1",
+   "ok": true,
+   "round": "r09291245",
+   "why": "웨어러블 기기로 건강 활동이 자동 기록되는 것은 데이터화의 예라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "0c0b6ff1dae1",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-081": {
+  "lint": "pass",
+  "review": {
+   "h": "eaad9b89c90b",
+   "ok": true,
+   "round": "r09291245",
+   "why": "기기·센서가 연결되어 데이터를 주고받는 환경은 IoT라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "eaad9b89c90b",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-082": {
+  "lint": "pass",
+  "review": {
+   "h": "96fad5615a52",
+   "ok": true,
+   "round": "r09291245",
+   "why": "무엇이 일어날지뿐 아니라 대응까지 제안하는 것은 처방적 분석이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "96fad5615a52",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-083": {
+  "lint": "pass",
+  "review": {
+   "h": "c973b9f2625f",
+   "ok": true,
+   "round": "r09291245",
+   "why": "과거 데이터를 요약하는 첫 단계 분석은 기술적 분석이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "c973b9f2625f",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-084": {
+  "lint": "pass",
+  "review": {
+   "h": "1d31b23e1469",
+   "ok": true,
+   "round": "r09291245",
+   "why": "상관관계를 인과관계로 바로 받아들이지 않고 맥락과 연결해 해석하는 태도가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "1d31b23e1469",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-085": {
+  "lint": "pass",
+  "review": {
+   "h": "f93ca6741c6f",
+   "ok": true,
+   "round": "r09291245",
+   "why": "통계·컴퓨팅·도메인 지식을 결합한 학제 간 분야라는 정의가 정확하다."
+  },
+  "solve": [
+   {
+    "h": "f93ca6741c6f",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-086": {
+  "lint": "pass",
+  "review": {
+   "h": "f1233fa7ef86",
+   "ok": true,
+   "round": "r09291245",
+   "why": "결과 전달의 소프트 스킬은 커뮤니케이션이라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "f1233fa7ef86",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-087": {
+  "lint": "pass",
+  "review": {
+   "h": "de473d010ba8",
+   "ok": true,
+   "round": "r09291245",
+   "why": "구글 독감 트렌드 과대 예측 사례가 주는 교훈이 검증 필요성으로 정확히 설명된다."
+  },
+  "solve": [
+   {
+    "h": "de473d010ba8",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-088": {
+  "lint": "pass",
+  "review": {
+   "h": "9910c966e041",
+   "ok": true,
+   "round": "r09291245",
+   "why": "표본 방식과 신뢰성(Veracity)이 빅데이터에서도 중요하다는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "9910c966e041",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s1-089": {
+  "lint": "pass",
+  "review": {
+   "h": "db7e8b1d0a7a",
+   "ok": true,
+   "round": "r09291245",
+   "why": "정보 프라이버시가 지속되는 과제라는 설명이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "db7e8b1d0a7a",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-001": {
+  "lint": "pass",
+  "review": {
+   "h": "3e40ddce92d8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "KDD 절차는 선택→전처리→변환→마이닝→해석/평가 순이 맞고 나머지 선택지는 순서가 틀리거나 CRISP-DM이다."
+  },
+  "solve": [
+   {
+    "h": "3e40ddce92d8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-002": {
+  "lint": "pass",
+  "review": {
+   "h": "496350b71b2c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "잡음·결측 관측치 정리는 KDD의 전처리 단계 설명과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "496350b71b2c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-003": {
+  "lint": "pass",
+  "review": {
+   "h": "3a13f8ed387e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "KDD의 첫 단계는 데이터셋 선택이 맞다."
+  },
+  "solve": [
+   {
+    "h": "3a13f8ed387e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-004": {
+  "lint": "pass",
+  "review": {
+   "h": "87e37a4ce8a8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "KDD 절차는 선택→전처리→변환→마이닝→해석/평가 순이므로 마지막 단계는 결과 해석·평가가 맞다."
+  },
+  "solve": [
+   {
+    "h": "87e37a4ce8a8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-005": {
+  "lint": "pass",
+  "review": {
+   "h": "3510f79b1cb6",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM 6단계 순서(업무 이해→데이터 이해→데이터 준비→모델링→평가→전개)가 정답 보기와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3510f79b1cb6",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-006": {
+  "lint": "pass",
+  "review": {
+   "h": "0e4ce51e3cef",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM은 업무 이해로 시작하며 나머지 보기는 모두 중간 단계이므로 오답 소지가 없다."
+  },
+  "solve": [
+   {
+    "h": "0e4ce51e3cef",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-007": {
+  "lint": "pass",
+  "review": {
+   "h": "6d5eacf6b0c6",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM의 마지막 단계는 전개(Deployment)가 맞고 다른 보기는 모두 앞선 단계다."
+  },
+  "solve": [
+   {
+    "h": "6d5eacf6b0c6",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-008": {
+  "lint": "pass",
+  "review": {
+   "h": "4b1f0275c45c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM은 단계 간 피드백(되돌아가기)이 흔하다는 설명이 맞고, 나머지 보기(엄격한 순서, 모델링 다음 전개, KDD와 동일 5단계)는 모두 사실과 다르다."
+  },
+  "solve": [
+   {
+    "h": "4b1f0275c45c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-009": {
+  "lint": "pass",
+  "review": {
+   "h": "d94d5fc9d086",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM 공식 6단계 이름에 '데이터 변환'은 없고 이는 KDD 용어이므로 정답이 맞다."
+  },
+  "solve": [
+   {
+    "h": "d94d5fc9d086",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-010": {
+  "lint": "pass",
+  "review": {
+   "h": "49e6cdffbbb4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM에서 모델링 다음은 평가이며 전개는 그 다음이므로 정답이 맞다."
+  },
+  "solve": [
+   {
+    "h": "49e6cdffbbb4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-011": {
+  "lint": "pass",
+  "review": {
+   "h": "79830c1d86fa",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터 이해 다음은 데이터 준비가 맞다."
+  },
+  "solve": [
+   {
+    "h": "79830c1d86fa",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-012": {
+  "lint": "pass",
+  "review": {
+   "h": "29d31d336787",
+   "ok": true,
+   "round": "r09291116",
+   "why": "SEMMA 순서(Sample→Explore→Modify→Model→Assess)가 정답 보기와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "29d31d336787",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-013": {
+  "lint": "pass",
+  "review": {
+   "h": "6c5afa41797e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "SEMMA의 첫 단계는 Sample이 맞다."
+  },
+  "solve": [
+   {
+    "h": "6c5afa41797e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-014": {
+  "lint": "pass",
+  "review": {
+   "h": "8fbe5fc9e886",
+   "ok": true,
+   "round": "r09291116",
+   "why": "단방향 순차 진행에 되돌아가기 어려운 모델은 폭포수 모델이 맞고 나머지 보기는 반복적 성격을 가진다."
+  },
+  "solve": [
+   {
+    "h": "8fbe5fc9e886",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-015": {
+  "lint": "pass",
+  "review": {
+   "h": "83b1755f6e1a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "위험 중심 반복 개발 모델은 나선형 모델이 맞다."
+  },
+  "solve": [
+   {
+    "h": "83b1755f6e1a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-016": {
+  "lint": "pass",
+  "review": {
+   "h": "0d557a8f94e9",
+   "ok": true,
+   "round": "r09291116",
+   "why": "불완전한 시제품으로 빠르게 피드백을 받는 접근은 프로토타입 모델이 맞다."
+  },
+  "solve": [
+   {
+    "h": "0d557a8f94e9",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-017": {
+  "lint": "pass",
+  "review": {
+   "h": "5a7282b761c4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "폭포수 모델은 후반 요구사항 변경 시 재설계·재개발 비용이 커진다는 설명이 맞고 다른 보기는 각각 나선형·프로토타입 모델 특징이라 오답으로 타당하다."
+  },
+  "solve": [
+   {
+    "h": "5a7282b761c4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-018": {
+  "lint": "pass",
+  "review": {
+   "h": "7070e6a681fc",
+   "ok": true,
+   "round": "r09291116",
+   "why": "큰 문제를 작은 하위 문제로 나누어 가는 방식은 하향식 접근이 맞다."
+  },
+  "solve": [
+   {
+    "h": "7070e6a681fc",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-019": {
+  "lint": "pass",
+  "review": {
+   "h": "5d5d2af34b0e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "개별 요소에서 출발해 쌓아 올리는 방식은 상향식 접근이 맞다."
+  },
+  "solve": [
+   {
+    "h": "5d5d2af34b0e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-020": {
+  "lint": "pass",
+  "review": {
+   "h": "ecce9ff7bb52",
+   "ok": true,
+   "round": "r09291116",
+   "why": "디자인 사고는 발산적·수렴적 사고를 번갈아 반복하는 것이 특징이라는 설명이 통설과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "ecce9ff7bb52",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-021": {
+  "lint": "pass",
+  "review": {
+   "h": "75f4ee175437",
+   "ok": true,
+   "round": "r09291116",
+   "why": "빠짐없이·불필요없이 작업 범위를 관리하는 영역은 PMBOK 범위 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "75f4ee175437",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-022": {
+  "lint": "pass",
+  "review": {
+   "h": "7c2983857647",
+   "ok": true,
+   "round": "r09291116",
+   "why": "외부 구매를 다루는 영역은 조달 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "7c2983857647",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-023": {
+  "lint": "pass",
+  "review": {
+   "h": "7f1b0c74ccfc",
+   "ok": true,
+   "round": "r09291116",
+   "why": "위험의 계획·식별·분석·대응을 다루는 영역은 리스크 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "7f1b0c74ccfc",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-024": {
+  "lint": "pass",
+  "review": {
+   "h": "a74b1f8a5e13",
+   "ok": true,
+   "round": "r09291116",
+   "why": "적시 완료 관리를 다루는 영역은 일정 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "a74b1f8a5e13",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-025": {
+  "lint": "pass",
+  "review": {
+   "h": "15e3bbd8043b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "이해관계자 식별·참여 전략을 다루는 영역은 이해관계자 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "15e3bbd8043b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-026": {
+  "lint": "pass",
+  "review": {
+   "h": "0916762b0a92",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터 거버넌스에 대한 표준적 정의(원칙·정책·프로세스 집합)와 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "0916762b0a92",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-027": {
+  "lint": "pass",
+  "review": {
+   "h": "9fe2f8d7d939",
+   "ok": true,
+   "round": "r09291116",
+   "why": "여러 업무에서 공통으로 쓰는 핵심 데이터의 일관성·정확성 관리는 마스터 데이터 관리(MDM)가 맞다."
+  },
+  "solve": [
+   {
+    "h": "9fe2f8d7d939",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-028": {
+  "lint": "pass",
+  "review": {
+   "h": "0877bbd6ee68",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터의 이름·의미·형식·관계 정의 모음은 데이터 사전이 맞다."
+  },
+  "solve": [
+   {
+    "h": "0877bbd6ee68",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-029": {
+  "lint": "pass",
+  "review": {
+   "h": "81ca55df83c7",
+   "ok": true,
+   "round": "r09291116",
+   "why": "서버 하드웨어 구매 협상은 데이터 거버넌스 영역이 아니라는 설명이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "81ca55df83c7",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-030": {
+  "lint": "pass",
+  "review": {
+   "h": "56205ffae52e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "데이터 품질 속성은 정확성·완전성·일관성 등이며 휘발성은 품질 속성이 아니라는 설명이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "56205ffae52e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-031": {
+  "lint": "pass",
+  "review": {
+   "h": "1409d9e74ad0",
+   "ok": true,
+   "round": "r09291116",
+   "why": "KDD에서 데이터 마이닝 다음은 결과 해석·평가가 맞다."
+  },
+  "solve": [
+   {
+    "h": "1409d9e74ad0",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-032": {
+  "lint": "pass",
+  "review": {
+   "h": "b887979bbdf1",
+   "ok": true,
+   "round": "r09291116",
+   "why": "KDD에서 전처리 다음은 변환이 맞다."
+  },
+  "solve": [
+   {
+    "h": "b887979bbdf1",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-033": {
+  "lint": "pass",
+  "review": {
+   "h": "8f1a0f36f9db",
+   "ok": true,
+   "round": "r09291116",
+   "why": "CRISP-DM에서 데이터 준비 다음은 모델링이 맞다."
+  },
+  "solve": [
+   {
+    "h": "8f1a0f36f9db",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-034": {
+  "lint": "pass",
+  "review": {
+   "h": "6d4a1b01c41e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "SEMMA에서 Explore 다음은 Modify가 맞다."
+  },
+  "solve": [
+   {
+    "h": "6d4a1b01c41e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-035": {
+  "lint": "pass",
+  "review": {
+   "h": "40369eb964d8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "비용 계획·추정·예산 통제를 다루는 영역은 원가 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "40369eb964d8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-036": {
+  "lint": "pass",
+  "review": {
+   "h": "126d64cdfb2d",
+   "ok": true,
+   "round": "r09291245",
+   "why": "품질 관리가 요구사항 충족을 위한 기준 계획·검사·통제 영역이라는 설명과 정답이 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3695bf7c56ff",
+    "r": "miss:2",
+    "round": "r09291116"
+   },
+   {
+    "h": "126d64cdfb2d",
+    "r": "ok",
+    "round": "r09291245"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-037": {
+  "lint": "pass",
+  "review": {
+   "h": "5591bbe510e7",
+   "ok": true,
+   "round": "r09291116",
+   "why": "프로젝트 정보의 적시 계획·수집·생성·배포는 의사소통 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "5591bbe510e7",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-038": {
+  "lint": "pass",
+  "review": {
+   "h": "87723d5fb819",
+   "ok": true,
+   "round": "r09291116",
+   "why": "여러 활동을 식별·정의·결합·조정하는 영역은 통합 관리가 맞다."
+  },
+  "solve": [
+   {
+    "h": "87723d5fb819",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-039": {
+  "lint": "pass",
+  "review": {
+   "h": "0268faabea42",
+   "ok": true,
+   "round": "r09291116",
+   "why": "프로젝트 팀 조직·관리·리딩은 자원 관리(구 인적자원 관리)가 맞고 설명에 명칭 변경 이력도 정확하다."
+  },
+  "solve": [
+   {
+    "h": "0268faabea42",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-040": {
+  "lint": "pass",
+  "review": {
+   "h": "12e15faf40fc",
+   "ok": true,
+   "round": "r09291116",
+   "why": "나선형 모델이 다른 모델 요소를 채택하는 기준은 위험 분석 결과라는 설명이 맞다."
+  },
+  "solve": [
+   {
+    "h": "12e15faf40fc",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s2-041": {
+  "lint": "pass",
+  "review": {
+   "h": "89348116e6e6",
+   "ok": true,
+   "round": "r09291250",
+   "why": "문제 기술서가 분석 기획의 출발점을 설명하는 표준 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "89348116e6e6",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-042": {
+  "lint": "pass",
+  "review": {
+   "h": "3b163c3bc067",
+   "ok": true,
+   "round": "r09291250",
+   "why": "녹취·후기 텍스트는 고정 스키마가 없는 비정형 데이터의 전형적 예로 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "3b163c3bc067",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-043": {
+  "lint": "pass",
+  "review": {
+   "h": "02107f428658",
+   "ok": true,
+   "round": "r09291250",
+   "why": "키로 구조를 스스로 설명하는 JSON 로그는 반정형 데이터의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "02107f428658",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-044": {
+  "lint": "pass",
+  "review": {
+   "h": "860134e1319b",
+   "ok": true,
+   "round": "r09291250",
+   "why": "작은 범위로 아이디어를 구현해 실현 가능성을 검증하는 활동은 PoC의 정의 그대로다."
+  },
+  "solve": [
+   {
+    "h": "860134e1319b",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-045": {
+  "lint": "pass",
+  "review": {
+   "h": "328f53927bbc",
+   "ok": true,
+   "round": "r09291250",
+   "why": "분석 기획의 첫 단계가 문제 정의라는 점은 이견 없는 표준 절차다."
+  },
+  "solve": [
+   {
+    "h": "328f53927bbc",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-046": {
+  "lint": "pass",
+  "review": {
+   "h": "fdc28ea7ba85",
+   "ok": true,
+   "round": "r09291250",
+   "why": "백로그 관리와 가치 최대화 책임은 제품 책임자의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fdc28ea7ba85",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-047": {
+  "lint": "pass",
+  "review": {
+   "h": "22439c110c93",
+   "ok": true,
+   "round": "r09291250",
+   "why": "버려지는 프로토타입은 폐기형(Throwaway)의 정의와 정확히 일치하며 진화형과 대비도 옳다."
+  },
+  "solve": [
+   {
+    "h": "22439c110c93",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-048": {
+  "lint": "pass",
+  "review": {
+   "h": "3bc19d3de231",
+   "ok": true,
+   "round": "r09291250",
+   "why": "KDD 절차(선택→전처리→변환→데이터마이닝→해석평가)에서 데이터 마이닝의 위치가 정확히 서술됐다."
+  },
+  "solve": [
+   {
+    "h": "3bc19d3de231",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-049": {
+  "lint": "pass",
+  "review": {
+   "h": "6caa9b453bd3",
+   "ok": true,
+   "round": "r09291250",
+   "why": "선형 순차 진행 방식은 폭포수 모형의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "6caa9b453bd3",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-050": {
+  "lint": "pass",
+  "review": {
+   "h": "55ce8415d7b9",
+   "ok": true,
+   "round": "r09291250",
+   "why": "미완성 버전을 빠르게 만들어 피드백을 받는 활동은 프로토타이핑의 정의다."
+  },
+  "solve": [
+   {
+    "h": "55ce8415d7b9",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-051": {
+  "lint": "pass",
+  "review": {
+   "h": "2132c8b53aac",
+   "ok": true,
+   "round": "r09291250",
+   "why": "고객 협업·변화 대응·짧은 반복 주기는 애자일 선언의 핵심 내용과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2132c8b53aac",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-052": {
+  "lint": "pass",
+  "review": {
+   "h": "e01219709bc4",
+   "ok": true,
+   "round": "r09291250",
+   "why": "스크럼의 짧은 반복 단위는 스프린트가 맞고 다른 보기와 혼동 소지가 없다."
+  },
+  "solve": [
+   {
+    "h": "e01219709bc4",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-053": {
+  "lint": "pass",
+  "review": {
+   "h": "344e216d7272",
+   "ok": true,
+   "round": "r09291250",
+   "why": "큰 문제를 하위 원인으로 분해하는 방식은 하향식 접근의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "344e216d7272",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-054": {
+  "lint": "pass",
+  "review": {
+   "h": "890cc7595cb3",
+   "ok": true,
+   "round": "r09291250",
+   "why": "정해진 문제 없이 데이터를 조합해 과제를 찾는 방식은 상향식 접근의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "890cc7595cb3",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-055": {
+  "lint": "pass",
+  "review": {
+   "h": "3866d9916ea8",
+   "ok": true,
+   "round": "r09291250",
+   "why": "레이블 없는 데이터에서 군집을 찾는 학습은 비지도 학습이 명확히 맞다."
+  },
+  "solve": [
+   {
+    "h": "3866d9916ea8",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-056": {
+  "lint": "pass",
+  "review": {
+   "h": "4f3492f6cbb9",
+   "ok": true,
+   "round": "r09291250",
+   "why": "아이디어를 넓혔다 좁히는 두 사고는 디자인 싱킹의 발산적·수렴적 사고와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "4f3492f6cbb9",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-057": {
+  "lint": "pass",
+  "review": {
+   "h": "b3a2490daef8",
+   "ok": true,
+   "round": "r09291250",
+   "why": "사용자 입장을 깊이 이해하는 단계는 디자인 싱킹의 공감 단계로 정확하다."
+  },
+  "solve": [
+   {
+    "h": "b3a2490daef8",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-058": {
+  "lint": "pass",
+  "review": {
+   "h": "b2baaaac33cc",
+   "ok": true,
+   "round": "r09291250",
+   "why": "문제를 먼저 정의하고 하위 문제로 분해하는 설명은 하향식 접근과 정확히 일치하고 다른 보기는 상향식 특징이다."
+  },
+  "solve": [
+   {
+    "h": "b2baaaac33cc",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-059": {
+  "lint": "pass",
+  "review": {
+   "h": "62b806749552",
+   "ok": true,
+   "round": "r09291250",
+   "why": "문제가 불명확할 때 데이터에서 단서를 찾는 상황은 상향식 접근이 유용한 전형적 사례다."
+  },
+  "solve": [
+   {
+    "h": "62b806749552",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-060": {
+  "lint": "pass",
+  "review": {
+   "h": "d7f363228e5b",
+   "ok": true,
+   "round": "r09291250",
+   "why": "필요한 작업만 빠짐없이 포함하는 것은 PMBOK 범위 관리의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d7f363228e5b",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-061": {
+  "lint": "pass",
+  "review": {
+   "h": "53e7664be88b",
+   "ok": true,
+   "round": "r09291250",
+   "why": "외부 구매·계약 활동은 조달 관리의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "53e7664be88b",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-062": {
+  "lint": "pass",
+  "review": {
+   "h": "84db798f40c8",
+   "ok": true,
+   "round": "r09291250",
+   "why": "활동 순서·기간을 관리해 기한을 맞추는 것은 일정 관리의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "84db798f40c8",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-063": {
+  "lint": "pass",
+  "review": {
+   "h": "df52bcb89e3e",
+   "ok": true,
+   "round": "r09291250",
+   "why": "영향을 받는 사람·조직 식별과 참여 관리는 이해관계자 관리의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "df52bcb89e3e",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-064": {
+  "lint": "pass",
+  "review": {
+   "h": "ad4af1ed6bed",
+   "ok": true,
+   "round": "r09291250",
+   "why": "PMBOK 프로세스 그룹 순서(착수→계획→실행→감시통제→종료)가 표준과 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "ad4af1ed6bed",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-065": {
+  "lint": "pass",
+  "review": {
+   "h": "c7a51721a6e8",
+   "ok": true,
+   "round": "r09291250",
+   "why": "위험을 미리 식별하고 대응 계획을 세우는 것은 리스크 관리의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "c7a51721a6e8",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-066": {
+  "lint": "pass",
+  "review": {
+   "h": "1ec7edf51b58",
+   "ok": true,
+   "round": "r09291250",
+   "why": "투입 비용 대비 이익을 비교하는 지표는 ROI가 명확히 맞고 다른 보기와 혼동 소지가 없다."
+  },
+  "solve": [
+   {
+    "h": "1ec7edf51b58",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-067": {
+  "lint": "pass",
+  "review": {
+   "h": "9c24c42d4529",
+   "ok": true,
+   "round": "r09291250",
+   "why": "ROI=순이익/투자=300/1000=30% 계산이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "9c24c42d4529",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-068": {
+  "lint": "pass",
+  "review": {
+   "h": "898b11b142d7",
+   "ok": true,
+   "round": "r09291250",
+   "why": "단기·장기 목표를 기술·과제와 연결한 단계별 계획은 로드맵의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "898b11b142d7",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-069": {
+  "lint": "pass",
+  "review": {
+   "h": "fb49a3f39d2f",
+   "ok": true,
+   "round": "r09291250",
+   "why": "유연하게 단계적 과제를 배치한다는 설명은 로드맵의 정의와 일치하며 다른 보기는 명백한 오답이다."
+  },
+  "solve": [
+   {
+    "h": "fb49a3f39d2f",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-070": {
+  "lint": "pass",
+  "review": {
+   "h": "f18cc1c721c8",
+   "ok": true,
+   "round": "r09291250",
+   "why": "ROI 계산 결과 A 20%, B 15%로 A가 더 높다는 계산이 정확하다."
+  },
+  "solve": [
+   {
+    "h": "f18cc1c721c8",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-071": {
+  "lint": "pass",
+  "review": {
+   "h": "464ad55cbc0a",
+   "ok": true,
+   "round": "r09291250",
+   "why": "데이터를 효과적·책임 있게 쓰도록 이끄는 원칙·정책 집합은 데이터 거버넌스의 정의다."
+  },
+  "solve": [
+   {
+    "h": "464ad55cbc0a",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-072": {
+  "lint": "pass",
+  "review": {
+   "h": "fa447ba0de3f",
+   "ok": true,
+   "round": "r09291250",
+   "why": "데이터 품질·목적 적합성 책임 역할은 데이터 스튜어드의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fa447ba0de3f",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-073": {
+  "lint": "pass",
+  "review": {
+   "h": "3edcd7b515f9",
+   "ok": true,
+   "round": "r09291250",
+   "why": "여러 시스템이 공유하는 핵심 기준 데이터 관리는 MDM의 정의와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3edcd7b515f9",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-074": {
+  "lint": "pass",
+  "review": {
+   "h": "6a6fd721b998",
+   "ok": true,
+   "round": "r09291250",
+   "why": "값이 비어 있는 문제는 완전성 차원과 직접 관련되어 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "6a6fd721b998",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-075": {
+  "lint": "pass",
+  "review": {
+   "h": "4de39ba7e29d",
+   "ok": true,
+   "round": "r09291250",
+   "why": "중복 등록 문제는 유일성 차원과 직접 관련되어 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "4de39ba7e29d",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-076": {
+  "lint": "pass",
+  "review": {
+   "h": "6e100c768db2",
+   "ok": true,
+   "round": "r09291250",
+   "why": "반영 지연 문제는 적시성 차원과 직접 관련되어 정답이 타당하다."
+  },
+  "solve": [
+   {
+    "h": "6e100c768db2",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-077": {
+  "lint": "pass",
+  "review": {
+   "h": "8cc1411c03b2",
+   "ok": true,
+   "round": "r09291250",
+   "why": "데이터를 설명하는 데이터라는 정의와 예시는 메타데이터와 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "8cc1411c03b2",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-078": {
+  "lint": "pass",
+  "review": {
+   "h": "d5268eb69e0d",
+   "ok": true,
+   "round": "r09291250",
+   "why": "원본 형태 그대로 저장하는 저장소는 데이터 레이크의 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d5268eb69e0d",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-079": {
+  "lint": "pass",
+  "review": {
+   "h": "37f9a674af0d",
+   "ok": true,
+   "round": "r09291250",
+   "why": "무단으로 데이터를 수정하는 외부 사용자는 거버넌스 팀 구성원이 아니라는 점이 명확하다."
+  },
+  "solve": [
+   {
+    "h": "37f9a674af0d",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s2-080": {
+  "lint": "pass",
+  "review": {
+   "h": "7b8937b54448",
+   "ok": true,
+   "round": "r09291250",
+   "why": "정확성·완전성·일관성·신뢰성 등을 바탕으로 목적에 맞는 정도라는 정의가 데이터 품질과 정확히 일치한다."
+  },
+  "solve": [
+   {
+    "h": "7b8937b54448",
+    "r": "ok",
+    "round": "r09291250"
+   }
+  ],
+  "source": "pass"
+ },
+ "s3-001": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "574bb8c29c1a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "na.rm 기본값이 FALSE이므로 NA가 섞인 벡터의 mean()은 NA가 맞다."
+  },
+  "solve": [
+   {
+    "h": "574bb8c29c1a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-002": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "d283411053b3",
+   "ok": true,
+   "round": "r09291116",
+   "why": "na.rm=TRUE면 NA를 제외하고 (3+5)/2=4가 맞다."
+  },
+  "solve": [
+   {
+    "h": "d283411053b3",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-003": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "dc0610de60fe",
+   "ok": true,
+   "round": "r09291116",
+   "why": "x[-2]는 두 번째 원소(2)를 제외한 1 3 4 5 6을 반환하는 것이 맞다."
+  },
+  "solve": [
+   {
+    "h": "dc0610de60fe",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-004": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "34f97bd3ab95",
+   "ok": true,
+   "round": "r09291116",
+   "why": "seq(2, 11, by=3)은 2,5,8,11을 반환하며 11을 초과하지 않으므로 11까지 포함되는 것이 맞다."
+  },
+  "solve": [
+   {
+    "h": "34f97bd3ab95",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-005": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "bb3f5eaee59a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "rep(c(\"A\",\"B\"), times=2)는 벡터 전체를 반복해 A B A B가 맞다."
+  },
+  "solve": [
+   {
+    "h": "bb3f5eaee59a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-006": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2eb44426e360",
+   "ok": true,
+   "round": "r09291116",
+   "why": "벡터에 문자가 하나라도 섞이면 전체가 character로 강제 변환되므로 class는 \"character\"가 맞다."
+  },
+  "solve": [
+   {
+    "h": "2eb44426e360",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-007": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "ce6aa5457480",
+   "ok": true,
+   "round": "r09291116",
+   "why": "matrix(1:6,nrow=2)는 열 우선 채움으로 3열=5,6이 되어 m[2,3]=6이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "ce6aa5457480",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-008": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "d68112c367fe",
+   "ok": true,
+   "round": "r09291116",
+   "why": "행 합이 1행(1,3,5)=9, 2행(2,4,6)=12로 '9 12'가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d68112c367fe",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-009": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "d47d0d1ea879",
+   "ok": true,
+   "round": "r09291116",
+   "why": "NA가 2개이므로 sum(is.na(...))=2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d47d0d1ea879",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-010": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "15c5c0236032",
+   "ok": true,
+   "round": "r09291116",
+   "why": "NULL은 c()에서 제거되어 길이 3이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "15c5c0236032",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-011": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "ff5d318a3a03",
+   "ok": true,
+   "round": "r09291116",
+   "why": "1,2행 모두 결측을 포함해 완전한 행은 3행뿐이므로 1이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "ff5d318a3a03",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-012": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "af372d01fdda",
+   "ok": true,
+   "round": "r09291116",
+   "why": "결측 대치 전 평균은 (1+3)/2=2이고 a가 1 2 3이 되어 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "af372d01fdda",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-013": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "b9d54338fb2a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "type 7 기준 Q1=4, Q3=7.25, 상한 12.125로 30만 초과해 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "b9d54338fb2a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-014": {
+  "lint": "pass",
+  "review": {
+   "h": "7b23ef0513f4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "k-means는 k를 사전에 지정해야 하며 나머지 선택지는 모두 사실과 다르므로 정답이 맞다."
+  },
+  "solve": [
+   {
+    "h": "7b23ef0513f4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-015": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "f9531f77a09a",
+   "ok": true,
+   "round": "r09291116",
+   "why": "편차제곱합 20을 n-1=3으로 나눈 6.667이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f9531f77a09a",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-016": {
+  "lint": "pass",
+  "review": {
+   "h": "6bf5a0f8fe12",
+   "ok": true,
+   "round": "r09291116",
+   "why": "과대적합 정의가 표준적이며 다른 선택지는 각각 과소적합·오개념이라 정답이 맞다."
+  },
+  "solve": [
+   {
+    "h": "6bf5a0f8fe12",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-017": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "d796048fcc5b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "편차제곱합 32를 n-1=7로 나눈 분산의 제곱근 2.138이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "d796048fcc5b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-018": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "bb9d635641c8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "편차곱합 8, 각 편차제곱합 10으로 r=0.8이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "bb9d635641c8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-019": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "9043709671f4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "기울기 1.7, 절편 -0.1 계산이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "9043709671f4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-020": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "f876ac1961c5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "잔차제곱합 2.4, 총제곱합 6.0으로 R²=0.6이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f876ac1961c5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-021": {
+  "lint": "pass",
+  "review": {
+   "h": "721f58fdbacf",
+   "ok": true,
+   "round": "r09291116",
+   "why": "p=0.03<0.05이므로 귀무가설 기각이 맞고 나머지 선택지는 통계적으로 틀린 진술이다."
+  },
+  "solve": [
+   {
+    "h": "721f58fdbacf",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-022": {
+  "lint": "pass",
+  "review": {
+   "h": "1630c3dc2fce",
+   "ok": true,
+   "round": "r09291116",
+   "why": "제1종 오류의 정의(참인 귀무가설을 기각)가 정확히 서술되어 있다."
+  },
+  "solve": [
+   {
+    "h": "1630c3dc2fce",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-023": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2cf76b7642cd",
+   "ok": true,
+   "round": "r09291116",
+   "why": "z=2에서 상위 꼬리 확률은 약 2.3%로 계산이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2cf76b7642cd",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-024": {
+  "lint": "pass",
+  "review": {
+   "h": "e33c9011b74c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "서로 다른 두 독립집단 비교는 독립표본 t-검정이 맞고 다른 선택지는 상황에 맞지 않는다."
+  },
+  "solve": [
+   {
+    "h": "e33c9011b74c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-025": {
+  "lint": "pass",
+  "review": {
+   "h": "3eb06b550d38",
+   "ok": true,
+   "round": "r09291116",
+   "why": "두 범주형 변수의 독립성 검정은 카이제곱 독립성 검정이 표준 정답이다."
+  },
+  "solve": [
+   {
+    "h": "3eb06b550d38",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-026": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2739960eaaed",
+   "ok": true,
+   "round": "r09291116",
+   "why": "고유값 비율 3/(3+1)=75%가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2739960eaaed",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-027": {
+  "lint": "pass",
+  "review": {
+   "h": "04621972f263",
+   "ok": true,
+   "round": "r09291116",
+   "why": "ARIMA(p,d,q)에서 d는 차분 횟수라는 정의가 정확하다."
+  },
+  "solve": [
+   {
+    "h": "04621972f263",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-028": {
+  "lint": "pass",
+  "review": {
+   "h": "d92f8b6dd126",
+   "ok": true,
+   "round": "r09291116",
+   "why": "약한 정상성의 정의(평균·분산 일정, 공분산이 시차에만 의존)가 정확히 서술되어 있다."
+  },
+  "solve": [
+   {
+    "h": "d92f8b6dd126",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-029": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "50a848c71b46",
+   "ok": true,
+   "round": "r09291116",
+   "why": "정밀도=TP/(TP+FP)=40/60=0.667 계산이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "50a848c71b46",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-030": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "ca37c7f23883",
+   "ok": true,
+   "round": "r09291116",
+   "why": "지지도(A,B)=0.3, 지지도(A)=지지도(B)=0.5로 향상도=1.2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "ca37c7f23883",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-031": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2a758c47023f",
+   "ok": true,
+   "round": "r09291116",
+   "why": "decreasing=TRUE 정렬 결과 9 5 2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2a758c47023f",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-032": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "461299f43e52",
+   "ok": true,
+   "round": "r09291116",
+   "why": "order()는 정렬 시 원소의 원래 위치를 반환하며 2 3 1이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "461299f43e52",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-033": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "bcf1137f6461",
+   "ok": true,
+   "round": "r09291116",
+   "why": "which()가 반환하는 8의 위치 2, 4가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "bcf1137f6461",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-034": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "9e06b69b4012",
+   "ok": true,
+   "round": "r09291116",
+   "why": "이름 있는 벡터의 names()는 문자형 \"a\" \"b\"를 반환해 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "9e06b69b4012",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-035": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "fd8d620ba9ab",
+   "ok": true,
+   "round": "r09291116",
+   "why": "paste가 원소별로 결합해 \"A-1\" \"A-2\" \"A-3\"을 만들어 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fd8d620ba9ab",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-036": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "c1d236e16a7b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "length()는 벡터 원소 수를 세므로 문자열 1개는 길이 1이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "c1d236e16a7b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-037": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "40cc3522ee18",
+   "ok": true,
+   "round": "r09291116",
+   "why": "substr(\"dataq\",2,4)는 2~4번째 글자 \"ata\"를 반환해 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "40cc3522ee18",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-038": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "fade0f5f4895",
+   "ok": true,
+   "round": "r09291116",
+   "why": "as.numeric(\"12\")+3=15 계산이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fade0f5f4895",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-039": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "aedfaad98c3c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "1~10 중 짝수 합 2+4+6+8+10=30이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "aedfaad98c3c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-040": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "8412a99486a4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "리스트 length는 원소 개수(a,b)인 2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "8412a99486a4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-041": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "5f7eabe774cd",
+   "ok": true,
+   "round": "r09291116",
+   "why": "y>3인 행이 3개(4,6,8)이므로 nrow=3이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "5f7eabe774cd",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-042": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "f6e71d5840fb",
+   "ok": true,
+   "round": "r09291116",
+   "why": "ifelse의 원소별 판정 결과 \"L\" \"H\" \"H\"가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f6e71d5840fb",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-043": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "7bdfd0c008d9",
+   "ok": true,
+   "round": "r09291116",
+   "why": "열 우선으로 채운 m의 전치행렬 t(m)[1,2]=2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "7bdfd0c008d9",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-044": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2a617a2d1862",
+   "ok": true,
+   "round": "r09291116",
+   "why": "sort() 기본값은 NA를 제거하므로 결과 1 3이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2a617a2d1862",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-045": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "fd88a9796bf4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "R의 round는 5를 짝수 쪽으로 반올림하므로 round(2.5)=2가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "fd88a9796bf4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-046": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "4552578cea45",
+   "ok": true,
+   "round": "r09291116",
+   "why": "unique()는 최초 등장 순서를 유지해 2 3 1이 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "4552578cea45",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-047": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "4a0d1120c75c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "factor 기본 levels는 알파벳 정렬이므로 \"a\" \"b\"가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "4a0d1120c75c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-048": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "6df79070dd64",
+   "ok": true,
+   "round": "r09291116",
+   "why": "정렬된 1,2,3,100의 중앙값 2.5가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "6df79070dd64",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-049": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "f440c5d11dd6",
+   "ok": true,
+   "round": "r09291116",
+   "why": "colSums(is.na(...))에서 a열 1개, b열 2개 결측이므로 \"1 2\"가 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f440c5d11dd6",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-050": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "06c5bd6ad798",
+   "ok": true,
+   "round": "r09291116",
+   "why": "median(10,20,40)=20으로 NA를 대치하면 10 20 20 40이 되어 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "06c5bd6ad798",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-051": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "d653467c9e57",
+   "ok": true,
+   "round": "r09291116",
+   "why": "그룹 a 평균 (1+3)/2=2, 그룹 b는 5로 aggregate 결과 '2 5'가 맞다."
+  },
+  "solve": [
+   {
+    "h": "d653467c9e57",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-052": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "fbd63c5bce5d",
+   "ok": true,
+   "round": "r09291116",
+   "why": "merge 기본은 내부 조인이며 공통 키 2, 3만 남아 nrow=2가 맞다."
+  },
+  "solve": [
+   {
+    "h": "fbd63c5bce5d",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-053": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "17467812fc49",
+   "ok": true,
+   "round": "r09291116",
+   "why": "평균4, 표본표준편차2로 (6-4)/2=1이 맞다."
+  },
+  "solve": [
+   {
+    "h": "17467812fc49",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-054": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "e2639e2456ab",
+   "ok": true,
+   "round": "r09291116",
+   "why": "(20-10)/(40-10)=10/30≈0.333으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "e2639e2456ab",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-055": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "cf3ccd6505f4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "편차제곱합 5를 n=4로 나눈 모분산 1.25가 맞다."
+  },
+  "solve": [
+   {
+    "h": "cf3ccd6505f4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-056": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "08c40960aa66",
+   "ok": true,
+   "round": "r09291116",
+   "why": "표준오차 4/√16=1로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "08c40960aa66",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-057": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "a339a50668f8",
+   "ok": true,
+   "round": "r09291116",
+   "why": "50±1.96×10/√25=50±3.92=(46.08,53.92)로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "a339a50668f8",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-058": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "458bdfb5ff0c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "평균7, 표본표준편차1.5811, se=0.7071로 t=2.828이 맞다."
+  },
+  "solve": [
+   {
+    "h": "458bdfb5ff0c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-059": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "93a7ec340aaf",
+   "ok": true,
+   "round": "r09291116",
+   "why": "기대도수 15로 균등하며 카이제곱=100/15≈6.667이 맞다."
+  },
+  "solve": [
+   {
+    "h": "93a7ec340aaf",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-060": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "498ac6fdcfc5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "편차곱 합 10을 n-1=3으로 나눈 공분산 3.333이 맞다."
+  },
+  "solve": [
+   {
+    "h": "498ac6fdcfc5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-061": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "6d10c2252b04",
+   "ok": true,
+   "round": "r09291116",
+   "why": "순위차 제곱합 4로 ρ=1-24/120=0.8이 맞다."
+  },
+  "solve": [
+   {
+    "h": "6d10c2252b04",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-062": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "3937d4dfec40",
+   "ok": true,
+   "round": "r09291116",
+   "why": "-0.1+1.7×6=10.1로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3937d4dfec40",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-063": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "018bc760564b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "n=5,p=1로 수정R²=1-0.4×4/3≈0.467이 맞다."
+  },
+  "solve": [
+   {
+    "h": "018bc760564b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-064": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "8e4d57cfd047",
+   "ok": true,
+   "round": "r09291116",
+   "why": "집단간 MS=27, 집단내 MS=1로 F=27이 맞다."
+  },
+  "solve": [
+   {
+    "h": "8e4d57cfd047",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-065": {
+  "lint": "pass",
+  "review": {
+   "h": "1e738655beeb",
+   "ok": true,
+   "round": "r09291116",
+   "why": "중심극한정리 표준 정의와 일치하고 나머지 선택지는 모두 틀린 진술이다."
+  },
+  "solve": [
+   {
+    "h": "1e738655beeb",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-066": {
+  "lint": "pass",
+  "review": {
+   "h": "659456c1e8fd",
+   "ok": true,
+   "round": "r09291116",
+   "why": "빈도주의 신뢰구간의 표준 해석과 일치하고 나머지는 흔한 오개념이다."
+  },
+  "solve": [
+   {
+    "h": "659456c1e8fd",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-067": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "9b41ac0ae51f",
+   "ok": true,
+   "round": "r09291116",
+   "why": "dbinom(2,4,0.5)=6/16=0.375로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "9b41ac0ae51f",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-068": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "04b469015521",
+   "ok": true,
+   "round": "r09291116",
+   "why": "dpois(0,2)=e^-2≈0.135로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "04b469015521",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-069": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "817b1bceffce",
+   "ok": true,
+   "round": "r09291116",
+   "why": "(4+3)/10=70%로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "817b1bceffce",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-070": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "3d9d9b4f1928",
+   "ok": true,
+   "round": "r09291116",
+   "why": "sides=1 후행 이동평균의 R 동작상 앞 두 값이 NA가 되는 것이 맞다(NA NA 6 9 12)."
+  },
+  "solve": [
+   {
+    "h": "3d9d9b4f1928",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-071": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "0375c77d4832",
+   "ok": true,
+   "round": "r09291116",
+   "why": "1차 차분 3 4 5를 다시 차분하면 1 1이 맞다."
+  },
+  "solve": [
+   {
+    "h": "0375c77d4832",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-072": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "5462ef1f1049",
+   "ok": true,
+   "round": "r09291116",
+   "why": "0.5×20+0.5×10=15로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "5462ef1f1049",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-073": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2fd1629bb1bf",
+   "ok": true,
+   "round": "r09291116",
+   "why": "√(9+16)=5로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2fd1629bb1bf",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-074": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "64fe30594cfd",
+   "ok": true,
+   "round": "r09291116",
+   "why": "|4-1|+|6-2|=7로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "64fe30594cfd",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-075": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "f173e8e736a6",
+   "ok": true,
+   "round": "r09291116",
+   "why": "(40+30)/100=0.700으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "f173e8e736a6",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-076": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "7df80be2304d",
+   "ok": true,
+   "round": "r09291116",
+   "why": "40/50=0.800으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "7df80be2304d",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-077": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "3826d73ee0b5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "2×(2/3)×0.8/(2/3+0.8)≈0.727로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "3826d73ee0b5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-078": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "b9191650a993",
+   "ok": true,
+   "round": "r09291116",
+   "why": "30/50=0.600으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "b9191650a993",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-079": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "79feb670269c",
+   "ok": true,
+   "round": "r09291116",
+   "why": "1-(0.4²+0.6²)=0.480으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "79feb670269c",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-080": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "b9ee6b2b3de2",
+   "ok": true,
+   "round": "r09291116",
+   "why": "반반 분포의 밑이 2인 엔트로피는 1로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "b9ee6b2b3de2",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-081": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "2e1228ec3517",
+   "ok": true,
+   "round": "r09291116",
+   "why": "지지도(A,B)/지지도(A)=0.3/0.5=0.6으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "2e1228ec3517",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-082": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "4f23bb551e1b",
+   "ok": true,
+   "round": "r09291116",
+   "why": "배정 후 새 중심 1과 (2+9+10)/3=7로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "4f23bb551e1b",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-083": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "e79040462d97",
+   "ok": true,
+   "round": "r09291116",
+   "why": "단일연결은 최소 쌍별 거리 |4-1|=3으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "e79040462d97",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-084": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "9ae695a1fe5e",
+   "ok": true,
+   "round": "r09291116",
+   "why": "0.8/0.2=4로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "9ae695a1fe5e",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-085": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "5e66e2160fe3",
+   "ok": true,
+   "round": "r09291116",
+   "why": "e^0.693≈2.00으로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "5e66e2160fe3",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-086": {
+  "exec": "pass",
+  "lint": "pass",
+  "review": {
+   "h": "624c93f5aef5",
+   "ok": true,
+   "round": "r09291116",
+   "why": "k=3은 B 다수, k=5는 A 다수로 정답과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "624c93f5aef5",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ]
+ },
+ "s3-087": {
+  "lint": "pass",
+  "review": {
+   "h": "3de9e1ff4ce4",
+   "ok": true,
+   "round": "r09291116",
+   "why": "k-겹 교차검증의 표준 정의와 일치하고 나머지 선택지는 틀렸다."
+  },
+  "solve": [
+   {
+    "h": "3de9e1ff4ce4",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-088": {
+  "lint": "pass",
+  "review": {
+   "h": "a3bbed949909",
+   "ok": true,
+   "round": "r09291116",
+   "why": "AUC 0.5는 무작위 추측 수준이라는 표준 해석과 일치한다."
+  },
+  "solve": [
+   {
+    "h": "a3bbed949909",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-089": {
+  "lint": "pass",
+  "review": {
+   "h": "f8476e3f8fb1",
+   "ok": true,
+   "round": "r09291116",
+   "why": "부트스트랩+다수결 설명은 랜덤포레스트에 대한 참인 진술이고 나머지는 배깅 없이/부스팅/전체변수 사용 등 틀린 설명이다."
+  },
+  "solve": [
+   {
+    "h": "f8476e3f8fb1",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ },
+ "s3-090": {
+  "lint": "pass",
+  "review": {
+   "h": "cc4a6fa43554",
+   "ok": true,
+   "round": "r09291116",
+   "why": "설명변수 간 강한 선형관계라는 다중공선성의 표준 정의와 일치한다."
+  },
+  "solve": [
+   {
+    "h": "cc4a6fa43554",
+    "r": "ok",
+    "round": "r09291116"
+   }
+  ],
+  "source": "legacy-manual"
+ }
+}

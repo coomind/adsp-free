@@ -1,0 +1,11 @@
+{
+ "bank": 250,
+ "published": 250,
+ "by_subject": {
+  "1": 80,
+  "2": 80,
+  "3": 90
+ },
+ "held": {},
+ "excluded": {}
+}

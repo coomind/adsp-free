@@ -1,0 +1,1018 @@
+[
+ {
+  "id": "s2-001",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD(Knowledge Discovery in Databases) 분석 절차의 순서로 옳은 것은?",
+  "choices": [
+   "데이터셋 선택 → 전처리 → 변환 → 데이터 마이닝 → 결과 해석·평가",
+   "전처리 → 데이터셋 선택 → 데이터 마이닝 → 변환 → 결과 해석·평가",
+   "데이터셋 선택 → 변환 → 전처리 → 결과 해석·평가 → 데이터 마이닝",
+   "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가"
+  ],
+  "answer": 0,
+  "explain": "KDD는 선택(Selection) → 전처리(Pre-processing) → 변환(Transformation) → 데이터 마이닝 → 해석·평가 순이다. ④는 CRISP-DM의 앞 5단계다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-002",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차에서 잡음(noise)이 있거나 값이 빠진 관측치를 정리하는 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "전처리",
+   "변환",
+   "결과 해석·평가"
+  ],
+  "answer": 1,
+  "explain": "전처리 단계에서 목표 데이터셋을 정제(cleaning)해 잡음과 결측 관측치를 처리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true,
+  "level": "기본"
+ },
+ {
+  "id": "s2-003",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차의 첫 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "데이터 마이닝",
+   "결과 해석·평가",
+   "변환"
+  ],
+  "answer": 0,
+  "explain": "KDD는 분석 대상이 될 데이터셋을 선택하는 단계(Selection)로 시작한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-004",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차의 마지막 단계는?",
+  "choices": [
+   "전처리",
+   "결과 해석·평가",
+   "데이터 마이닝",
+   "변환"
+  ],
+  "answer": 1,
+  "explain": "마지막은 마이닝 결과를 해석하고 평가하는 단계(Interpretation/Evaluation)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-005",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM의 6단계 순서로 옳은 것은?",
+  "choices": [
+   "업무 이해 → 데이터 준비 → 데이터 이해 → 모델링 → 전개 → 평가",
+   "데이터 이해 → 업무 이해 → 모델링 → 데이터 준비 → 평가 → 전개",
+   "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개",
+   "데이터 준비 → 데이터 이해 → 업무 이해 → 모델링 → 평가 → 전개"
+  ],
+  "answer": 2,
+  "explain": "CRISP-DM은 업무 이해(Business Understanding) → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개(Deployment)의 6단계다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-006",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM의 첫 단계는?",
+  "choices": [
+   "데이터 이해",
+   "모델링",
+   "데이터 준비",
+   "업무 이해"
+  ],
+  "answer": 3,
+  "explain": "CRISP-DM은 업무 이해(Business Understanding)로 시작한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-007",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM의 마지막 단계는?",
+  "choices": [
+   "전개",
+   "모델링",
+   "평가",
+   "데이터 준비"
+  ],
+  "answer": 0,
+  "explain": "마지막 단계는 전개(Deployment)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-008",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "단계 순서가 엄격해 앞 단계로 되돌아갈 수 없다",
+   "단계 사이를 오가는 피드백이 흔히 필요하다",
+   "모델링 다음 단계는 전개다",
+   "KDD와 같은 5단계로 구성된다"
+  ],
+  "answer": 1,
+  "explain": "CRISP-DM의 단계 순서는 엄격하지 않으며 단계 사이를 앞뒤로 오가는 것이 보통 필요하다. 모델링 다음은 평가이고, 6단계로 구성된다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-009",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM",
+   "틀린 것 찾기"
+  ],
+  "q": "다음 중 CRISP-DM의 6개 공식 단계 이름이 아닌 것은?",
+  "choices": [
+   "업무 이해",
+   "데이터 준비",
+   "데이터 변환",
+   "전개"
+  ],
+  "answer": 2,
+  "explain": "'변환(Transformation)'은 KDD의 단계 이름이다. CRISP-DM의 6단계 이름은 업무 이해·데이터 이해·데이터 준비·모델링·평가·전개다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   },
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-010",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM에서 '모델링' 바로 다음 단계는?",
+  "choices": [
+   "데이터 준비",
+   "업무 이해",
+   "전개",
+   "평가"
+  ],
+  "answer": 3,
+  "explain": "모델링 다음은 평가(Evaluation), 그다음이 전개다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-011",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM에서 '데이터 이해' 바로 다음 단계는?",
+  "choices": [
+   "데이터 준비",
+   "모델링",
+   "업무 이해",
+   "평가"
+  ],
+  "answer": 0,
+  "explain": "데이터 이해 다음은 데이터 준비(Data Preparation)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-012",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "SEMMA"
+  ],
+  "q": "SAS가 제시한 데이터 마이닝 방법론 SEMMA의 순서로 옳은 것은?",
+  "choices": [
+   "Explore → Sample → Model → Modify → Assess",
+   "Sample → Explore → Modify → Model → Assess",
+   "Sample → Modify → Explore → Assess → Model",
+   "Select → Explore → Mine → Model → Assess"
+  ],
+  "answer": 1,
+  "explain": "SEMMA는 Sample(추출) → Explore(탐색) → Modify(수정) → Model(모델링) → Assess(평가)다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SEMMA",
+    "u": "https://en.wikipedia.org/wiki/SEMMA"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-013",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "SEMMA"
+  ],
+  "q": "SEMMA 방법론의 첫 단계는?",
+  "choices": [
+   "Sample",
+   "Explore",
+   "Modify",
+   "Assess"
+  ],
+  "answer": 0,
+  "explain": "SEMMA는 모델링용 데이터셋을 추출하는 Sample 단계로 시작한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SEMMA",
+    "u": "https://en.wikipedia.org/wiki/SEMMA"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true,
+  "level": "기본"
+ },
+ {
+  "id": "s2-014",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "각 단계의 결과가 다음 단계의 입력이 되어 순차적으로 진행되고, 앞 단계로 되돌아가기 어려운 모델은?",
+  "choices": [
+   "프로토타입 모델",
+   "나선형 모델",
+   "폭포수 모델",
+   "반복적 모델"
+  ],
+  "answer": 2,
+  "explain": "폭포수(Waterfall) 모델은 단계가 한 방향으로 순차 진행되어 반복·유연성이 가장 낮은 편이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Waterfall model",
+    "u": "https://en.wikipedia.org/wiki/Waterfall_model"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-015",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "위험(risk)을 중심으로 반복하며 개발을 진행하는 모델은?",
+  "choices": [
+   "폭포수 모델",
+   "V 모델",
+   "프로토타입 모델",
+   "나선형 모델"
+  ],
+  "answer": 3,
+  "explain": "나선형(Spiral) 모델은 위험 중심(risk-driven)의 반복적 개발 모델이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Spiral model",
+    "u": "https://en.wikipedia.org/wiki/Spiral_model"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-016",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "요구사항이 불명확할 때 불완전한 시제품을 빠르게 만들어 사용자 피드백을 받으며 개선하는 접근은?",
+  "choices": [
+   "프로토타입 모델",
+   "폭포수 모델",
+   "하향식 분해",
+   "나선형 모델"
+  ],
+  "answer": 0,
+  "explain": "프로토타이핑은 미완성 버전을 먼저 만들어 초기에 사용자 피드백을 받고 요구사항을 구체화한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Software prototyping",
+    "u": "https://en.wikipedia.org/wiki/Software_prototyping"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-017",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "폭포수 모델에 대한 설명으로 옳은 것은?",
+  "choices": [
+   "요구사항을 초기에 확정하기 어려운 과제에 가장 적합하다",
+   "후반에 요구사항이 바뀌면 재설계·재개발 비용이 커진다",
+   "위험 분석을 매 반복마다 수행하는 것이 핵심이다",
+   "시제품을 먼저 만들어 사용자 피드백을 받는다"
+  ],
+  "answer": 1,
+  "explain": "폭포수 모델은 순차 진행이라 뒤늦은 요구사항 변경이 재설계·재개발·재시험으로 이어져 비용이 커진다. 위험 중심 반복은 나선형, 시제품 피드백은 프로토타입 모델의 특징이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Waterfall model",
+    "u": "https://en.wikipedia.org/wiki/Waterfall_model"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-018",
+  "subject": 2,
+  "item": "2-1-3",
+  "tags": [
+   "과제 발굴 접근"
+  ],
+  "q": "해결할 문제가 주어진 상태에서 전체 문제를 작은 하위 문제로 나누어 해법을 찾아 가는 접근 방식은?",
+  "choices": [
+   "프로토타이핑",
+   "상향식 접근",
+   "하향식 접근",
+   "발산적 사고"
+  ],
+  "answer": 2,
+  "explain": "하향식(Top-down)은 큰 그림에서 시작해 작은 부분으로 분해한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Top-down and bottom-up design",
+    "u": "https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-019",
+  "subject": 2,
+  "item": "2-1-3",
+  "tags": [
+   "과제 발굴 접근"
+  ],
+  "q": "정해진 문제에서 출발하지 않고, 개별 데이터·요소에서 출발해 이를 조합하며 더 큰 구조나 인사이트로 쌓아 가는 접근 방식은?",
+  "choices": [
+   "하향식 접근",
+   "CRISP-DM",
+   "폭포수 모델",
+   "상향식 접근"
+  ],
+  "answer": 3,
+  "explain": "상향식(Bottom-up)은 세부 요소를 먼저 정하고 이를 연결해 더 큰 시스템을 만든다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Top-down and bottom-up design",
+    "u": "https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-020",
+  "subject": 2,
+  "item": "2-1-3",
+  "tags": [
+   "디자인 사고"
+  ],
+  "q": "디자인 사고(Design Thinking) 과정의 특징으로 가장 적절한 것은?",
+  "choices": [
+   "발산적 사고와 수렴적 사고를 번갈아 반복한다",
+   "수렴적 사고만으로 하나의 정답을 빠르게 고른다",
+   "단계를 한 방향으로만 순차 진행한다",
+   "데이터 없이 직관으로만 결정한다"
+  ],
+  "answer": 0,
+  "explain": "디자인 사고는 아이디어를 넓히는 발산적 사고와 최선을 고르는 수렴적 사고가 번갈아 나타나는 것이 특징이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Design thinking",
+    "u": "https://en.wikipedia.org/wiki/Design_thinking"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-021",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트에 필요한 작업이 빠짐없이, 그리고 불필요한 작업 없이 포함되도록 관리하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "원가 관리",
+   "범위 관리",
+   "품질 관리",
+   "조달 관리"
+  ],
+  "answer": 1,
+  "explain": "범위 관리(Scope Management)는 프로젝트가 필요한 작업만, 모두 포함하도록 관리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-022",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 팀 외부에서 제품·서비스를 구매하는 과정을 다루는 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "의사소통 관리",
+   "자원 관리",
+   "조달 관리",
+   "통합 관리"
+  ],
+  "answer": 2,
+  "explain": "외부 구매는 조달 관리(Procurement Management)가 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-023",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "위험을 계획·식별·분석하고 대응 방안을 세우는 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "이해관계자 관리",
+   "품질 관리",
+   "일정 관리",
+   "리스크 관리"
+  ],
+  "answer": 3,
+  "explain": "리스크 관리(Risk Management)는 위험의 계획·식별·분석·대응을 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-024",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트를 제때 완료하도록 관리하는 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "일정(시간) 관리",
+   "범위 관리",
+   "원가 관리",
+   "자원 관리"
+  ],
+  "answer": 0,
+  "explain": "일정 관리(Schedule Management, 이전 명칭 Time Management)는 프로젝트의 적시 완료를 관리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-025",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트에 영향을 주거나 받는 사람들을 식별하고 참여 전략을 세우는 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "의사소통 관리",
+   "이해관계자 관리",
+   "통합 관리",
+   "자원 관리"
+  ],
+  "answer": 1,
+  "explain": "이해관계자 관리(Stakeholder Management)는 이해관계자를 식별하고 참여를 관리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-026",
+  "subject": 2,
+  "item": "2-2-2",
+  "tags": [
+   "데이터 거버넌스"
+  ],
+  "q": "데이터 거버넌스에 대한 설명으로 가장 적절한 것은?",
+  "choices": [
+   "데이터를 저장하는 하드웨어를 선정하는 활동이다",
+   "분석 모델의 성능을 높이는 알고리즘 튜닝이다",
+   "조직의 데이터를 효과적이고 책임 있게 쓰도록 이끄는 원칙·정책·프로세스의 집합이다",
+   "개인 사용자가 데이터를 자유롭게 복제하도록 허용하는 것이다"
+  ],
+  "answer": 2,
+  "explain": "데이터 거버넌스는 조직 안에서 데이터를 효과적이고 책임 있게 쓰도록 이끄는 원칙·정책·프로세스다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data governance",
+    "u": "https://en.wikipedia.org/wiki/Data_governance"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-027",
+  "subject": 2,
+  "item": "2-2-2",
+  "tags": [
+   "데이터 거버넌스"
+  ],
+  "q": "고객·상품·계좌처럼 여러 업무에서 공통으로 쓰는 핵심 데이터를 일관되고 정확하게 관리하는 활동은?",
+  "choices": [
+   "데이터 시각화",
+   "로그 수집",
+   "데이터 마이닝",
+   "마스터 데이터 관리"
+  ],
+  "answer": 3,
+  "explain": "마스터 데이터 관리(MDM)는 제품·계정·거래 당사자 같은 공유 핵심 데이터의 일관성·정확성을 관리한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Master data management",
+    "u": "https://en.wikipedia.org/wiki/Master_data_management"
+   },
+   {
+    "t": "Wikipedia: Data governance",
+    "u": "https://en.wikipedia.org/wiki/Data_governance"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-028",
+  "subject": 2,
+  "item": "2-2-2",
+  "tags": [
+   "데이터 거버넌스"
+  ],
+  "q": "데이터의 이름·의미·표현 형식·사용 방식과 다른 데이터와의 관계를 정의해 모아 둔 것은?",
+  "choices": [
+   "데이터 사전",
+   "데이터 마트",
+   "운영 데이터베이스",
+   "데이터 레이크"
+  ],
+  "answer": 0,
+  "explain": "데이터 사전(Data Dictionary)은 데이터의 의미·다른 데이터와의 관계·출처·용도·형식을 정리한 저장소다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data dictionary",
+    "u": "https://en.wikipedia.org/wiki/Data_dictionary"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-029",
+  "subject": 2,
+  "item": "2-2-2",
+  "tags": [
+   "데이터 거버넌스",
+   "틀린 것 찾기"
+  ],
+  "q": "데이터 거버넌스가 다루는 영역으로 보기 어려운 것은?",
+  "choices": [
+   "데이터 품질 관리",
+   "서버 하드웨어 구매 협상",
+   "마스터 데이터 관리",
+   "메타데이터 관리"
+  ],
+  "answer": 1,
+  "explain": "데이터 거버넌스는 데이터 품질, 메타데이터, 마스터 데이터, 접근 통제, 생애주기 관리 등을 다룬다. 하드웨어 구매 협상은 거버넌스 영역이 아니다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data governance",
+    "u": "https://en.wikipedia.org/wiki/Data_governance"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-030",
+  "subject": 2,
+  "item": "2-2-2",
+  "tags": [
+   "데이터 거버넌스",
+   "틀린 것 찾기"
+  ],
+  "q": "데이터 거버넌스에서 관리하는 데이터 품질 속성이 아닌 것은?",
+  "choices": [
+   "정확성",
+   "완전성",
+   "휘발성",
+   "일관성"
+  ],
+  "answer": 2,
+  "explain": "데이터 품질 속성으로는 정확성·완전성·일관성·적시성·유효성·유일성을 든다. 휘발성은 품질 속성이 아니다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data governance",
+    "u": "https://en.wikipedia.org/wiki/Data_governance"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-031",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차에서 '데이터 마이닝' 바로 다음 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "전처리",
+   "변환",
+   "결과 해석·평가"
+  ],
+  "answer": 3,
+  "explain": "KDD는 선택 → 전처리 → 변환 → 데이터 마이닝 → 결과 해석·평가다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true,
+  "level": "기본"
+ },
+ {
+  "id": "s2-032",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "KDD"
+  ],
+  "q": "KDD 절차에서 '전처리' 바로 다음 단계는?",
+  "choices": [
+   "데이터셋 선택",
+   "결과 해석·평가",
+   "변환",
+   "데이터 마이닝"
+  ],
+  "answer": 2,
+  "explain": "전처리 다음은 변환(Transformation), 그다음이 데이터 마이닝이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Data mining (KDD process, Pre-processing)",
+    "u": "https://en.wikipedia.org/wiki/Data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true,
+  "level": "기본"
+ },
+ {
+  "id": "s2-033",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "CRISP-DM"
+  ],
+  "q": "CRISP-DM에서 '데이터 준비' 바로 다음 단계는?",
+  "choices": [
+   "데이터 이해",
+   "전개",
+   "평가",
+   "모델링"
+  ],
+  "answer": 3,
+  "explain": "데이터 준비 다음은 모델링(Modeling)이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: CRISP-DM",
+    "u": "https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-034",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "SEMMA"
+  ],
+  "q": "SEMMA에서 'Explore' 바로 다음 단계는?",
+  "choices": [
+   "Sample",
+   "Modify",
+   "Model",
+   "Assess"
+  ],
+  "answer": 1,
+  "explain": "SEMMA는 Sample → Explore → Modify → Model → Assess다.",
+  "sources": [
+   {
+    "t": "Wikipedia: SEMMA",
+    "u": "https://en.wikipedia.org/wiki/SEMMA"
+   }
+  ],
+  "checked": "2026-09-29",
+  "fixedOrder": true,
+  "level": "기본"
+ },
+ {
+  "id": "s2-035",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트의 비용을 계획·추정하고 예산을 세워 통제하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "원가 관리",
+   "조달 관리",
+   "범위 관리",
+   "자원 관리"
+  ],
+  "answer": 0,
+  "explain": "원가 관리(Cost Management)는 비용 계획·추정·예산 수립·통제를 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-036",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 결과물이 요구사항 기준을 충족하도록 기준을 계획하고, 결과물을 검사·통제하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "리스크 관리",
+   "품질 관리",
+   "통합 관리",
+   "일정 관리"
+  ],
+  "answer": 1,
+  "explain": "품질 관리(Quality Management)는 결과물이 요구사항을 충족하도록 품질 정책·목표·책임을 정하고, 품질 계획·보증(관리)·통제를 수행하는 영역이다. 통합 관리는 여러 영역의 활동을 하나로 묶고 조정하는 영역이다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-037",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 정보를 제때 적절하게 계획·수집·생성·배포하는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "자원 관리",
+   "이해관계자 관리",
+   "의사소통 관리",
+   "조달 관리"
+  ],
+  "answer": 2,
+  "explain": "의사소통 관리(Communications Management)는 프로젝트 정보의 적시·적절한 계획·수집·생성·배포를 다룬다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-038",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "여러 프로젝트 관리 활동을 식별·정의·결합·조정해 하나로 묶는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "의사소통 관리",
+   "범위 관리",
+   "품질 관리",
+   "통합 관리"
+  ],
+  "answer": 3,
+  "explain": "통합 관리(Integration Management)는 여러 프로세스와 활동을 식별·정의·결합·통일·조정한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-039",
+  "subject": 2,
+  "item": "2-1-4",
+  "tags": [
+   "프로젝트 관리"
+  ],
+  "q": "프로젝트 팀을 조직·관리·이끄는 영역은 PMBOK의 10개 지식 영역 중 무엇인가?",
+  "choices": [
+   "자원 관리(구 인적자원 관리)",
+   "조달 관리",
+   "원가 관리",
+   "리스크 관리"
+  ],
+  "answer": 0,
+  "explain": "자원 관리(Resource Management)는 프로젝트 팀을 조직·관리·이끈다. PMBOK 5판까지는 인적자원 관리(Human Resource Management)였고 6판에서 이름이 바뀌었다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Project Management Body of Knowledge",
+    "u": "https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ },
+ {
+  "id": "s2-040",
+  "subject": 2,
+  "item": "2-1-2",
+  "tags": [
+   "분석 방법론 모델"
+  ],
+  "q": "나선형 모델이 폭포수·점진적·진화적 프로토타이핑 가운데 어떤 방식의 요소를 쓸지 정하는 기준은?",
+  "choices": [
+   "코드 줄 수",
+   "프로젝트의 위험 분석 결과",
+   "개발자 선호",
+   "최소 비용만"
+  ],
+  "answer": 1,
+  "explain": "나선형 모델은 위험 중심(risk-driven)으로, 프로젝트 고유의 위험 패턴에 따라 다른 모델의 요소를 채택한다.",
+  "sources": [
+   {
+    "t": "Wikipedia: Spiral model",
+    "u": "https://en.wikipedia.org/wiki/Spiral_model"
+   }
+  ],
+  "checked": "2026-09-29",
+  "level": "기본"
+ }
+]
