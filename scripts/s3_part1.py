@@ -43,10 +43,10 @@ def add(E, C):
       "x <- data.frame(k = 1:3, a = 1:3); y <- data.frame(k = 2:4, b = 1:3); nrow(merge(x, y, all.x = TRUE))",
       "result = len(pd.merge(pd.DataFrame({'k': [1, 2, 3]}), pd.DataFrame({'k': [2, 3, 4]}), how='left'))", "3",
       "3", ["2", "4", "1"], "all.x = TRUE는 왼쪽(x) 기준 조인이라 x의 행 3개가 모두 남는다(k = 1은 b가 NA).", [("R 문서: merge", RD + 'base/html/merge.html')])
-    E(103, "3-1-2", ["R 코드", "데이터 결합"], "실전", "다음 R 코드의 실행 결과는?", "x <- data.frame(k = 1:3, a = 1:3)\ny <- data.frame(k = 2:4, b = 1:3)\nnrow(merge(x, y, all = TRUE))",
-      "x <- data.frame(k = 1:3, a = 1:3); y <- data.frame(k = 2:4, b = 1:3); nrow(merge(x, y, all = TRUE))",
-      "result = len(pd.merge(pd.DataFrame({'k': [1, 2, 3]}), pd.DataFrame({'k': [2, 3, 4]}), how='outer'))", "4",
-      "4", ["2", "3", "6"], "all = TRUE는 완전 외부 조인이라 양쪽 키 1, 2, 3, 4가 모두 남는다.", [("R 문서: merge", RD + 'base/html/merge.html')])
+    E(103, "3-1-2", ["R 코드", "데이터 결합"], "고난도", "고객 표(id 1~4)와 주문 표(id 3~6)를 합쳐 어느 한쪽에라도 있는 id를 모두 남기려 한다. 다음 코드의 결과 행 수는?", "cust <- data.frame(id = 1:4, name = letters[1:4])\nord  <- data.frame(id = 3:6, amt = c(10, 20, 30, 40))\nnrow(merge(cust, ord, all = TRUE))",
+      "cust <- data.frame(id = 1:4, name = letters[1:4]); ord <- data.frame(id = 3:6, amt = c(10, 20, 30, 40)); nrow(merge(cust, ord, all = TRUE))",
+      "result = len(pd.merge(pd.DataFrame({'id': [1, 2, 3, 4]}), pd.DataFrame({'id': [3, 4, 5, 6]}), how='outer'))", "6",
+      "6", ["2", "4", "8"], "all = TRUE는 완전 외부 조인이다. 양쪽 id의 합집합 1~6이 남아 6행(공통 id 3, 4는 한 행씩). 내부 조인(기본값)이면 2행이다.", [("R 문서: merge", RD + 'base/html/merge.html')])
     E(104, "3-1-2", ["R 코드", "범주화"], "실전", "다음 R 코드의 실행 결과는?", 'as.character(cut(c(1, 5, 9), breaks = c(0, 3, 6, 10), labels = c("L", "M", "H")))',
       'as.character(cut(c(1, 5, 9), breaks = c(0, 3, 6, 10), labels = c("L", "M", "H")))',
       "result = list(pd.cut([1, 5, 9], [0, 3, 6, 10], labels=['L', 'M', 'H']).astype(str))", "L M H",
@@ -82,7 +82,7 @@ def add(E, C):
       "다른 변수와의 상관관계를 약하게 만들고 분포의 흩어짐을 줄인다",
       ["평균이 크게 바뀐다", "결측이 더 늘어난다", "항상 편향 없는 추정을 보장한다"],
       "평균 대치는 관측값 평균은 유지하지만 변수 간 상관을 약화시키고 변동을 줄여 추정을 왜곡할 수 있다.", [("Wikipedia: Imputation (statistics)", 'Imputation_(statistics)')], ["mean imputation", "attenuates any correlations"])
-    C(113, "3-1-3", ["결측값", "결측 유형"], "실전", "결측이 생긴 여부가 관측된 값이든 결측된 값이든 어떤 변수와도 관계없이 완전히 무작위로 일어난 경우는?",
+    C(113, "3-1-3", ["결측값", "결측 유형"], "실전", "결측 여부가 관측된 변수든 결측된 값이든 어떤 변수와도 관계없이, 순전히 우연으로 생긴 경우는?",
       "MCAR(완전 무작위 결측)", ["MAR(무작위 결측)", "MNAR(비무작위 결측)", "이상값"],
       "결측 여부가 어떤 변수와도 무관하면 MCAR, 관측된 다른 변수와만 관련 있으면 MAR, 결측된 값 자체와 관련 있으면 MNAR이다.", [("Wikipedia: Missing data", 'Missing_data')], ["missing completely at random"])
     C(114, "3-1-3", ["결측값", "결측 유형"], "고난도", "소득이 높은 사람일수록 소득 문항에 응답하지 않아 결측이 생겼다. 이 결측 유형은?",
@@ -97,10 +97,11 @@ def add(E, C):
     E(117, "3-1-3", ["이상값", "IQR"], "실전", "다음 R 코드의 실행 결과는?", "IQR(c(1, 3, 5, 7, 9, 11))",
       "IQR(c(1, 3, 5, 7, 9, 11))", "q1, q3 = np.percentile([1, 3, 5, 7, 9, 11], [25, 75]); result = q3 - q1", "5",
       "5", ["6", "4", "8"], "R 기본(type 7) 사분위수: Q1 = 3.5, Q3 = 8.5, IQR = 5.", [("R 문서: quantile", RD + 'stats/html/quantile.html')])
-    E(118, "3-1-3", ["결측값"], "실전", "다음 R 코드의 실행 결과는?", "df <- data.frame(a = c(1, NA, 3, 4), b = c(1, 2, NA, 4))\nsum(!complete.cases(df))",
-      "df <- data.frame(a = c(1, NA, 3, 4), b = c(1, 2, NA, 4)); sum(!complete.cases(df))",
-      "result = int(pd.DataFrame({'a': [1, None, 3, 4], 'b': [1, 2, None, 4]}).isna().any(axis=1).sum())", "2",
-      "2", ["1", "3", "0"], "결측이 하나라도 있는 행은 2행(a 결측)과 3행(b 결측), 2개다.")
+    E(118, "3-1-3", ["결측값"], "실전", "다음 R 코드는 열별로 무엇을, 얼마로 계산하는가?", "df <- data.frame(a = c(1, NA, 3, 4), b = c(NA, NA, 3, 4))\ncolMeans(is.na(df))",
+      "df <- data.frame(a = c(1, NA, 3, 4), b = c(NA, NA, 3, 4)); unname(colMeans(is.na(df)))",
+      "result = list(pd.DataFrame({'a': [1, None, 3, 4], 'b': [None, None, 3, 4]}).isna().mean())", "0.25 0.5",
+      "결측 비율, a 0.25 · b 0.5", ["결측 개수, a 1 · b 2", "평균, a 2.67 · b 3.5", "결측 비율, a 0.5 · b 0.25"],
+      "is.na로 결측을 TRUE(1)로 바꾼 뒤 colMeans로 평균을 내면 열별 결측 비율이 된다: a 1/4 = 0.25, b 2/4 = 0.5.")
 
     # --- 3-2-1 통계학 개론: 척도·표본추출·오차·분포·확률
     C(119, "3-2-1", ["척도"], "기본", "섭씨 온도처럼 값 사이 간격은 의미가 있지만 0이 '없음'을 뜻하지 않아 비율 비교(2배 덥다)가 의미 없는 척도는?",

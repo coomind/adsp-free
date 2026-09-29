@@ -37,7 +37,7 @@ def run():
     if leg:
         out = subprocess.run([RS, os.path.join(ROOT, 'verify', 's3.R')], capture_output=True, text=True, check=True).stdout
         rout = dict(l.split('\t', 1) for l in out.strip().splitlines())
-        py_ok = subprocess.run([sys.executable, os.path.join(ROOT, 'verify', 'check.py')], capture_output=True, text=True).returncode == 0
+        py_ok = subprocess.run([sys.executable, os.path.join(ROOT, 'verify', 'check.py')], capture_output=True, text=True, env={**os.environ, 'ADSP_CHECK_BANK': '1'}).returncode == 0
         for q in leg:
             ok = rout.get(q['id'], '').strip() == q['verifyValue']
             res[q['id']] = 'pass' if ok and py_ok else f"fail: R={rout.get(q['id'])!r} expected {q['verifyValue']!r}" + ('' if py_ok else ' / check.py failed')

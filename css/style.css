@@ -138,3 +138,19 @@ kbd { font: 600 13px/1 ui-monospace, Consolas, monospace; border: 1px solid var(
   .mockside .palette { grid-template-columns: repeat(5, 1fr); margin: 0; }
   .side-only { display: block; margin: 10px 0 0; }
 }
+
+/* study pages */
+.freq ul { margin: 8px 0; padding-left: 20px; }
+.freq li { margin: 4px 0; }
+.star { color: var(--sub); font-size: 13px; letter-spacing: -1px; }
+.star::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--lime); margin-right: 5px; vertical-align: middle; }
+.tbl { overflow-x: auto; margin: 6px 0 12px; }
+.tbl table.plain { font-size: 15px; }
+.tbl th { background: var(--chip); }
+.maprow { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; padding: 10px 12px; margin: 6px 0;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card); text-decoration: none; font-size: 16px; }
+.maprow b { min-width: 3.2em; text-align: right; font-size: 14px; }
+.diff { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+.diff .chip:disabled { opacity: .6; cursor: default; }
+.diff .chip.on { opacity: 1; }
+select { font: inherit; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); margin-top: 6px; }

@@ -83,6 +83,18 @@ await ev(`window.confirm = () => true; document.getElementById('submit').click()
 results.mockResult = await ev(`document.querySelector('.score')?.textContent + ' / ' + document.querySelector('.card p b')?.textContent`);
 await shot('e2e_6_mock_result.png');
 
+// study pages, review queue, difficulty feedback, survey
+results.pages = {};
+for (const h of ['#/freq', '#/compare', '#/formulas', '#/d7', '#/map', '#/review', '#/survey', '#/verify', '#/notes/3']) {
+  await go(h, 1200);
+  results.pages[h] = await ev(`(document.querySelector('#app h1')?.textContent || 'NO H1') + ' | ' + document.querySelectorAll('#app table tr, #app li, #app .maprow').length`);
+}
+await go('#/practice/2/%EC%A0%84%EC%B2%B4');
+await ev(`document.querySelector('.choice').click(); true`); await sleep(200);
+await ev(`document.querySelector('[data-diff="hard"]').click(); true`); await sleep(100);
+results.diffDisabled = await ev(`[...document.querySelectorAll('[data-diff]')].every((b) => b.disabled)`);
+results.srsCount = await ev(`Object.keys(JSON.parse(localStorage.getItem('adsp:v1')).srs || {}).length`);
+
 // share preview tags
 results.events = await ev(`window.__ev`);
 results.og = await ev(`['og:title','og:description','og:image'].map((p) => document.querySelector('meta[property="' + p + '"]')?.content)`);

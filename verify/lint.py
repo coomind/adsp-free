@@ -33,13 +33,16 @@ def run():
             if leak: e.append('hint in stem: ' + ','.join(leak))
         errs[q['id']] = e
     # near-duplicates within a subject (stem + code + choices)
-    sig = {q['id']: norm_text(q['q'] + ' ' + q.get('code', '') + ' ' + ' '.join(sorted(q['choices']))) for q in qs}
+    # questions that share one dataset (same code block, e.g. a confusion matrix) are compared on stem + choices only
+    qd = {q['id']: q for q in qs}
+    sig = lambda x, with_code: norm_text(x['q'] + ' ' + (x.get('code', '') if with_code else '') + ' ' + ' '.join(sorted(x['choices'])))
     by = {}
     for q in qs: by.setdefault(q['subject'], []).append(q['id'])
     for s, lst in by.items():
         for i, a in enumerate(lst):
             for b in lst[i + 1:]:
-                if difflib.SequenceMatcher(None, sig[a], sig[b]).ratio() > 0.9:
+                wc = qd[a].get('code', '') != qd[b].get('code', '') or not qd[a].get('code')
+                if difflib.SequenceMatcher(None, sig(qd[a], wc), sig(qd[b], wc)).ratio() > 0.9:
                     errs[b].append(f'near-duplicate of {a}')
     for q in qs:
         st.setdefault(q['id'], {})['lint'] = 'pass' if not errs[q['id']] else 'fail: ' + '; '.join(errs[q['id']])

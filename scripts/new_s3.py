@@ -5,7 +5,9 @@
 - C(): concept questions with a public source and `evidence` phrases (checked by verify/sources.py).
 The correct answer's position rotates with the id. Parts: scripts/s3_part1.py (3-1, 3-2-1), s3_part2.py (3-2-2~3-2-4), s3_part3.py (3-3).
 Run: python scripts/new_s3.py -> bank/new_s3.json"""
-import json, os, re, shutil, subprocess, sys
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import positions, re, shutil, subprocess, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -16,7 +18,7 @@ qs, pending = [], []
 
 
 def _place(i, right, wrong):
-    pos = (i * 3 + 1) % 4
+    pos = positions.pos(3, i)
     ch = list(wrong); ch.insert(pos, right)
     return ch, pos
 

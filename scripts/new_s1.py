@@ -2,7 +2,9 @@
 phrases that verify/sources.py must find in that page. Stems are written from the exam outline, never from past exams.
 Priorities: empty outline items first (1-2-2, 1-2-5, 1-3-1, 1-3-3), then frequent topics (data/freq.json).
 Run: python scripts/new_s1.py  -> bank/new_s1.json"""
-import json, os
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import positions
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 W = 'https://en.wikipedia.org/wiki/'
@@ -36,7 +38,7 @@ qs = []
 
 def Q(i, item, tags, level, q, right, wrong, ex, src, ev):
     """right answer + 3 wrong choices; the right answer's position rotates with the id (balanced positions)"""
-    pos = (i * 7 + 1) % 4
+    pos = positions.pos(1, i)
     ch = list(wrong); ch.insert(pos, right)
     qs.append({"id": f"s1-{i:03d}", "subject": 1, "item": item, "tags": tags, "level": level, "q": q, "choices": ch, "answer": pos,
                "explain": ex, "sources": [{"t": S[k][0], "u": S[k][1]} for k in src], "evidence": ev, "checked": "2026-09-30"})

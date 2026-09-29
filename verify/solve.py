@@ -11,13 +11,15 @@ from lib import TMP, load_bank, load_state, save_state
 D = os.path.join(TMP, 'solve'); os.makedirs(D, exist_ok=True)
 
 def chash(q):
-    return hashlib.sha1(json.dumps([q['q'], q.get('code', ''), q['choices'], q['answer'], q.get('explain', '')], ensure_ascii=False).encode()).hexdigest()[:12]
+    # content, independent of choice order: stem, code, the set of choices, the correct choice's text, explanation
+    return hashlib.sha1(json.dumps([q['q'], q.get('code', ''), sorted(q['choices']), q['choices'][q['answer']], q.get('explain', '')], ensure_ascii=False).encode()).hexdigest()[:12]
 
-def prep(size=45):
+def prep(size=45, force=()):
     qs = load_bank(); st = load_state(); todo = []
     for q in qs:
         s = st.get(q['id'], {})
         if s.get('excluded'): continue
+        if force and q['_file'] in force: todo.append(q); continue
         hist = s.get('solve', [])
         if not hist or (hist[-1]['r'] != 'ok' and hist[-1]['h'] != chash(q)) or (s.get('review', {}).get('ok') is False and s['review'].get('h') != chash(q)):
             todo.append(q)
@@ -33,16 +35,16 @@ def prep(size=45):
 def collect(rnd):
     qs = {q['id']: q for q in load_bank()}; st = load_state(); n = ok = 0
     # content hash of the version that was actually solved/reviewed (from the prep-time review file, which has every hashed field)
-    ph = {}
+    ph, pa = {}, {}
     for f in glob.glob(os.path.join(D, f'review_{rnd}_b[0-9][0-9].json')):
-        for e in json.load(open(f, encoding='utf-8')): ph[e['id']] = chash(e)
+        for e in json.load(open(f, encoding='utf-8')): ph[e['id']] = chash(e); pa[e['id']] = e['answer']
     for f in sorted(glob.glob(os.path.join(D, f'{rnd}_b*_answers.json'))):
         for i, a in json.load(open(f, encoding='utf-8')).items():
             if i not in qs: continue
             q = qs[i]; s = st.setdefault(i, {}); hist = s.setdefault('solve', [])
             if any(x.get('round') == rnd for x in hist): continue  # already collected
             a = int(a) if str(a).lstrip('-').isdigit() else -1
-            r = 'ok' if a == q['answer'] else f'miss:{a}'  # q['answer'] may have moved only if content changed -> hash differs anyway
+            r = 'ok' if a == pa.get(i, q['answer']) else f'miss:{a}'  # compare with the choice order the solver saw  # q['answer'] may have moved only if content changed -> hash differs anyway
             hist.append({'r': r, 'h': ph.get(i, chash(q)), 'round': rnd}); n += 1; ok += r == 'ok'
             if r != 'ok' and len(hist) >= 2 and hist[-2]['r'] != 'ok' and hist[-2]['h'] != hist[-1]['h']:
                 s['excluded'] = 'solver missed twice (after one fix)'
@@ -55,4 +57,4 @@ def collect(rnd):
     print(f'{rnd}: solved {n}, match {ok} ({ok / max(n, 1):.1%}); open misses {len(miss)}: {miss}; review problems {len(rev)}: {rev}')
 
 if __name__ == '__main__':
-    {'prep': lambda: prep(int(sys.argv[2]) if len(sys.argv) > 2 else 45), 'collect': lambda: collect(sys.argv[2])}[sys.argv[1]]()
+    {'prep': lambda: prep(int(sys.argv[2]) if len(sys.argv) > 2 else 45, tuple(sys.argv[3].split(',')) if len(sys.argv) > 3 else ()), 'collect': lambda: collect(sys.argv[2])}[sys.argv[1]]()

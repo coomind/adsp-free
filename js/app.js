@@ -23,7 +23,7 @@ let DB = store.load();
 const save = () => store.save(DB);
 
 // ---------- data ----------
-let EXAM, QS = [], QMAP = {}, NOTES = {};
+let EXAM, QS = [], QMAP = {}, NOTES = {}, STUDY = null;
 async function getJSON(u) { const r = await fetch(u); if (!r.ok) throw new Error(u); return r.json(); }
 async function loadData() {
   EXAM = await getJSON('data/exam.json');
@@ -31,6 +31,8 @@ async function loadData() {
     try { const qs = await getJSON(`data/questions/s${s.id}.json`); QS.push(...qs); } catch { /* subject not ready yet */ }
   }
   QS.forEach((q) => (QMAP[q.id] = q));
+  try { STUDY = await getJSON('data/study.json'); } catch { /* optional */ }
+  migrateSrs();
 }
 const subj = (id) => EXAM.subjects.find((s) => s.id === +id);
 const itemName = (iid) => {
@@ -50,10 +52,22 @@ function track(name) {
 }
 
 // ---------- records ----------
+// spaced review of wrong answers: due again after 1, 3, 7, 14 days; four correct reviews in a row clear it
+const DAY = 86400000, GAPS = [1, 3, 7, 14];
+function migrateSrs() {
+  DB.srs = DB.srs || {};
+  for (const [id, t] of Object.entries(DB.wrong)) if (!DB.srs[id]) DB.srs[id] = { box: 0, due: t + DAY };
+}
+const dueList = () => Object.entries(DB.srs || {}).filter(([id, v]) => v.due <= Date.now() && QMAP[id]).map(([id]) => QMAP[id]);
 function record(q, pick, mode) {
   const ok = pick === q.answer;
   DB.attempts.push({ id: q.id, s: q.subject, ok, t: Date.now(), m: mode });
-  if (!ok) DB.wrong[q.id] = Date.now(); else if (mode === 'wrong') delete DB.wrong[q.id];
+  DB.srs = DB.srs || {};
+  if (!ok) { DB.wrong[q.id] = Date.now(); DB.srs[q.id] = { box: 0, due: Date.now() + DAY }; }
+  else if (mode === 'review' && DB.srs[q.id]) {
+    const box = DB.srs[q.id].box + 1;
+    if (box >= GAPS.length) { delete DB.srs[q.id]; delete DB.wrong[q.id]; } else DB.srs[q.id] = { box, due: Date.now() + GAPS[box] * DAY };
+  } else if (mode === 'wrong') { delete DB.wrong[q.id]; delete DB.srs[q.id]; }
   save();
   return ok;
 }
@@ -79,8 +93,8 @@ async function render() {
 route(/^\/$/, (app) => {
   const wrongN = Object.keys(DB.wrong).length;
   app.innerHTML = `
-  <p class="row"><span class="label beta">베타</span><span class="label">자체 제작 예상문제</span></p>
-  <div class="card beta-card"><b>베타 공개 중이에요.</b> 틀린 문제를 찾으면 문제 아래 <b>⚑ 오류 신고</b>를 눌러 주세요. 반영되면 원하는 분은 <a href="#/testers">베타 테스터 명단</a>에 이름을 올려 드려요. <a href="#/verify">문제 검증 방법 보기</a></div>
+  <p class="row"><span class="label beta">1차 완성</span><span class="label">자체 제작 예상문제</span></p>
+  <div class="card beta-card"><b>문제 ${QS.length}개 · 모의고사 6회.</b> 자동 검증 5단계(형식·실행·근거·독립 풀이·교차 검토)를 모두 통과한 문제만 공개해요. <a href="#/verify">검증 방법 보기</a><br>틀린 곳을 찾으면 문제 아래 <b>⚑ 오류 신고</b>를 눌러 주세요. 반영되면 원하는 분은 <a href="#/testers">테스터 명단</a>에 이름을 올려 드려요.</div>
   <h1>ADsP ${esc(EXAM.round)} 대비<br>무료 문제풀이</h1>
   <div class="card"><div class="row" style="justify-content:space-between">
     <div><div class="dday">${ddayText()}</div><div class="small">시험 ${esc(EXAM.schedule.exam)} · 접수 ${esc(EXAM.schedule.apply)}</div></div>
@@ -88,6 +102,13 @@ route(/^\/$/, (app) => {
   <a class="btn primary block" href="#/diagnose">10문제로 지금 합격 가능성 진단</a>
   <p class="small" style="margin:6px 0 12px">실제 시험 비율(1과목 2 · 2과목 2 · 3과목 6)로 10문제를 풀면 바로 예상 점수 범위를 보여줘요.</p>
   <a class="btn block" href="#/today">오늘의 10문제</a>
+  ${(() => { const n = dueList().length; return n ? `<a class="btn block" style="margin-top:12px" href="#/review">오늘 복습할 문제 ${n}개</a><p class="small" style="margin:6px 0 0">틀린 문제를 1·3·7·14일 뒤에 다시 보여줘요.</p>` : ''; })()}
+  <h2>공부하기</h2>
+  <div class="grid">
+    <a class="btn" href="#/freq">빈출 포인트</a><a class="btn" href="#/compare">헷갈리는 개념 비교</a>
+    <a class="btn" href="#/formulas">공식 모음</a><a class="btn" href="#/d7">D-7 벼락치기 1장</a>
+    <a class="btn" href="#/map">진도 지도 (28개 항목)</a>
+  </div>
   <h2>과목별 진도</h2>
   ${EXAM.subjects.map((s) => {
     const total = QS.filter((q) => q.subject === s.id).length; const done = solvedSet(s.id).size;
@@ -112,12 +133,69 @@ route(/^\/notes\/(\d)$/, async (app, s) => {
   const toc = S.items.map((it) => `<p class="small" style="margin:10px 0 0"><b>${esc(it.name)}</b></p>` + it.subs.map((sb) => `<a href="#/notes/${s}" data-jump="${sb.id}">${esc(sb.name)}</a>`).join('')).join('');
   app.innerHTML = `<div class="row">${tabs}</div><h1>${S.id}과목 ${esc(S.name)} 요약</h1>
     <p class="small">공식 출제 기준 항목 순서대로 정리했어요.</p>
+    ${freqBox(s)}
     <details class="card toc"><summary><b>목차</b></summary>${toc}</details>
     <div class="note">${NOTES[s] || '<p class="muted">노트 준비 중이에요.</p>'}</div>
     ${QS.some((q) => q.subject === +s) ? `<a class="btn primary block" href="#/practice/${s}">${S.id}과목 문제 풀기</a>` : ''}`;
   app.querySelectorAll('[data-jump]').forEach((a) => a.addEventListener('click', (e) => {
     e.preventDefault(); const el = app.querySelector(`section[data-item="${a.dataset.jump}"]`); if (el) el.scrollIntoView({ behavior: 'smooth' });
   }));
+});
+
+// ---------- study ----------
+const stars = (w) => (w >= 2 ? '★★' : '★');
+function freqBox(s) {
+  const L = STUDY && STUDY.freq[s]; if (!L) return '';
+  return `<div class="card freq"><b>빈출 포인트</b><ul>${L.map((f) => `<li><span class="star">${stars(f.w)}</span> ${esc(f.t)} <a class="small" href="#/practice/${s}/${encodeURIComponent('항목:' + f.item)}">문제</a></li>`).join('')}</ul>
+    <p class="small">${esc(STUDY.freqNote)}</p></div>`;
+}
+const table = (head, rows) => `<div class="tbl"><table class="plain"><tr>${head.map((h) => `<th>${esc(h)}</th>`).join('')}</tr>${rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
+route(/^\/freq$/, (app) => {
+  if (!STUDY) { app.innerHTML = '<h1>빈출 포인트</h1><p class="muted">불러오지 못했어요.</p>'; return; }
+  app.innerHTML = `<h1>빈출 포인트</h1>${EXAM.subjects.map((S) => `<h2>${S.id}과목 ${esc(S.name)}</h2>${freqBox(S.id)}`).join('')}
+    <p class="small">참고한 글: ${STUDY.freqSources.map((x) => `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join(' · ')}</p>`;
+});
+route(/^\/compare$/, (app) => {
+  app.innerHTML = `<h1>헷갈리는 개념 비교</h1>${(STUDY ? STUDY.compare : []).map((c) => `<h2>${esc(c.title)}</h2>${table(c.head, c.rows)}`).join('')}`;
+});
+route(/^\/formulas$/, (app) => {
+  app.innerHTML = `<h1>공식 모음</h1>${table(['항목', '식', '메모'], (STUDY ? STUDY.formulas : []).map((f) => [f.t, f.f, f.n]))}
+    <p class="small">계산 문제의 정답은 R과 Python으로 실행해 확인했어요.</p>`;
+});
+route(/^\/d7$/, (app) => {
+  if (!STUDY) return;
+  app.innerHTML = `<h1>D-7 벼락치기 1장</h1><p class="small">${ddayText()} · 시험 ${esc(EXAM.schedule.exam)}</p>
+    ${STUDY.d7.map((d) => `<div class="card"><b>${d.s}과목 ${esc(subj(d.s).name)}</b><ul>${d.pts.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}
+    <div class="card"><b>시험장 전략</b><ul>${STUDY.d7Tips.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="grid"><a class="btn primary" href="#/review">오늘 복습할 문제</a><a class="btn" href="#/mock">모의고사</a></div>`;
+});
+route(/^\/map$/, (app) => {
+  const at = {};
+  DB.attempts.forEach((a) => { const q = QMAP[a.id]; if (!q) return; const k = q.item; at[k] = at[k] || { n: 0, ok: 0, ids: new Set() }; at[k].n++; at[k].ok += a.ok ? 1 : 0; at[k].ids.add(a.id); });
+  const cls = (x) => (!x ? ['미풀이', 'muted'] : x.ok / x.n >= 0.8 ? ['좋음', 'ok'] : x.ok / x.n >= 0.6 ? ['보통', 'warn'] : ['약함', 'bad']);
+  app.innerHTML = `<h1>진도 지도</h1><p class="small">공식 출제 기준 세부항목별로 푼 문제와 정답률을 보여줘요. 정답률 80% 이상 좋음 · 60% 이상 보통 · 그 아래 약함. 항목을 누르면 그 항목 문제만 풀어요.</p>
+  ${EXAM.subjects.map((S) => `<h2>${S.id}과목 ${esc(S.name)}</h2>${S.items.map((it) => `<p class="small" style="margin:14px 0 4px"><b>${esc(it.name)}</b></p>${it.subs.map((sb) => {
+    const x = at[sb.id]; const [lab, c] = cls(x); const total = QS.filter((q) => q.item === sb.id).length;
+    return `<a class="maprow" href="#/practice/${S.id}/${encodeURIComponent('항목:' + sb.id)}"><span>${esc(sb.name)}</span><span class="small">${x ? x.ids.size : 0}/${total}문제${x ? ` · ${Math.round((x.ok / x.n) * 100)}%` : ''}</span><b class="${c}">${lab}</b></a>`;
+  }).join('')}`).join('')}`).join('')}`;
+});
+route(/^\/review$/, (app) => {
+  const list = dueList();
+  if (!list.length) { app.innerHTML = `<h1>오늘 복습할 문제</h1><p class="muted">오늘 다시 볼 문제가 없어요. 틀린 문제는 1·3·7·14일 뒤에 여기 다시 나와요.</p><a class="btn primary block" href="#/today">오늘의 10문제</a>`; return; }
+  quiz(app, shuffle(list), { title: '오늘 복습', mode: 'review' });
+});
+route(/^\/survey$/, (app) => {
+  const mk = DB.mocks.length ? Math.round(DB.mocks.reduce((a, m) => a + m.total, 0) / DB.mocks.length) : null;
+  const band = (v) => (v == null ? 'none' : v < 40 ? '0-39' : v < 60 ? '40-59' : v < 70 ? '60-69' : v < 80 ? '70-79' : v < 90 ? '80-89' : '90-100');
+  app.innerHTML = `<h1>시험 후 점수 설문 (익명)</h1>
+    <p>실제 시험 점수와 이 사이트 모의고사 점수를 비교해, 합격 예측과 문제 난이도를 실제에 맞게 고치려고 해요.</p>
+    <p class="small">이름·연락처는 받지 않아요. 고른 점수 구간만 방문 통계(GoatCounter) 이벤트 이름으로 한 번 기록돼요. 점수 발표 뒤에 참여해 주세요.</p>
+    ${DB.survey ? '<div class="card">참여해 주셔서 고마워요!</div>' : `<div class="card">
+      <label>실제 시험 점수 구간<br><select id="sv-a">${['0-39', '40-59', '60-69', '70-79', '80-89', '90-100'].map((b) => `<option>${b}</option>`).join('')}</select></label>
+      <p class="small" style="margin-top:12px">이 브라우저의 모의고사 평균: ${mk == null ? '기록 없음' : mk + '점'} (구간 ${band(mk)})</p>
+      <button class="btn primary block" id="sv-go">익명으로 보내기</button></div>`}`;
+  const go = $('#sv-go', app);
+  if (go) go.addEventListener('click', () => { track(`survey/actual-${$('#sv-a', app).value}/mock-${band(mk)}`); DB.survey = true; save(); render(); });
 });
 
 // ---------- practice ----------
@@ -238,6 +316,7 @@ function explainBox(q, ok) {
     <p class="small">출제 기준: ${esc(itemName(q.item))}</p>
     ${(q.sources || []).length ? `<p class="small">근거: ${q.sources.map((x) => `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join(' · ')}</p>` : ''}
     ${q.verify ? `<p class="small">실행 검증: <a href="https://github.com/${CFG.repo}/blob/main/${esc(q.verify)}" target="_blank" rel="noopener">${esc(q.verify)}</a></p>` : ''}
+    <div class="diff" data-q="${q.id}"><span class="small">실제 시험과 비교한 난이도</span>${[['easy', '쉬움'], ['same', '비슷'], ['hard', '어려움']].map(([k, l]) => `<button type="button" class="chip ${(DB.diff || {})[q.id] === k ? 'on' : ''}" data-diff="${k}" ${(DB.diff || {})[q.id] ? 'disabled' : ''}>${l}</button>`).join('')}</div>
     <a class="btn report-btn" href="${reportLink(q)}" target="_blank" rel="noopener" data-track="report_click">⚑ 이 문제 오류 신고</a></div>`;
 }
 
@@ -310,7 +389,7 @@ route(/^\/mock\/(\w+)$/, async (app, id) => {
   const grade = () => {
     if (graded) return; graded = true; stopTimer(); track('mock_complete');
     const per = {}; EXAM.subjects.forEach((s) => (per[s.id] = { ok: 0, n: 0 }));
-    list.forEach((q, k) => { per[q.subject].n++; const ok = ans[k] !== null && record(q, ans[k], 'mock'); if (ans[k] === null) { DB.attempts.push({ id: q.id, s: q.subject, ok: false, t: Date.now(), m: 'mock' }); DB.wrong[q.id] = Date.now(); } if (ok) per[q.subject].ok++; });
+    list.forEach((q, k) => { per[q.subject].n++; const ok = ans[k] !== null && record(q, ans[k], 'mock'); if (ans[k] === null) { DB.attempts.push({ id: q.id, s: q.subject, ok: false, t: Date.now(), m: 'mock' }); DB.wrong[q.id] = Date.now(); DB.srs = DB.srs || {}; DB.srs[q.id] = { box: 0, due: Date.now() + DAY }; } if (ok) per[q.subject].ok++; });
     const rows = EXAM.subjects.map((s) => { const p = per[s.id]; const pts = p.ok * EXAM.pointsEach; const max = p.n * EXAM.pointsEach; const fail = pts < max * EXAM.failRatio; return { s, pts, max, fail }; });
     const total = rows.reduce((a, r) => a + r.pts, 0); const pass = total >= EXAM.passTotal && !rows.some((r) => r.fail);
     DB.mocks.push({ id, t: Date.now(), total, pass, per: rows.map((r) => r.pts) }); save();
@@ -410,23 +489,21 @@ route(/^\/about$/, (app) => {
   <p>made by <a href="${CFG.insta}" target="_blank" rel="noopener">@prie.note</a></p></div>`;
 });
 
-route(/^\/verify$/, (app) => {
-  const n = QS.length, withSrc = QS.filter((q) => (q.sources || []).length).length, withRun = QS.filter((q) => q.verify).length;
+route(/^\/verify$/, async (app) => {
+  let V = null; try { V = await getJSON('data/verify_summary.json'); } catch { }
+  const n = QS.length;
   app.innerHTML = `<h1>문제 검증 방법</h1><div class="note">
-  <p>이 사이트를 만든 사람도 ADsP를 아직 보지 않았어요. 그래서 한 사람의 판단에 기대지 않고 <b>여러 겹으로 검증</b>한 문제만 올려요. 확실하지 않은 문제는 뺐어요.</p>
+  <p>이 사이트를 만든 사람도 ADsP를 보지 않았어요. 그래서 사람 한 명의 판단 대신 <b>자동 검증 5단계를 모두 통과한 문제만</b> 공개해요. 하나라도 통과 못 하면 공개하지 않아요.</p>
   <table><tr><th>단계</th><th>하는 일</th><th>현재</th></tr>
-  <tr><td>1. 출제 기준</td><td>모든 문제를 공식 출제 기준 세부항목에 연결</td><td>${n} / ${n}</td></tr>
-  <tr><td>2. 공개 근거 링크</td><td>개념 문제마다 공개 문서(백과사전, 표준 용어사전, 정부 가이드라인 등) 링크를 달고, 링크를 실제로 열어 내용이 정답·해설과 일치하는지 확인. 근거를 못 찾은 문제는 제외</td><td>${withSrc} / ${n}</td></tr>
-  <tr><td>3. 실행 검증</td><td>계산·R 코드 문제는 R 또는 Python으로 실제 실행해 정답 확정. 스크립트를 <a href="https://github.com/${CFG.repo}/tree/main/verify" target="_blank" rel="noopener">verify/ 폴더</a>에 공개</td><td>${withRun}문제</td></tr>
-  <tr><td>4. 교차 검토</td><td>서로 다른 회사의 AI 모델 3개(Claude, ChatGPT, Gemini)에게 과목별 전체 문제를 보여 주고 틀리거나 애매하거나 복수정답인 문제를 찾게 함. 의견이 갈리고 확실하지 않으면 제외</td><td>전 과목 완료</td></tr>
-  <tr><td>5. 베타 신고</td><td>풀이하는 분들의 오류 신고를 GitHub Issues로 받아 반영</td><td>상시</td></tr></table>
-  <h3>과목별 교차 검토 현황</h3>
-  <table><tr><th>과목</th><th>상태</th></tr>
-  <tr><td>1과목 데이터 이해 (40)</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
-  <tr><td>2과목 데이터분석 기획 (40)</td><td>공개 근거 확인 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr>
-  <tr><td>3과목 데이터분석 (90)</td><td>R·Python 실행 검증 + Claude·ChatGPT·Gemini 교차 검토 완료</td></tr></table>
-  <p>기출·복원 문제는 쓰지 않아요. 한국데이터산업진흥원은 기출문제의 복제·배포를 허가하지 않아요(데이터자격시험 FAQ).</p>
-  <p class="small">AI 교차 검토와 공개 근거도 틀릴 수 있어요. 이상한 점이 보이면 꼭 신고해 주세요.</p></div>`;
+  <tr><td>1. 형식 점검</td><td>출제 기준 세부항목 연결, 보기 4개 중복 없음, 비슷한 문제 중복, 정답을 알려 주는 단어가 문제에 들어갔는지, 정답 번호 쏠림을 자동 검사</td><td>${n} / ${n}</td></tr>
+  <tr><td>2. 실행 검증</td><td>계산·R 코드·R 출력 해석 문제는 R과 Python으로 각각 실행해 둘 다 정답과 같아야 통과. R 출력 화면은 실제로 R을 돌려 만든 것</td><td>${V ? V.exec : '-'}문제</td></tr>
+  <tr><td>3. 근거 검증</td><td>개념 문제는 공개 문서(백과사전, 공식 문서 등) 링크를 달고, 그 페이지를 실제로 내려받아 핵심 문구가 들어 있는지 자동 확인${V ? ` (처음 공개한 ${V.legacyManual}문제는 사람이 링크를 열어 확인)` : ''}</td><td>${V ? V.evidence + V.legacyManual : '-'}문제</td></tr>
+  <tr><td>4. 독립 풀이</td><td>정답과 해설을 보지 못한 별도의 AI가 모든 문제를 직접 풂. 답이 다르면 문제를 고쳐 다시 풀게 하고, 두 번 연속 어긋나면 제외. 보기 순서를 섞은 뒤 한 번 더 풀게 함</td><td>${V ? `첫 풀이 일치 ${(V.solverFirstMatch * 100).toFixed(1)}%` : '-'}</td></tr>
+  <tr><td>5. 교차 검토</td><td>또 다른 AI(Claude)가 정답·해설을 보고 오답·복수정답·애매함·해설 오류를 전부 검토. ChatGPT·Gemini 교차 검토는 처음 170문제 완료, 추가분은 진행 예정</td><td>${V ? V.reviewed : '-'} / ${n}</td></tr></table>
+  ${V ? `<p class="small">문제 은행 ${V.bank}문제 중 ${V.published}문제 공개 · 보류 ${V.held} · 제외 ${V.excluded}</p>` : ''}
+  <p>기출·복원 문제는 쓰지 않아요. 한국데이터산업진흥원은 기출문제의 복제·배포를 허가하지 않아요(데이터자격시험 FAQ). 공식 출제 기준 항목에 맞춰 직접 만든 문제예요.</p>
+  <p>검증 스크립트는 <a href="https://github.com/${CFG.repo}/tree/main/verify" target="_blank" rel="noopener">verify/ 폴더</a>에 공개돼 있어요.</p>
+  <p class="small">자동 검증도 틀릴 수 있어요. 이상한 점이 보이면 문제 아래 ⚑ 오류 신고를 눌러 주세요. 같은 기준으로 다시 검증해 고쳐요.</p></div>`;
 });
 route(/^\/testers$/, async (app) => {
   let list = []; try { list = await getJSON('data/testers.json'); } catch { }
@@ -485,6 +562,12 @@ document.addEventListener('keydown', (e) => {
     const nx = document.querySelector('#app #next') || document.querySelector('#app #nextQ:not(:disabled)');
     if (nx) { e.preventDefault(); nx.click(); }
   }
+});
+document.addEventListener('click', (e) => {
+  const d = e.target.closest('[data-diff]'); if (!d) return;
+  const id = d.closest('.diff').dataset.q; DB.diff = DB.diff || {}; if (DB.diff[id]) return;
+  DB.diff[id] = d.dataset.diff; save(); track(`diff/${id}/${d.dataset.diff}`);
+  d.closest('.diff').querySelectorAll('button').forEach((b) => { b.disabled = true; b.classList.toggle('on', b === d); });
 });
 document.addEventListener('click', (e) => { const t = e.target.closest('[data-track]'); if (t) track(t.dataset.track); });
 

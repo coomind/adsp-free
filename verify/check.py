@@ -16,7 +16,8 @@ def check(cond, msg):
 
 # 1) structure
 qs = []
-for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'questions', 's*.json'))):
+# ADSP_CHECK_BANK=1: check the whole bank (used by verify/exec.py before publishing); default: the published set
+for f in sorted(glob.glob(os.path.join(ROOT, 'bank', '*.json') if os.environ.get('ADSP_CHECK_BANK') else os.path.join(ROOT, 'data', 'questions', 's*.json'))):
     qs += json.load(open(f, encoding='utf-8'))
 ids = [q['id'] for q in qs]
 check(len(ids) == len(set(ids)), 'duplicate ids')
@@ -24,7 +25,7 @@ for q in qs:
     check(len(q['choices']) == 4, f"{q['id']}: needs 4 choices")
     check(len(set(q['choices'])) == 4, f"{q['id']}: duplicate choices")
     check(0 <= q['answer'] < 4, f"{q['id']}: answer out of range")
-    check(q.get('sources') or q.get('verify'), f"{q['id']}: no source and no executed check")
+    check(q.get('sources') or q.get('verify') or q.get('rcode'), f"{q['id']}: no source and no executed check")
 by = {q['id']: q for q in qs}
 
 # 2) R
@@ -98,6 +99,8 @@ for q in qs:
     if q.get('verifyValue') and q['id'] not in ('s3-019',):
         v = toks(q['verifyValue'].replace('−', '-'))
         chs = [toks(c.replace('−', '-')) for c in q['choices']]
+        # new questions whose right choice is an interpretation sentence map value -> sentence by hand (exec gate checks the value)
+        if q.get('rcode') and re.search('[가-힣]', q['choices'][q['answer']]): continue
         check(subseq(v, chs[q['answer']]), f"{q['id']}: marked choice {q['choices'][q['answer']]!r} vs value {q['verifyValue']!r}")
         others = [k for k, c in enumerate(chs) if k != q['answer'] and c == v]
         check(not others, f"{q['id']}: value equals another choice {others}")
@@ -115,7 +118,7 @@ for mk in mocks:
     check(cnt == {1: 10, 2: 10, 3: 30}, f"{mk['id']}: subject split {cnt}")
 
 print(f"{len(mocks)} mocks, {len(seen)} questions, none shared")
-print(f"{len(qs)} questions, {sum(1 for q in qs if q.get('verify'))} executed in R + Python")
+print(f"{len(qs)} questions, {sum(1 for q in qs if q.get('verify') or q.get('rcode'))} executed in R + Python")
 if fail:
     print('FAIL'); [print(' -', x) for x in fail]; sys.exit(1)
 print('ALL OK')

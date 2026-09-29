@@ -2,7 +2,9 @@
 Textbook-only frameworks (analysis topic 4 types, maturity 4 levels, readiness, org structure types, priority quadrant) have no
 public source, so they are not asked here; they stay in the notes as '교재 정리'.
 Run: python scripts/new_s2.py -> bank/new_s2.json"""
-import json, os
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import positions
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 W = 'https://en.wikipedia.org/wiki/'
@@ -35,7 +37,7 @@ qs = []
 
 
 def Q(i, item, tags, level, q, right, wrong, ex, src, ev):
-    pos = (i * 5 + 2) % 4
+    pos = positions.pos(2, i)
     ch = list(wrong); ch.insert(pos, right)
     qs.append({"id": f"s2-{i:03d}", "subject": 2, "item": item, "tags": tags, "level": level, "q": q, "choices": ch, "answer": pos,
                "explain": ex, "sources": [{"t": S[k][0], "u": S[k][1]} for k in src], "evidence": ev, "checked": "2026-09-30"})

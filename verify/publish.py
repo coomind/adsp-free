@@ -30,14 +30,25 @@ def run():
     for q in qs:
         r = reasons(q, st.get(q['id'], {}))
         if r: held[q['id']] = r; continue
-        pub[q['subject']].append({k: v for k, v in q.items() if not k.startswith('_')})
+        pub[q['subject']].append({k: v for k, v in q.items() if not k.startswith('_') or k == '_file'})
     for s, lst in pub.items():
         lst.sort(key=lambda q: q['id'])
-        json.dump(lst, open(os.path.join(ROOT, 'data', 'questions', f's{s}.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        json.dump([{k: v for k, v in q.items() if k != '_file'} for q in lst], open(os.path.join(ROOT, 'data', 'questions', f's{s}.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     total = len(qs); n = sum(len(v) for v in pub.values())
     rep = {'bank': total, 'published': n, 'by_subject': {s: len(v) for s, v in pub.items()}, 'held': held,
            'excluded': {i: s['excluded'] for i, s in st.items() if s.get('excluded')}}
     json.dump(rep, open(os.path.join(ROOT, 'verify', 'publish_report.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    # public summary for the site's '검증 방법' page
+    pubq = [q for v in pub.values() for q in v]
+    firsts = [st[q['id']]['solve'][0]['r'] == 'ok' for q in qs if st.get(q['id'], {}).get('solve')]
+    summ = {'bank': total, 'published': n, 'held': len(held), 'excluded': len(rep['excluded']),
+            'exec': sum(1 for q in pubq if kind(q) == 'exec'), 'evidence': sum(1 for q in pubq if q.get('evidence')),
+            'legacyManual': sum(1 for q in pubq if kind(q) == 'concept' and not q.get('evidence')),
+            'solverFirstMatch': round(sum(firsts) / max(len(firsts), 1), 4), 'solverChecked': len(firsts),
+            'reviewed': sum(1 for q in pubq if st[q['id']].get('review', {}).get('ok')),
+            'externalReviewed': sum(1 for q in pubq if q['_file'].startswith('legacy')) if pubq and '_file' in pubq[0] else 170,
+            'bySubject': rep['by_subject']}
+    json.dump(summ, open(os.path.join(ROOT, 'data', 'verify_summary.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     exam = json.load(open(os.path.join(ROOT, 'data', 'exam.json'), encoding='utf-8'))
     items = [sb['id'] for S in exam['subjects'] for it in S['items'] for sb in it['subs']]
     cov = Counter(q['item'] for v in pub.values() for q in v)

@@ -1,0 +1,18 @@
+{
+ "bank": 400,
+ "published": 400,
+ "held": 0,
+ "excluded": 0,
+ "exec": 160,
+ "evidence": 146,
+ "legacyManual": 94,
+ "solverFirstMatch": 0.9975,
+ "solverChecked": 400,
+ "reviewed": 400,
+ "externalReviewed": 170,
+ "bySubject": {
+  "1": 80,
+  "2": 80,
+  "3": 240
+ }
+}
